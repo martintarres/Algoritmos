@@ -105,7 +105,7 @@ void Heaparr::Build_Max_Heap(int heapArray[], int heap_size) {
     }
     return;
 }
-
+/*
 int main(){
 	
 	Heaparr t;
@@ -125,4 +125,4 @@ int main(){
     return 0;
 	// t.insert()
 //	 t.print();
-}
+}*/

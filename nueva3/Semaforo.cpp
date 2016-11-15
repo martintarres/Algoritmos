@@ -21,7 +21,7 @@ class Semaforo {
 private:
 	int cantVehiculos;
 	int dest;
-	int source1;
+	int source;
 	int weight;
 	int numero;
 	bool verde;
@@ -31,19 +31,19 @@ private:
 	heapVehiculos h;
 
 public: 
-	Semaforo(int source1 , int dest , int weight, int numero){
+	Semaforo(int source , int dest , int weight){
 		cantVehiculos=-1;
 	//	 h;
 		fueVisitado=false;
 		bool yaPaseeSemaforo=false;
-		this->source1=source1;
+		this->source=source;
 		this->dest=dest;
 		this->weight=weight;
 		this->numero=numero;
 	}
 	Semaforo(){
 		dest= -1;
-		source1 = -1;
+		source = -1;
 		weight = 0;
 	}
 	int getCantDeVehiculos();
@@ -66,11 +66,13 @@ public:
 		void set_source(int);
 		void set_weight(int);
 		void set_numero(int);
+//	void yoMismo() { return this }
 
 
-	
 	
 };
+
+
 
 int Semaforo::getCantDeVehiculos()
 {
@@ -164,7 +166,7 @@ void Semaforo::setYaPase(){
 	}
 	
 	void Semaforo::set_source(int a){
-		source1=a;
+		source=a;
 	}
 	
 	void Semaforo::set_weight(int a){
@@ -179,13 +181,20 @@ void Semaforo::setYaPase(){
 	}
 	
 	int Semaforo::get_source(){
-		return source1;
+		return source;
 	}
 	
 	int Semaforo::get_weight(){
 		return weight;
 	}
-	
 
+/*	
+int main(){
+		Semaforo s= Semaforo (5,10,2, 0);
+		Semaforo s1= Semaforo  (99,98,97,1);
+		Semaforo s2= Semaforo (1024,988,95547,2);
+		
+}
 
+*/
 

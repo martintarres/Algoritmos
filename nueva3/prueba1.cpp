@@ -1,12 +1,3 @@
-
-	/*ESTA CLASE TODAVIA NO ANDA; ESTOY TRATANDO DE MODIFICAR PARA QUE SEA UN ARREGLO Y VER QUE ONDA */
-	
-	
-	
-	
-	
-	
-/*
 #include <iostream>
 //#include "Semaforo.cpp"
 //#include "Semaforo.cpp"
@@ -17,63 +8,64 @@ using namespace std;
 
 const int cantt=140;
 
-class heapSemaforos{
-	public:
-		heapSemaforos();
-		void insert(Semaforo da);
-    	int getLeft(int i) { return 2 * i + 1; }
-    	int getRight(int i) { return 2 * i + 2; }
- 	  	int getParent(int i) { return (i - 1) / 2; }
- 	   	void print();
-   	 void Build_Max_Heap(Semaforo heapArray[], int heap_size);
+class heapSemaforos :public Semaforo {
+public:
+    heapSemaforos();
+    void insert(Semaforo*);
+    int getLeft(int i) { return 2 * i + 1; }
+    int getRight(int i) { return 2 * i + 2; }
+    int getParent(int i) { return (i - 1) / 2; }
+    void print();
+    void Build_Max_Heap(Semaforo heapArray[], int heap_size);
     void Max_Heapify(Semaforo heapArray[], int i, int heap_size);
     void heapSort(Semaforo heapArray[]);
     int lugaresDisponibles();
     int size();
-    void eliminar();
+    //void eliminar();
     int esvaciodesde();
-    Semaforo& recorre(int);
+    //Semaforo& recorre(int);
     Semaforo eliminarFondo();
+   void cargar(Semaforo);
     
-  
 
 private:
-    int num;
+   // int num;
+    int semaforosadentro;
    // int* maxHeap;
   //  int index;
-    int i;
-   	Semaforo vector;
-   	Semaforo aux;
-   //	Semaforo arcos[140];
+    //int i;
+    Semaforo* vector[cantt];
+    
+   	//Semaforo aux;
   // Edge e;
- // 	Semaforo s;
+  //	Semaforo;
   	
   //Semaforo *punt[];
-
+//	int k;
 };
 
 heapSemaforos::heapSemaforos(){
 //	Semaforo vector[cantt];
 //	Semaforo s;
-/*	for(int i=0;i<cantt;i++){
-	vector[i]=arcos[i];
-	}*/
-	/*
+	semaforosadentro=0;
+	
 } 
-    
-
+    void heapSemaforos::cargar (Semaforo a){
+    //	vector[0]=&a;
+	}
+/*
 int heapSemaforos::lugaresDisponibles(){
 	int contador=cantt;
 	for(int i=0; i<cantt;i++){
 		
-			if(i.getCantDeVehiculos()>=0){
+			if(vector[i]->get_weight()>=0){
 			
 		contador--;
 		}
 	}
 	return contador;
 }
-
+*/
 int heapSemaforos::size(){
 	int contador=0;
 	for(int i=0; i<cantt;i++){
@@ -81,60 +73,71 @@ int heapSemaforos::size(){
 	}
 	return contador;
 }
-
+/*
 int heapSemaforos::esvaciodesde(){
 	for(int i=0 ; i<cantt; i++){
-		if(i.getCantDeVehiculos()== -1){
+		if(vector[i]->get_weight()== 0){
 	
 			return i;
 		}
 	
 	}
 
-}
-void heapSemaforos::insert(Semaforo da) {
+}*/
+void heapSemaforos::insert(Semaforo* da) {
 
-	if(lugaresDisponibles()>0){
+//	if(da.get_weight()!= 999999999){
+//	cout<<"Entre con "<<da.get_source()<<endl;
+	if(semaforosadentro<140){
 
-	esvaciodesde()=da;
+	vector[semaforosadentro]=da;
+	semaforosadentro++;
+//	cout<<semaforosadentro<<endl;
+	//cout<<vector[semaforosadentro]<<endl;
 	}	else {
 	cout<<"Cola llena"<< endl;
 	}
 	
-	heapSort( vector);
+	heapSort( *vector);
+//	}
+//for(int i=0;i<cantt;i++){
 
+//	vector[i] =&da;
+//}
+//cout<<"me fui"<<endl;
 }
 
 void heapSemaforos::print(){
 	for(int i=0;i<cantt;i++)	{
 	//	cout<< "iteracion "<<i<<endl;
-	cout<<vector[i].get_source()<<" "<<vector[i].get_dest()<<" "<< vector[i].getCantDeVehiculos()<<endl;
+	cout<<vector[i]->get_source()<<" "<<vector[i]->get_dest()<<" "<< vector[i]->get_weight()<<endl;
 	//cout<<vector[i].get_origen()<<endl;
 //	cout<<vector[i].get_final()<<endl;
 //	cout<<vector[i].get_prioridad()<<endl;
+//cout<<vector;
 	
 }
 }
-
+/*
 Semaforo& heapSemaforos::recorre(int x){
 //	punt[x]=&vector[x];
-	return vector[x];
+	return *vector[x];
 }
 
-
+*/
 void heapSemaforos::Max_Heapify(Semaforo heapArray[], int i, int heap_size) {
     // int n = size;
     int largest = 0;
     int l = getLeft(i);
     int r = getRight(i);
 
-    if ((l < heap_size) && (heapArray[l].getCantDeVehiculos() < heapArray[i].getCantDeVehiculos())) {
+    if ((l < heap_size) && (heapArray[l].get_weight() < heapArray[i].get_weight())) {
         largest = l;
     } else {
         largest = i;
     }
 
-    if ((r < heap_size) && (heapArray[r].getCantDeVehiculos() < heapArray[largest].getCantDeVehiculos())) {
+    if ((r < heap_size) && (heapArray[r].get_weight()) < heapArray[largest].get_weight()) {
         largest = r;
     }
 
@@ -163,24 +166,24 @@ void heapSemaforos::Build_Max_Heap(Semaforo heapArray[], int heap_size) {
     }
     return;
 }
-
+/*
 void heapSemaforos::eliminar()
 {
 	//const int pepito=-1;
 	//Semaforo aux;
-	aux = vector [0];
+	aux = *vector [0];
 	
 	for(int i=0; i< cantt ; i++){
-	if((vector[i+1].getCantDeVehiculos()==-1) && (vector[i].getCantDeVehiculos() != -1)){
+	if((vector[i+1]->get_weight()==-1) && (vector[i]->get_weight() != -1)){
 		vector[0]= vector[i];
-		vector [i].setCantDeVehiculos(-1) ;
+		vector [i]->set_weight(-1) ;
 	//	vector [i].set_origen(-1);
 	//	vector [i].set_final(-1);
 	//	vector [i].set_patente(-1);
 
 }else {
 	if(lugaresDisponibles()==0){
-	vector [0].setCantDeVehiculos(-1) ;
+	vector [0]->set_weight(-1) ;
 	//	vector [0].setCant(-1);
 	//	vector [0].set_final(-1);
 	//	vector [0].set_patente(-1);
@@ -189,19 +192,24 @@ void heapSemaforos::eliminar()
 	
 }
 
- heapSort( vector);
+ heapSort( *vector);
 //	return aux;
 //aux1=aux;
 //return aux;
 }	
-
+*/
 Semaforo heapSemaforos::eliminarFondo(){
 	
 	Semaforo auxDev;
 	int lugar=0;
-	lugar= size()-lugaresDisponibles()-1;
-	auxDev=vector[lugar];
-	vector[lugar].setCantDeVehiculos(-1);	
+//	lugar= size()-semaforosadentro;
+	lugar=semaforosadentro-1;
+	cout<<"soy size " << size()<<endl;
+	cout<<" Soy semaforosadentro "<< semaforosadentro<<endl;
+	cout<< " soy lugar "<<lugar<<endl;;
+	auxDev=*vector[lugar];
+	vector[lugar]->set_weight(0);	
+//	vector[lugar].
 	return auxDev;
 
 }
@@ -211,12 +219,26 @@ Semaforo heapSemaforos::eliminarFondo(){
 /*
 int main(){
 
-	Edge e =  Edge(5,10,2);
-	Semaforo s=  Semaforo(e);
-	Edge e1= Edge (99,98,97);
-	Semaforo s1= Semaforo (e1);
-		Edge e2= Edge (1024,988,95547);
-	Semaforo s2= Semaforo (e2);
+//	Edge e =  Edge(5,10,2);
+//	Semaforo s= Semaforo (5,10,2);
+//	Semaforo s=  Semaforo(e);
+//	Edge e1= Edge (99,98,97);
+//	Semaforo s1= Semaforo  (99,98,97);
+////		Edge e2= Edge (1024,988,95547);
+//	Semaforo s2= Semaforo (1024,988,95547);
+
+heapSemaforos t;
+	t.print();
+	
+}
+	//t.insert(s1);
+	//t.print();
+	//t.insert(s);
+	//t.print();
+	//t.insert(s2);
+	//t.print();
+//cout<<t.lugaresDisponibles();
+/*
 
 	heapSemaforos t;
 	t.insert(s1);
@@ -235,8 +257,8 @@ int main(){
 //	t.eliminar();
 //	t.print();
 //	t.mostarubi();
+
+
 }
-
 */
-
 
