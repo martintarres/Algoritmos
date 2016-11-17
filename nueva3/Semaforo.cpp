@@ -40,11 +40,13 @@ public:
 		this->dest=dest;
 		this->weight=weight;
 		this->numero=numero;
+//			o = &Semaforo::get_weight();
 	}
 	Semaforo(){
 		dest= -1;
 		source = -1;
 		weight = 0;
+	
 	}
 	int getCantDeVehiculos();
 	void setCantDeVehiculos(int);
@@ -60,14 +62,16 @@ public:
 	
 		int get_dest();
 		int get_source();
-		int get_weight();
+		int& get_weight();
 	
 		void set_dest(int);
 		void set_source(int);
 		void set_weight(int);
 		void set_numero(int);
 //	void yoMismo() { return this }
-
+	
+//	typedef void (Semaforo::*obtenerpeso)(int*);
+//	obtenerpeso o;
 
 	
 };
@@ -184,7 +188,7 @@ void Semaforo::setYaPase(){
 		return source;
 	}
 	
-	int Semaforo::get_weight(){
+	int& Semaforo::get_weight(){
 		return weight;
 	}
 

@@ -3,9 +3,10 @@
 //#include "nodo1.cpp"
 //#include "Vehiculos.cpp"
 //#include "Semaforo.cpp"
-#include "prueba1.cpp"
+#include "prueba2.cpp"
 //#include "Heaparr.cpp"
 using namespace std;
+
 
 int main(){
 	
@@ -193,101 +194,28 @@ Semaforo arcos[total];
 	
 	/*Me hace una lista de mayor a menor de los semaforos */
 
-
-	//	Heaparr t;
-		
-
 	heapSemaforos hsemaforo;// [10];
 	
-	/* me acomoda todo de acuerdo a los pesos, por ende me cambia toda la ciudad , creo que lo que voy a tener que hacer
-		es insertar en el hsemaforo solo los pesos, y ver si ahi el puntero me cambia solo el valor */
-	
-	
 	for(int i=0; i<140;i++){
-		hsemaforo.insert(&arcos[i]);
+	
+		hsemaforo.insert(arcos[i].get_weight());
 	}
 	
-//	hsemaforo.insert(arcos[9]);
-//	hsemaforo.cargar(arcos[0]);
+
 	hsemaforo.print();
-//	cout<<endl;
-	for(int i=0; i< 64 ;i++){
-		l[i].mostrar();
-		cout<<endl;
-	}
-	
-	hsemaforo.eliminarFondo();
-	hsemaforo.print();
-	
-		for(int i=0; i< 64 ;i++){
-		l[i].mostrar();
-		cout<<endl;
-	}
-	
-	
-//	cout<<endl;
-//	cout<<hsemaforo.esvaciodesde();*/
+//	cout<<endl<<endl;
 //	hsemaforo.eliminar();
 //	hsemaforo.print();
-//	cout<<endl;
-//	cout<<hsemaforo.size()<<endl;
-//	hsemaforo[0].print();
-/*	for(int i=0; i<total;i++){
-		hsemaforo.insert(&arcos[i]);
-	}
-*/	
-//	cout<<hsemaforo.size();
-///	s[1].insertar(&v[1], &arcos[0]);
-//hsemaforo.print();
-//hsemaforo.eliminarFondo();
-//	s[0].insertar(&v[1], &arcos[0]);
-/*	for(int i=0; i< 64 ;i++){
-		l[i].mostrar();
-		cout<<endl;
-	}*/
+	//	hsemaforo.eliminar();
 //	hsemaforo.print();
-	/* Me muestra esa lista de semaforos */
-
-/*	cout<<endl;
-	hsemaforo.print();
-	cout<<endl;
-	s[2].insertar(&v[1], &arcos[0]);
-
-	
-
-	
-	for(int i=0; i< 64 ;i++){
-		l[i].mostrar();
-		cout<<endl;
-	}
-	
-/*	hsemaforo.eliminarFondo();
-	cout<<endl;
+/*	cout<<endl<<endl;
 		for(int i=0; i< 64 ;i++){
 		l[i].mostrar();
 		cout<<endl;
 	}
-	hsemaforo.print();
-	cout<<endl;
-//	cout<<s[65];
-cout<<endl;
-	s[0].insertar(&v[1], &arcos[0]);
-		for(int i=0; i< 64 ;i++){
-		l[i].mostrar();
-		cout<<endl;
-	}
-	hsemaforo.print();
-	*/
-/*	heapVehiculos hvehi;
-	hvehi.recorrer()
 */
-
-	/*
-		for(int i=0; i< 64 ;i++){
-		l[i].mostrar();
-		cout<<endl;
-	}
-	*/
+	hsemaforo.print();
+//	cout<<endl<<endl;
 }
 
 
