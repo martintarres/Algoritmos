@@ -190,6 +190,7 @@ void Semaforo::setYaPase(){
 	
 	int& Semaforo::get_weight(){
 		return weight;
+	
 	}
 
 /*	

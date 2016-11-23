@@ -8,25 +8,31 @@ using namespace std;
 
 const int cantt=140;
 
+ 
 class heapSemaforos  {
 public:
     heapSemaforos();
-    void insert(int&);
+    void insert(int*);
    int getLeft(int i) { return 2 * i + 1; }
     int getRight(int i) { return 2 * i + 2; }
     int getParent(int i) { return (i - 1) / 2; }
     void print();
-    void Build_Max_Heap(int heapArray[], int heap_size);
-    void Max_Heapify(int heapArray[], int i, int heap_size);
-    void heapSort(int heapArray[]);
+    void Build_Max_Heap(int* heapArray[], int heap_size);
+    void Max_Heapify(int* heapArray[], int i, int heap_size);
+    void heapSort(int* heapArray[]);
     int lugaresDisponibles();
     int size();
     void eliminar();
     int esvaciodesde();
+    void acomoda(int* a[]);
     //Semaforo& recorre(int);*/
    int eliminarFondo();
  /*  void cargarInt(int*);
     */
+ void filtrado_desc(int* A, int i, int N); 
+void intercambiar(int* A, int i, int j);
+void heapsort(int* A, int N);
+
 
 private:
    // int num;
@@ -36,8 +42,9 @@ private:
     //int i;
     int *vector[cantt];
  	  int parasacar[cant];
-    
+    int total;
    	int aux;
+   	int a[cantt];
   // Edge e;
   //	Semaforo;
   	
@@ -49,7 +56,10 @@ heapSemaforos::heapSemaforos(){
 //	Semaforo vector[cantt];
 //	Semaforo s;
 	semaforosadentro=0;
-	
+	total=0;
+	for(int i=0;i<cantt;i++){
+		vector[i]=0;
+	}
 } /*
     void heapSemaforos::cargarInt (int* a){
    		for(int i=0;i<cantt;i++){
@@ -87,23 +97,71 @@ int heapSemaforos::esvaciodesde(){
 	}
 
 }
-void heapSemaforos::insert(int& da) {
+
+void heapSemaforos::acomoda(int* A[]){
+
+    int j,*item,*temp,i,k,n;
+    //cout<<"Ingresa la cantidad de elementos del arreglo: ";
+    //cin>>n;
+    //for(i=1;i<=n;i++)
+    //cin >> A[i];
+ 
+    for(k=140;k>0;k--)
+    {
+        for(i=1;i<=k;i++)
+        {
+            item=A[i];
+            j=i/2;
+            while(j>0 && A[j]<item)
+            {
+                A[i]=A[j];
+                i=j;
+                j=j/2;
+            }
+            A[i]=item;
+        }
+        temp=A[1];
+        A[1]=A[k];
+        A[k]=temp;
+    }
+    cout<<"El orden es:"<<endl;
+    for(i=1;i<=cantt;i++)
+    cout<<*A[i] << endl;
+    
+}
+
+void heapSemaforos::insert(int* da) {
+
 
 //	if(da.get_weight()!= 999999999){
 //	cout<<"Entre con "<<da.get_source()<<endl;
 	if(semaforosadentro<140){
 
-	vector[semaforosadentro]= &da;
+	vector[semaforosadentro]= da;
+//	acomoda(&(vector[semaforosadentro]));
+//	heapsort(vector[semaforosadentro], 140);
 	semaforosadentro++;
+
 //	cargarInt((&vector[semaforosadentro]->get_weight()));
 //	cout<<semaforosadentro<<endl;
 	//cout<<vector[semaforosadentro]<<endl;
 	}	else {
 	cout<<"Cola llena"<< endl;
 	}
+	if(semaforosadentro==cantt){
 	
-	heapSort( *vector);
+/*	for(int i=0;i<cantt;i++){
+		cout<<*vector[i] <<endl;
+	}
+*/
 
+	/*	for(int i=0; i<1;i++){
+
+	heapsort(vector[i], 140);
+	}*/
+	acomoda(vector);
+	
+	}
 }
 
 void heapSemaforos::print(){
@@ -124,7 +182,7 @@ Semaforo& heapSemaforos::recorre(int x){
 }*/
 
 
-void heapSemaforos::Max_Heapify(int heapArray[], int i, int heap_size) {
+void heapSemaforos::Max_Heapify(int* heapArray[], int i, int heap_size) {
     // int n = size;
     int largest = 0;
     int l = getLeft(i);
@@ -141,24 +199,24 @@ void heapSemaforos::Max_Heapify(int heapArray[], int i, int heap_size) {
     }
 
     if (largest != i) {
-        swap(heapArray[i], heapArray[largest]);
+        swap(*heapArray[i], *heapArray[largest]);
         Max_Heapify(heapArray, largest, heap_size);
     }
     return;
 }
-void heapSemaforos::heapSort(int heapArray[]) {
+void heapSemaforos::heapSort(int* heapArray[]) {
     //size = heap_size;
     int n = size ();
     Build_Max_Heap(heapArray, size());
 
     for (int i = n - 1; i >= 1; i--) {
-        swap(heapArray[0], heapArray[i]);
+        swap(*heapArray[0], *heapArray[i]);
         n = n - 1;
         Max_Heapify(heapArray, 0,n);
     }
 }
 
-void heapSemaforos::Build_Max_Heap(int heapArray[], int heap_size) {
+void heapSemaforos::Build_Max_Heap(int* heapArray[], int heap_size) {
     int n = size();
     for (int i = floor((n - 1) / 2); i >= 0; i--) {
         Max_Heapify(heapArray, i, heap_size);
@@ -166,8 +224,10 @@ void heapSemaforos::Build_Max_Heap(int heapArray[], int heap_size) {
     return;
 }
 
+
 void heapSemaforos::eliminar()
 {
+	*vector[0]=0;
 /*	
 //	int **ptr;
 //	ptr=&vector[0];
@@ -180,7 +240,7 @@ void heapSemaforos::eliminar()
 /*	int **ptr;
 	ptr= &vector[0];
 	ptr=0;*/
-
+/*
 	for(int i=0; i< cantt ; i++){
 	if((*vector[i+1]==-1) && (*vector[i] != -1)){
 		*vector[0]= *vector[i];
@@ -202,7 +262,7 @@ void heapSemaforos::eliminar()
 	}
 	}
 	
-}
+}*/
 }
 
  //heapSort( *vector);

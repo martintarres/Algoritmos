@@ -3,7 +3,7 @@
 //#include "nodo1.cpp"
 //#include "Vehiculos.cpp"
 //#include "Semaforo.cpp"
-#include "prueba2.cpp"
+#include "prueba3.cpp"
 //#include "Heaparr.cpp"
 using namespace std;
 
@@ -175,7 +175,7 @@ Semaforo arcos[total];
 			}
 		}
 	}
-	
+	getchar();
 	
 	/* Me muestra la lista armada con la cantidad de autos */
 
@@ -194,28 +194,29 @@ Semaforo arcos[total];
 	
 	/*Me hace una lista de mayor a menor de los semaforos */
 
-	heapSemaforos hsemaforo;// [10];
+	heapSemaforos hsemaforo;
 	
 	for(int i=0; i<140;i++){
-	
-		hsemaforo.insert(arcos[i].get_weight());
+
+		hsemaforo.insert(&(arcos[i].get_weight()));
 	}
 	
+/* Aca pruebo eliminar y me elimina de la ciudad */
 
+	getchar();
 	hsemaforo.print();
-//	cout<<endl<<endl;
-//	hsemaforo.eliminar();
-//	hsemaforo.print();
-	//	hsemaforo.eliminar();
-//	hsemaforo.print();
-/*	cout<<endl<<endl;
-		for(int i=0; i< 64 ;i++){
+	cout<<endl<<endl;
+	hsemaforo.eliminar();
+	hsemaforo.print();
+	cout<<endl<<endl;
+	getchar();
+	
+	for(int i=0; i< 64 ;i++){
 		l[i].mostrar();
 		cout<<endl;
 	}
-*/
-	hsemaforo.print();
-//	cout<<endl<<endl;
+
+
 }
 
 
