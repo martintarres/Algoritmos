@@ -131,11 +131,29 @@ Semaforo arcos[numnodos];
 	
 	for(int j=0;j<qq;j++) {
 	v[contt].set_patente(arregloo[j]);
-	v[contt].set_origen(arregloo[j+1]);
-	v[contt].set_final(arregloo[j+2]);
+	v[contt].set_origen(&arregloo[j+1]);
+	v[contt].set_final(&arregloo[j+2]);
 	v[contt].set_prioridad(arregloo[j+3]);
 	contt++;
+	
+	/*for(int i=0;i<numnodos;i++){
+		//if(v[contt].get_origen() == &(arcos[i].get_source())){
+			//cout<<"soy igual"<<endl;
+			cout<<v[contt].get_origen()<<endl;
+		//cout<<arcos[i].get_source()<<endl;
+		//}*/
+		
+	//}
+	
+	
+	
+	
+	
+	
 	j=j+3;
+	
+	
+	
 	
 	}
 
@@ -166,7 +184,7 @@ Semaforo arcos[numnodos];
 	for(int i=0;i<totalveh;i++){
 		for(int j=0; j< numnodos; j++){ 
 			
-			if(v[i].get_origen() == arcos[j].get_source() && v[i].get_final() == arcos[j].get_dest()  ){
+			if(*v[i].get_origen() == arcos[j].get_source() && *v[i].get_final() == arcos[j].get_dest()  ){
 				arcos[j].insertar(&v[i]);
 	
 			//	arcos[j].set_weight(s[j].getCantDeVehiculos());
@@ -186,12 +204,14 @@ Semaforo arcos[numnodos];
 	getchar ();
 	
 	/* Aca pruebo de aumentar un semaforo y se cambia todo */	
-	arcos[2].insertar(&v[1]);
+/*	arcos[2].insertar(&v[1]);
 	
 		for(int i=0; i< numlistas ;i++){
 		l[i].mostrar();
 		cout<<endl;
-	}
+	}*/
+	
+	
 	
 	/*Me hace una lista de mayor a menor de los semaforos */
 
@@ -204,7 +224,7 @@ Semaforo arcos[numnodos];
 	
 /* Aca pruebo eliminar y me elimina de la ciudad */
 
-	getchar();
+	/*getchar();
 	hsemaforo.print();
 	cout<<endl<<endl;
 	hsemaforo.eliminar(0);
@@ -216,14 +236,14 @@ Semaforo arcos[numnodos];
 		l[i].mostrar();
 		cout<<endl;
 	}
-
+*/
 
 
 	
 	
 	/*ACA PRUEBO ELIMINAR VEHICULOS Y QUE ELIMINE TAMBIEN DEL HEAPSEMAFOROS*/
 	
-		/*hsemaforo.print();
+	/*	hsemaforo.print();
 		cout<<endl<<endl;
 		getchar();
 		
@@ -259,7 +279,11 @@ Semaforo arcos[numnodos];
 	
 	/*ACA VOY A PROBARA INSERTAR EL AUTO QUE ACABO DE ELIMINAR */
 	
-/*	hsemaforo.print();
+
+	
+
+	
+	hsemaforo.print();
 		cout<<endl<<endl;
 		getchar();
 		
@@ -288,10 +312,10 @@ Semaforo arcos[numnodos];
 	cout<<"Soy nuevo source "<<a<<endl;
 	cout<< "Soy nuevo dest "<<b<<endl;
 	
-	v[patedevuelta].set_origen(arregloo[a]);
-	v[patedevuelta].set_final(arregloo[b]);
+	v[patedevuelta].set_origen(&arcos[2].get_source());
+	v[patedevuelta].set_final(&arcos[2].get_dest());
 	
-	arcos[2].insertar(&v[patedevuelta]);
+//	arcos[2].insertar(&v[patedevuelta]);
 	
 	
 	hsemaforo.print();
@@ -303,7 +327,7 @@ Semaforo arcos[numnodos];
 		cout<<"Soy autos de semaforo "<< i<<endl;
 		arcos[i].get_print();
 		cout<<endl<<endl;;
-	}*/
+	}
 
 }
 

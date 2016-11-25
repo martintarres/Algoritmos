@@ -94,8 +94,8 @@ void heapVehiculos::print(){
 	for(int i=0;i<vehiculosadentro;i++)	{
 		cout<< "vehiculo: "<<i<<endl;
 	cout<<vector[i]->get_patente()<<endl;//->print();
-	cout<<vector[i]->get_origen()<<endl;
-	cout<<vector[i]->get_final()<<endl;
+	cout<<*vector[i]->get_origen()<<endl;
+	cout<<*vector[i]->get_final()<<endl;
 	cout<<vector[i]->get_prioridad()<<endl;
 	
 }

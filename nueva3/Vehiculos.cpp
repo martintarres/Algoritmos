@@ -8,14 +8,16 @@ using namespace std;
 
 class Vehiculos{
 	private:
-		int origen;
-		int final;
+		int* origen;
+		int* final;
 		int prioridad;
 		int patente;
 		bool estoyAdentro;
 	//	int porAcaVoy;
 		int contador;
 		int camino[30];
+		int origen1;
+		int final1;
 		
 	public:
 		Vehiculos(){
@@ -34,12 +36,12 @@ class Vehiculos{
 				camino[i] = -1;
 			}
 		}
-		void set_origen(int);
-		void set_final (int);
+		void set_origen(int*);
+		void set_final (int*);
 		void set_prioridad(int);
 		void set_patente(int);
-		int get_origen();
-		int get_final();
+		int* get_origen();
+		int* get_final();
 		int get_patente();
 		int get_prioridad();
 		void activarAdentro();
@@ -50,12 +52,15 @@ class Vehiculos{
 		int avanzar();
 };
 
-void Vehiculos::set_origen(int orig){
-	origen=orig;
+void Vehiculos::set_origen(int* origen){
+//	origen=orig;
+this->origen=origen;
+//origen1=origen;
 }
 
-void Vehiculos::set_final(int fin){
-	final=fin;	
+void Vehiculos::set_final(int* final){
+//	final=fin;	
+this->final=final;
 }
 	void Vehiculos::set_prioridad(int priori)
 	{
@@ -64,11 +69,11 @@ void Vehiculos::set_final(int fin){
 void Vehiculos::set_patente(int paten){
 	patente=paten;
 }
-int Vehiculos::get_origen(){
+int* Vehiculos::get_origen(){
 	return origen;
 }
 
-int Vehiculos::get_final(){
+int* Vehiculos::get_final(){
 	return final;
 }
 int Vehiculos::get_patente(){
