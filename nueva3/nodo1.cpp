@@ -4,7 +4,7 @@
 #include <stdlib.h> 
 #include <fstream>
 //# include "Edge.cpp"
-#include "Semaforo.cpp"
+#include "Semaforo1.cpp"
  
 //#include "heapSemaforo.cpp"
 //#include "graph.cpp"

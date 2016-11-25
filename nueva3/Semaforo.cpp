@@ -31,7 +31,7 @@ private:
 	heapVehiculos h;
 
 public: 
-	Semaforo(int source , int dest , int weight){
+	Semaforo(int source , int dest , int weight, int numero){
 		cantVehiculos=-1;
 	//	 h;
 		fueVisitado=false;
@@ -40,12 +40,13 @@ public:
 		this->dest=dest;
 		this->weight=weight;
 		this->numero=numero;
-//			o = &Semaforo::get_weight();
+
 	}
 	Semaforo(){
-		dest= -1;
-		source = -1;
+		dest= 0;
+		source = 0;
 		weight = 0;
+		numero=0;
 	
 	}
 	int getCantDeVehiculos();
@@ -63,6 +64,7 @@ public:
 		int get_dest();
 		int get_source();
 		int& get_weight();
+		void get_print();
 	
 		void set_dest(int);
 		void set_source(int);
@@ -117,26 +119,26 @@ void Semaforo::setCantDeVehiculos(int cant){
 }
 
 void Semaforo::insertar(Vehiculos v){
-	h.insert(v);
-	if(cantVehiculos == 999999999){
+//	h.insert(&v);
 	cantVehiculos= 0;
+	if(cantVehiculos == 999999999){
+	
 	cantVehiculos++;
 	set_weight(cantVehiculos);	
 	}else {
 	cantVehiculos++;
 	set_weight(cantVehiculos);	
 	}
+	h.insert(&v);
 		}
 
 Vehiculos Semaforo::eliminaVehiculos(){
-	Vehiculos v;
-	v= h.eliminar();
+	h.eliminar();
 	cantVehiculos--;
-	return v;
 }
 
 heapVehiculos Semaforo::getHeap(){
-	return h;
+//	return h;
 }
 
 void Semaforo::setFuiVisitado(){
@@ -191,6 +193,10 @@ void Semaforo::setYaPase(){
 	int& Semaforo::get_weight(){
 		return weight;
 	
+	}
+	
+	void Semaforo::get_print(){
+		h.print();
 	}
 
 /*	

@@ -14,9 +14,9 @@ int numeroo, arregloo[100], qq;
 int h=0;
 int k = 0;
 int q=0,arreglo[500],numero; 
-int total=0;
+int numnodos=0;
 
-ifstream archivo("ficheroTexto.txt"); 
+ifstream archivo("ficheroTexto1.txt"); 
 if(archivo.good()){ 
 while(archivo>>numero) 
 
@@ -24,7 +24,7 @@ arreglo[q++]=numero;
 
 }
 
-ifstream archivoo("ficheroAutos1.txt"); 
+ifstream archivoo("ficheroAutos2.txt"); 
 if(archivoo.good()){ 
 while(archivoo>>numeroo) 
 
@@ -32,14 +32,14 @@ arregloo[qq++]=numeroo;
 }
 
 for(int i=0;i<q;i++){
-	total++;
+	numnodos++;
 	
 }
-total=total/3;
-cout<<"son "<<total<< " nodos "<<endl;
+numnodos=numnodos/3;
+cout<<"son "<<numnodos<< " nodos "<<endl;
 
 
-Semaforo arcos[total];
+Semaforo arcos[numnodos];
 
 
 
@@ -73,29 +73,29 @@ Semaforo arcos[total];
 
 	/* ME AVERIGUA LA CANTIDAD DE NODOS */
 	
-	int contador=0;
-	for(int i=0;i<total;i++){
+	int numlistas=0;
+	for(int i=0;i<numnodos;i++){
 		int compara=0;
 		
 		compara= arcos[i].get_source();
 	
 			if(compara!= arcos[i+1].get_source()){
-				contador++;
+				numlistas++;
 			
 			}	
 		}
 	
 	
-	cout<<"Tengo "<< contador<< " listas" << endl;
+	cout<<"Tengo "<< numlistas<< " listas" << endl;
 	
-	Lista l[contador];
+	Lista l[numlistas];
 
 	/* Me arma la lista enlazada */ 
 	
 	int compara=arcos[0].get_source();
 	int numlista=0;
 	l[numlista].agregar(&arcos[0]);
-	for(int i=1; i<total;i++){
+	for(int i=1; i<numnodos;i++){
 		int compara2= arcos[i].get_source();
 		if(compara == compara2){
 			l[numlista].agregar(&arcos[i]);
@@ -108,7 +108,7 @@ Semaforo arcos[total];
 	
 	/* Me muestra la lista armada */
 
-	for(int i=0; i< 64 ;i++){
+	for(int i=0; i< numlistas ;i++){
 		l[i].mostrar();
 		cout<<endl;
 	}
@@ -159,16 +159,15 @@ Semaforo arcos[total];
 	for(int i=0; i<total;i++){
 		s[i]=&arcos[i];
 	
-
 	}
 	
 	/*Me agrega los autos en el semaforo */
 
 	for(int i=0;i<totalveh;i++){
-		for(int j=0; j< total; j++){ 
+		for(int j=0; j< numnodos; j++){ 
 			
 			if(v[i].get_origen() == arcos[j].get_source() && v[i].get_final() == arcos[j].get_dest()  ){
-				arcos[j].insertar(v[i]);
+				arcos[j].insertar(&v[i]);
 	
 			//	arcos[j].set_weight(s[j].getCantDeVehiculos());
 	
@@ -179,15 +178,17 @@ Semaforo arcos[total];
 	
 	/* Me muestra la lista armada con la cantidad de autos */
 
-	for(int i=0; i< 64 ;i++){
+	for(int i=0; i< numlistas ;i++){
 		l[i].mostrar();
 		cout<<endl;
 	}
 	
-	/* Aca pruebo de aumentar un semaforo y se cambia todo */	
-	arcos[2].insertar(v[1]);
+	getchar ();
 	
-		for(int i=0; i< 64 ;i++){
+	/* Aca pruebo de aumentar un semaforo y se cambia todo */	
+	arcos[2].insertar(&v[1]);
+	
+		for(int i=0; i< numlistas ;i++){
 		l[i].mostrar();
 		cout<<endl;
 	}
@@ -196,7 +197,7 @@ Semaforo arcos[total];
 
 	heapSemaforos hsemaforo;
 	
-	for(int i=0; i<140;i++){
+	for(int i=0; i<numnodos;i++){
 
 		hsemaforo.insert(&(arcos[i].get_weight()));
 	}
@@ -206,16 +207,103 @@ Semaforo arcos[total];
 	getchar();
 	hsemaforo.print();
 	cout<<endl<<endl;
-	hsemaforo.eliminar();
+	hsemaforo.eliminar(0);
 	hsemaforo.print();
 	cout<<endl<<endl;
 	getchar();
 	
-	for(int i=0; i< 64 ;i++){
+	for(int i=0; i< numlistas ;i++){
 		l[i].mostrar();
 		cout<<endl;
 	}
 
+
+
+	
+	
+	/*ACA PRUEBO ELIMINAR VEHICULOS Y QUE ELIMINE TAMBIEN DEL HEAPSEMAFOROS*/
+	
+		/*hsemaforo.print();
+		cout<<endl<<endl;
+		getchar();
+		
+		
+		for(int i=0;i<numnodos;i++){
+		cout<<"Soy autos de semaforo "<< i<<endl;
+		arcos[i].get_print();
+		cout<<endl<<endl;;
+	}
+	
+	getchar();
+	
+	Vehiculos *ve;
+	ve=arcos[1].eliminaVehiculos();
+	
+	
+	for(int i=0; i< numlistas ;i++){
+		l[i].mostrar();
+		cout<<endl;
+	}
+	
+	hsemaforo.print();
+	cout<<endl<<endl;
+	
+	getchar();
+	
+	for(int i=0;i<numnodos;i++){
+		cout<<"Soy autos de semaforo "<< i<<endl;
+		arcos[i].get_print();
+		cout<<endl<<endl;;
+	}
+	*/
+	
+	/*ACA VOY A PROBARA INSERTAR EL AUTO QUE ACABO DE ELIMINAR */
+	
+/*	hsemaforo.print();
+		cout<<endl<<endl;
+		getchar();
+		
+		
+		for(int i=0;i<numnodos;i++){
+		cout<<"Soy autos de semaforo "<< i<<endl;
+		arcos[i].get_print();
+		cout<<endl<<endl;;
+	}
+	
+	getchar();
+	
+	int patedevuelta=0;
+
+	
+	patedevuelta=arcos[1].eliminaVehiculos1();
+	
+	cout<<"Soy patente devuelta "<<patedevuelta<<endl;
+	
+	int a;
+	int b;
+	
+	a=arcos[2].get_source();
+	b= arcos[2].get_dest();
+	
+	cout<<"Soy nuevo source "<<a<<endl;
+	cout<< "Soy nuevo dest "<<b<<endl;
+	
+	v[patedevuelta].set_origen(arregloo[a]);
+	v[patedevuelta].set_final(arregloo[b]);
+	
+	arcos[2].insertar(&v[patedevuelta]);
+	
+	
+	hsemaforo.print();
+		cout<<endl<<endl;
+		getchar();
+		
+		
+		for(int i=0;i<numnodos;i++){
+		cout<<"Soy autos de semaforo "<< i<<endl;
+		arcos[i].get_print();
+		cout<<endl<<endl;;
+	}*/
 
 }
 

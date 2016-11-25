@@ -1,6 +1,225 @@
 #include <iostream>
+#include <string.h> 
+#include <stdlib.h> 
+#include <fstream> 
+#include <math.h>
+#include "heapVehiculos.cpp"
+
+//#include <math.h>
+
+//#include "Nodo1.cpp"
+//#include "heapVehiculos.cpp"
+//#include <string.h> 
+//#include <stdlib.h> 
+//#include <fstream> 
+
+
 using namespace std;
 
-class Semaforo1{
+//const int cant=10;
+class Semaforo {
+private:
+	int cantVehiculos;
+	int dest;
+	int source;
+	int weight;
+	int numero;
+	bool verde;
+	bool mano;  // si se puede avanzar en esa direccion, es mano = true;
+	bool fueVisitado;
+	bool yaPaseSemaforo;
+	heapVehiculos h;
+	int cantvehiculos;
+
+public: 
+	Semaforo(int source , int dest , int weight, int numero){
+		cantVehiculos=-1;
+	//	 h;
+		fueVisitado=false;
+		bool yaPaseeSemaforo=false;
+		this->source=source;
+		this->dest=dest;
+		this->weight=weight;
+		this->numero=numero;
+	Semaforo s;
+	}
+	Semaforo(){
+		dest= 0;
+		source = 0;
+		weight = 0;
+		numero=0;
+		cantVehiculos=0;
+		
+	}
+	int getCantDeVehiculos();
+	void setCantDeVehiculos(int);
+	bool esMano();
+	bool ponerVerde(); //pone en verde. A su vez da un booleano que ayuda a saber su estado;
+	void insertar(Vehiculos* v );
+	Vehiculos eliminaVehiculos();
+	heapVehiculos getHeap();
+	void setFuiVisitado();
+	bool getFuiVisitado();
+	bool getYaPase();
+	void setYaPase();
+	int eliminaVehiculos1();
+	
+		int& get_dest();
+		int& get_source();
+		int& get_weight();
+		void get_print();
+		int& get_numero();
+	
+		void set_dest(int);
+		void set_source(int);
+		void set_weight(int);
+		void set_numero(int);
+//	void yoMismo() { return this }
+	
+//	typedef void (Semaforo::*obtenerpeso)(int*);
+//	obtenerpeso o;
+
 	
 };
+
+
+
+int Semaforo::getCantDeVehiculos()
+{
+	return cantVehiculos;
+}
+/*
+int Semaforo::getUbicacion()
+{
+	return source;
+}
+
+int Semaforo::getOrigen(){
+	return origen;
+}*/
+
+bool Semaforo::ponerVerde()   //Saca el verde si está en verde y al revés.
+{
+	if (verde){
+		verde = false;
+	}else {
+		verde = true;
+	}
+	return verde;
+}
+
+bool Semaforo::esMano()
+{
+	if(mano){
+		return true;
+	}else
+	return false;
+
+}
+
+void Semaforo::setCantDeVehiculos(int cant){
+	cantVehiculos=cant;
+	
+}
+//cantVehiculos= 0;
+void Semaforo::insertar(Vehiculos* v){
+
+	cantVehiculos++;
+	set_weight(cantVehiculos);	
+	
+	h.insert(v);
+}
+
+Vehiculos Semaforo::eliminaVehiculos(){
+/*	Vehiculos dev;
+	dev=h.eliminar();
+	cantVehiculos--;
+	set_weight(cantVehiculos);
+	return dev;*/
+	
+}
+
+int Semaforo::eliminaVehiculos1(){
+
+int a=0;
+	a=h.eliminar1();
+return a;
+
+}
+
+heapVehiculos Semaforo::getHeap(){
+//	return h;
+}
+
+void Semaforo::setFuiVisitado(){
+	if(fueVisitado=true){
+		fueVisitado=false;
+	}else {
+		fueVisitado=true;
+	}
+}
+
+bool Semaforo::getFuiVisitado(){
+	return fueVisitado;
+}
+
+bool Semaforo::getYaPase(){
+	return yaPaseSemaforo;
+}
+
+void Semaforo::setYaPase(){
+	if(yaPaseSemaforo == false){
+		yaPaseSemaforo = true;
+	}else {
+		yaPaseSemaforo= false;
+	}
+}
+
+/* De edge */
+
+	void Semaforo::set_dest(int a){
+		dest=a;
+	}
+	
+	void Semaforo::set_source(int a){
+		source=a;
+	}
+	
+	void Semaforo::set_weight(int a){
+		weight=a;
+	}
+	
+	void Semaforo::set_numero(int a){
+		numero=a;
+	}
+	int& Semaforo::get_dest(){
+		return dest;
+	}
+	
+	int& Semaforo::get_source(){
+		return source;
+	}
+	
+	int& Semaforo::get_weight(){
+		return weight;
+	
+	}
+	
+	void Semaforo::get_print(){
+		h.print();
+	}
+	
+	int& Semaforo::get_numero(){
+		return numero;
+	}
+
+/*	
+int main(){
+		Semaforo s= Semaforo (5,10,2, 0);
+		Semaforo s1= Semaforo  (99,98,97,1);
+		Semaforo s2= Semaforo (1024,988,95547,2);
+		
+}
+
+*/
+

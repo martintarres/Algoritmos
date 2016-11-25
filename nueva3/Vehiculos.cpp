@@ -23,10 +23,10 @@ class Vehiculos{
 			this->final=final;
 			this->prioridad=prioridad;   //Sacamos la prioridad del constructor. A lo sumo agregarla de nuevo.
 			this->origen=origen;*/
-			origen=-1;
-			final=-1;
-			prioridad=-1;
-			patente=-1;
+			origen=0;
+			final=0;
+			prioridad=0;
+			patente=0;
 			estoyAdentro=false;
 			//porAcaVoy =0;
 			contador = 0;

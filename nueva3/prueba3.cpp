@@ -12,11 +12,11 @@ const int cantt=140;
 class heapSemaforos  {
 public:
     heapSemaforos();
-    void insert(int*);
+    void insert(int* );
 	  void print();
    int lugaresDisponibles();
     int size();
-    void eliminar();
+    void eliminar(int);
     int esvaciodesde();
   int eliminarFondo();
  void heapify(int* arr[], int n, int i);
@@ -26,12 +26,13 @@ public:
 private:
    
     int semaforosadentro;
-
+	//int numero;
     int *vector[cantt];
     int *ptr[cant];
  	int parasacar[cant];
     int total;
    	int aux;
+   //	int *numero;
   // Edge e;
   //	Semaforo;
   	
@@ -47,6 +48,7 @@ heapSemaforos::heapSemaforos(){
 	for(int i=0;i<cantt;i++){
 		vector[i]=0;
 	}
+//	numero=0;
 } /*
     void heapSemaforos::cargarInt (int* a){
    		for(int i=0;i<cantt;i++){
@@ -85,7 +87,7 @@ int heapSemaforos::esvaciodesde(){
 
 }
 void heapSemaforos::insert(int* da) {
-
+//	numero=numero1;
 	if(semaforosadentro<140){
 
 	vector[semaforosadentro]= da;
@@ -98,13 +100,13 @@ void heapSemaforos::insert(int* da) {
 	}
 	
 	
-	if(semaforosadentro==cantt){
+//	if(semaforosadentro==cantt){
 			
 	heapSort( vector, semaforosadentro);
 
 
 
-}
+//}
 }
 
 void heapSemaforos::heapSort(int* arr[], int n)
@@ -150,11 +152,11 @@ void heapSemaforos::heapify(int* arr[], int n, int i)
  
 
 void heapSemaforos::print(){
-	for(int i=0;i<cantt;i++)	{
+	for(int i=0;i<semaforosadentro;i++)	{
 	//	cout<< "iteracion "<<i<<endl;
 //	cout<<vector[i]->get_source()<<" "<<vector[i]->get_dest()<<" "<< vector[i]->get_weight()<<endl;
 	//cout<<vector[i].get_origen()<<endl;
-	cout<<*vector[i]<<endl;
+	cout<<*vector[i]<< endl;
 //	cout<<vector[i].get_prioridad()<<endl;
 //cout<<vector;
 	
@@ -210,49 +212,14 @@ void heapSemaforos::Build_Max_Heap(int heapArray[], int heap_size) {
 }
 */
 
-void heapSemaforos::eliminar()
+void heapSemaforos::eliminar(int a)
 {
 	/*Este eliminar creo lo voy a tener que ir haciendo por cada semaforo*/
 	
-	*vector[0]=*vector[0]-1;
+	*vector[a]=*vector[a]-1;
 	
 	
 	
-/*	
-//	int **ptr;
-//	ptr=&vector[0];
-	cout<< " soy la cantidad de autos del semaforo " << *vector[0] <<endl;
-//	ptr-1;
-	*vector[0]-1;
-	cout<< " le borre, ahora tiene " << *vector[0]  <<endl;
-//	*vector[0]=0;
-//	heapSort( *vector);
-/*	int **ptr;
-	ptr= &vector[0];
-	ptr=0;*/
-/*
-	for(int i=0; i< cantt ; i++){
-	if((*vector[i+1]==-1) && (*vector[i] != -1)){
-		*vector[0]= *vector[i];
-		*vector [i]= 0;
-	//	heapSort( *vector); ;
-	
-	//	vector [i].set_origen(-1);
-	//	vector [i].set_final(-1);
-	//	vector [i].set_patente(-1);
-
-}else {
-	if(lugaresDisponibles()==0){
-	*vector [0]=0 ;
-//	heapSort( *vector);
-		//cout<<" si ";
-	//	vector [0].setCant(-1);
-	//	vector [0].set_final(-1);
-	//	vector [0].set_patente(-1);
-	}
-	}
-	
-}*/
 }
 
  //heapSort( *vector);
