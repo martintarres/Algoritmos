@@ -135,22 +135,7 @@ Semaforo arcos[numnodos];
 	v[contt].set_final(&arregloo[j+2]);
 	v[contt].set_prioridad(arregloo[j+3]);
 	contt++;
-	
-	/*for(int i=0;i<numnodos;i++){
-		//if(v[contt].get_origen() == &(arcos[i].get_source())){
-			//cout<<"soy igual"<<endl;
-			cout<<v[contt].get_origen()<<endl;
-		//cout<<arcos[i].get_source()<<endl;
-		//}*/
-		
-	//}
-	
-	
-	
-	
-	
-	
-	j=j+3;
+		j=j+3;
 	
 	
 	
@@ -315,7 +300,7 @@ Semaforo arcos[numnodos];
 	v[patedevuelta].set_origen(&arcos[2].get_source());
 	v[patedevuelta].set_final(&arcos[2].get_dest());
 	
-//	arcos[2].insertar(&v[patedevuelta]);
+	arcos[2].insertar(&v[patedevuelta]);
 	
 	
 	hsemaforo.print();

@@ -16,7 +16,7 @@
 
 using namespace std;
 
-//const int cant=10;
+//const int cant=20;
 class Semaforo {
 private:
 	int cantVehiculos;
@@ -30,6 +30,7 @@ private:
 	bool yaPaseSemaforo;
 	heapVehiculos h;
 	int cantvehiculos;
+	Vehiculos* vectorautos[cant];
 
 public: 
 	Semaforo(int source , int dest , int weight, int numero){
@@ -63,6 +64,10 @@ public:
 	bool getYaPase();
 	void setYaPase();
 	int eliminaVehiculos1();
+	void heapify(Vehiculos* arr[], int n, int i);
+ 	void heapSort(Vehiculos* arr[], int n);
+ 	void print();
+ 	Vehiculos* mover();
 	
 		int& get_dest();
 		int& get_source();
@@ -83,6 +88,79 @@ public:
 };
 
 
+void Semaforo::heapSort(Vehiculos* arr[], int n)
+{
+    // Build heap (rearrange array)
+    for (int i = n / 2 - 1; i >= 0; i--)
+        heapify(arr, n, i);
+ 
+    // One by one extract an element from heap
+    for (int i=n-1; i>=0; i--)
+    {
+        // Move current root to end
+        swap(arr[0], arr[i]);
+ 
+        // call max heapify on the reduced heap
+        heapify(arr, i, 0);
+    }
+}
+
+void Semaforo::heapify(Vehiculos* arr[], int n, int i)
+{
+    int largest = i;  // Initialize largest as root
+    int l = 2*i + 1;  // left = 2*i + 1
+    int r = 2*i + 2;  // right = 2*i + 2
+ 
+    // If left child is larger than root
+    if (l < n && (arr[l]->get_prioridad()) < arr[largest]->get_prioridad())
+        largest = l;
+ 
+    // If right child is larger than largest so far
+    if (r < n && arr[r]->get_prioridad() < arr[largest]->get_prioridad())
+        largest = r;
+ 
+    // If largest is not root
+    if (largest != i)
+    {
+        swap(arr[i], arr[largest]);
+ 
+        // Recursively heapify the affected sub-tree
+        heapify(arr, n, largest);
+    }
+}
+
+
+void Semaforo::print(){
+	for(int i=0;i<cantVehiculos;i++)	{
+		cout<< "vehiculo: "<<i<<endl;
+	cout<<vectorautos[i]->get_patente()<<endl;//->print();
+	cout<<*vectorautos[i]->get_origen()<<endl;
+	cout<<*vectorautos[i]->get_final()<<endl;
+	cout<<vectorautos[i]->get_prioridad()<<endl;
+	
+}
+
+}
+
+Vehiculos* Semaforo::mover(){
+
+	Vehiculos *ve;
+
+	ve=vectorautos[0];
+	vectorautos[0]=vectorautos[1];
+	vectorautos[1]=0;
+	free(vectorautos[1]);
+	cantVehiculos--;
+	return ve;
+//	ve=vectorautos[0];
+//	vectorautos[0]=0;
+//	delete [] *vectorautos;
+	
+
+
+//	return vectorautos[0];
+//	return ve;
+}
 
 int Semaforo::getCantDeVehiculos()
 {
@@ -124,10 +202,19 @@ void Semaforo::setCantDeVehiculos(int cant){
 //cantVehiculos= 0;
 void Semaforo::insertar(Vehiculos* v){
 
+	if(cantVehiculos<cant){
+		
+	vectorautos[cantVehiculos]=v;
 	cantVehiculos++;
-	set_weight(cantVehiculos);	
+	set_weight(cantVehiculos);
+	}else {
+		cout<<"Semaforo lleno"<<endl;
+	}
 	
-	h.insert(v);
+	heapSort( vectorautos, cantVehiculos);
+		
+	
+//	h.insert(v);
 }
 
 Vehiculos Semaforo::eliminaVehiculos(){
@@ -141,9 +228,10 @@ Vehiculos Semaforo::eliminaVehiculos(){
 
 int Semaforo::eliminaVehiculos1(){
 
-int a=0;
+	int a=0;
 	a=h.eliminar1();
-return a;
+	cantVehiculos--;
+	return a;
 
 }
 

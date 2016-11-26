@@ -167,14 +167,17 @@ int heapVehiculos::eliminar1(){
 	for(int i=0;i<vehiculosadentro; i++){
 		
 		if(vector[i]->get_origen()!=0){
-		//	dev = vector[i];
-		//	vector [i]->set_prioridad(a) ;
-		//	vector [i]->set_origen(a);
-		//	vector [i]->set_final(b);
-		//	vector [i]->set_patente(d);
-		//	break;
+			
 		int a=0;
-		a= vector[i]->get_patente();
+	//	a= vector[i]->get_patente();
+			
+		//	dev = vector[i];
+		//	vector [i]->set_prioridad(0) ;
+		//	vector [i]->set_origen(0);
+		//	vector [i]->set_final(0);
+		//	vector [i]->set_patente(0);
+		//	break;
+		
 		return a;
 			}	
 		}
