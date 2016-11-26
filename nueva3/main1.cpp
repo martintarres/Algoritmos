@@ -24,7 +24,7 @@ arreglo[q++]=numero;
 
 }
 
-ifstream archivoo("ficheroAutos2.txt"); 
+ifstream archivoo("ficheroAutos1.txt"); 
 if(archivoo.good()){ 
 while(archivoo>>numeroo) 
 
@@ -283,24 +283,15 @@ Semaforo arcos[numnodos];
 		cout<<"Soy autos de semaforo "<< i<<endl;
 		arcos[i].print();
 		cout<<endl<<endl;;
-	}
+		}
 	
 	
 	getchar();
-	Vehiculos* a;
-		a=arcos[1].mover();
-		
 	
-		
+	Vehiculos* aux;
+	aux=arcos[1].mover();
 	
-		
-	
-		
-	//	delete a;
-/*	a->set_origen(&arcos[2].get_source());
-	a->set_final(&arcos[2].get_dest());
-	*/
-	arcos[2].insertar(a);
+	arcos[2].insertar(aux);
 	
 	
 			for(int i=0;i<numnodos;i++){

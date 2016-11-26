@@ -145,21 +145,23 @@ void Semaforo::print(){
 Vehiculos* Semaforo::mover(){
 
 	Vehiculos *ve;
-
 	ve=vectorautos[0];
-	vectorautos[0]=vectorautos[1];
-	vectorautos[1]=0;
-	free(vectorautos[1]);
-	cantVehiculos--;
-	return ve;
-//	ve=vectorautos[0];
-//	vectorautos[0]=0;
-//	delete [] *vectorautos;
 	
+for(int i=0;i<cantVehiculos; i++){
+	Vehiculos *a;
 
+	vectorautos[i]=vectorautos[i+1];
+	if(vectorautos[i+1]==0){
+	
+		vectorautos[i+1]=0;
+		free(vectorautos[i+1]);
+			cantVehiculos--;
+	}
+	
+}
 
-//	return vectorautos[0];
-//	return ve;
+	return ve;
+
 }
 
 int Semaforo::getCantDeVehiculos()
