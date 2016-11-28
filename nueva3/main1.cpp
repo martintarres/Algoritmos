@@ -229,51 +229,9 @@ Semaforo arcos[numnodos];
 	}*/
 
 
-
 	
-	
-	/*ACA PRUEBO ELIMINAR VEHICULOS Y QUE ELIMINE TAMBIEN DEL HEAPSEMAFOROS*/
-	
-	/*	hsemaforo.print();
-		cout<<endl<<endl;
-		getchar();
+	/*ACA INSERTO Y ELIMINO AUTOS DEL HEAPVEHICULOS QUE AHORA ESTA EN LA CLASE SEMAFORO1 */
 		
-		
-		for(int i=0;i<numnodos;i++){
-		cout<<"Soy autos de semaforo "<< i<<endl;
-		arcos[i].get_print();
-		cout<<endl<<endl;;
-	}
-	
-	getchar();
-	
-	Vehiculos *ve;
-	ve=arcos[1].eliminaVehiculos();
-	
-	
-	for(int i=0; i< numlistas ;i++){
-		l[i].mostrar();
-		cout<<endl;
-	}
-	
-	hsemaforo.print();
-	cout<<endl<<endl;
-	
-	getchar();
-	
-	for(int i=0;i<numnodos;i++){
-		cout<<"Soy autos de semaforo "<< i<<endl;
-		arcos[i].get_print();
-		cout<<endl<<endl;;
-	}
-	*/
-	
-	/*ACA VOY A PROBARA INSERTAR EL AUTO QUE ACABO DE ELIMINAR */
-	
-
-
-
-	
 		hsemaforo.print();
 		cout<<endl<<endl;
 		getchar();
@@ -291,8 +249,19 @@ Semaforo arcos[numnodos];
 	Vehiculos* aux;
 	aux=arcos[1].mover();
 	
+	
+
+	
 	arcos[2].insertar(aux);
 	
+	for(int i=0; i< numlistas ;i++){
+		l[i].mostrar();
+		cout<<endl;
+	}
+	
+	hsemaforo.print();
+		cout<<endl<<endl;
+		getchar();
 	
 			for(int i=0;i<numnodos;i++){
 		cout<<"Soy autos de semaforo "<< i<<endl;
@@ -300,42 +269,7 @@ Semaforo arcos[numnodos];
 		cout<<endl<<endl;
 	}
 	
-	
-	//	cout<<a->get_patente()<<endl;
-/*	getchar();
-	
-	int patedevuelta=0;
 
-	
-	patedevuelta=arcos[1].eliminaVehiculos1();
-	
-	cout<<"Soy patente devuelta "<<patedevuelta<<endl;
-	
-	int a;
-	int b;
-	
-	a=arcos[2].get_source();
-	b= arcos[2].get_dest();
-	
-	cout<<"Soy nuevo source "<<a<<endl;
-	cout<< "Soy nuevo dest "<<b<<endl;
-	
-	v[patedevuelta].set_origen(&arcos[2].get_source());
-	v[patedevuelta].set_final(&arcos[2].get_dest());
-	
-	arcos[2].insertar(&v[patedevuelta]);
-	
-	
-	hsemaforo.print();
-		cout<<endl<<endl;
-		getchar();
-		
-		
-		for(int i=0;i<numnodos;i++){
-		cout<<"Soy autos de semaforo "<< i<<endl;
-		arcos[i].get_print();
-		cout<<endl<<endl;;
-	}*/
 
 }
 

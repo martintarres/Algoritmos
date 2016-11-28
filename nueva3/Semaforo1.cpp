@@ -155,10 +155,12 @@ for(int i=0;i<cantVehiculos; i++){
 	
 		vectorautos[i+1]=0;
 		free(vectorautos[i+1]);
-			cantVehiculos--;
+			
 	}
 	
 }
+cantVehiculos=cantVehiculos-1;
+set_weight(cantVehiculos);
 
 	return ve;
 
