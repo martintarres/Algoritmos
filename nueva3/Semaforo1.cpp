@@ -20,21 +20,21 @@ using namespace std;
 class Semaforo {
 private:
 	int cantVehiculos;
-	int dest;
-	int source;
-	int weight;
+	int* dest;
+	int* source;
+	int* weight;
 	int numero;
 	bool verde;
 	bool mano;  // si se puede avanzar en esa direccion, es mano = true;
 	bool fueVisitado;
 	bool yaPaseSemaforo;
 	heapVehiculos h;
-	int cantvehiculos;
+	int* cantvehiculos;
 	Vehiculos* vectorautos[cant];
 
 public: 
-	Semaforo(int source , int dest , int weight, int numero){
-		cantVehiculos=-1;
+	Semaforo(int* source , int* dest , int* weight, int numero){
+		cantVehiculos=1;
 	//	 h;
 		fueVisitado=false;
 		bool yaPaseeSemaforo=false;
@@ -69,15 +69,15 @@ public:
  	void print();
  	Vehiculos* mover();
 	
-		int& get_dest();
-		int& get_source();
-		int& get_weight();
+		int* get_dest();
+		int* get_source();
+		int* get_weight();
 		void get_print();
-		int& get_numero();
+		int get_numero();
 	
-		void set_dest(int);
-		void set_source(int);
-		void set_weight(int);
+		void set_dest(int*);
+		void set_source(int*);
+		void set_weight(int*);
 		void set_numero(int);
 //	void yoMismo() { return this }
 	
@@ -160,7 +160,7 @@ for(int i=0;i<cantVehiculos; i++){
 	
 }
 cantVehiculos=cantVehiculos-1;
-set_weight(cantVehiculos);
+set_weight(&cantVehiculos);
 
 	return ve;
 
@@ -210,7 +210,7 @@ void Semaforo::insertar(Vehiculos* v){
 		
 	vectorautos[cantVehiculos]=v;
 	cantVehiculos++;
-	set_weight(cantVehiculos);
+	set_weight(&cantVehiculos);
 	}else {
 		cout<<"Semaforo lleno"<<endl;
 	}
@@ -269,30 +269,30 @@ void Semaforo::setYaPase(){
 
 /* De edge */
 
-	void Semaforo::set_dest(int a){
+	void Semaforo::set_dest(int* a){
 		dest=a;
 	}
 	
-	void Semaforo::set_source(int a){
+	void Semaforo::set_source(int* a){
 		source=a;
 	}
 	
-	void Semaforo::set_weight(int a){
+	void Semaforo::set_weight(int* a){
 		weight=a;
 	}
 	
 	void Semaforo::set_numero(int a){
 		numero=a;
 	}
-	int& Semaforo::get_dest(){
+	int* Semaforo::get_dest(){
 		return dest;
 	}
 	
-	int& Semaforo::get_source(){
+	int* Semaforo::get_source(){
 		return source;
 	}
 	
-	int& Semaforo::get_weight(){
+	int* Semaforo::get_weight(){
 		return weight;
 	
 	}
@@ -301,7 +301,7 @@ void Semaforo::setYaPase(){
 		h.print();
 	}
 	
-	int& Semaforo::get_numero(){
+	int Semaforo::get_numero(){
 		return numero;
 	}
 

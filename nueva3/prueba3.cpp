@@ -18,7 +18,7 @@ public:
     int size();
     void eliminar(int);
     int esvaciodesde();
-  int eliminarFondo();
+  int* eliminarFondo();
  void heapify(int* arr[], int n, int i);
  void heapSort(int* arr[], int n);
 
@@ -227,10 +227,10 @@ void heapSemaforos::eliminar(int a)
 //aux1=aux;
 //return aux;
 
-/*
-Semaforo heapSemaforos::eliminarFondo(){
+
+int* heapSemaforos::eliminarFondo(){
 	
-	int auxDev;
+	int* auxDev;
 	int lugar=0;
 //	lugar= size()-semaforosadentro;
 	lugar=semaforosadentro-1;

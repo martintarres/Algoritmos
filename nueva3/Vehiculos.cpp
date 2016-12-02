@@ -1,10 +1,10 @@
-#include <iostream>
-#include <string.h> 
-#include <stdlib.h> 
-#include <fstream> 
+//#include <iostream>
+//#include <string.h> 
+//#include <stdlib.h> 
+//#include <fstream> 
 
 
-using namespace std;
+//using namespace std;
 
 class Vehiculos{
 	private:
@@ -52,15 +52,15 @@ class Vehiculos{
 		int avanzar();
 };
 
-void Vehiculos::set_origen(int* origen){
-//	origen=orig;
-this->origen=origen;
+void Vehiculos::set_origen(int* orig){
+	origen=orig;
+//this->origen=origen;
 //origen1=origen;
 }
 
-void Vehiculos::set_final(int* final){
-//	final=fin;	
-this->final=final;
+void Vehiculos::set_final(int* fin){
+	final=fin;	
+//this->final=final;
 }
 	void Vehiculos::set_prioridad(int priori)
 	{

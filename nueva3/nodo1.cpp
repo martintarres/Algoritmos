@@ -43,8 +43,8 @@ class Lista{
 		}
 		void agregar(Semaforo*);
 		void mostrar();
-		int getDest();
-		int getSource();
+		int* getDest();
+		int* getSource();
 		int tamList();
 		int recorrerDest();
 		int pesos(int);
@@ -58,7 +58,7 @@ int Lista::pesos(int i){
 	int pesos[5];
 	for(int j=0 ; j<5 ; j++){
 		if(cabeza != NULL){
-			pesos [j] = cabeza->dato->get_weight();
+			pesos [j] = *cabeza->dato->get_weight();
 			cabeza=cabeza->next;
 		}
 	}
@@ -72,7 +72,7 @@ int Lista::destinos(int i){
 	int dest[5];
 	for(int j=0 ; j<5 ; j++){
 		if(cabeza != NULL){
-			dest [j] = cabeza->dato->get_dest();
+			dest [j] = *cabeza->dato->get_dest();
 			cabeza=cabeza->next;
 		}
 	}
@@ -80,7 +80,7 @@ int Lista::destinos(int i){
 	return dest [i];	
 }
 
-int Lista::getDest(){
+int* Lista::getDest(){
 	Nodo *aux;
 	
 
@@ -95,7 +95,7 @@ int Lista::getDest(){
 
 }
 
-int Lista::getSource(){
+int* Lista::getSource(){
 	Nodo *aux;
 	aux=cabeza;
 		if(cabeza!=NULL){
@@ -139,9 +139,10 @@ int Lista::getSource(){
 		aux=cabeza;
 		if (cabeza!=NULL){
 		
-		cout<<"("<< cabeza->dato->get_source()<<", ";
-		cout<< cabeza->dato->get_dest()<<", ";
-		cout<< cabeza->dato->get_weight()<<" )";
+		cout<<"("<< *cabeza->dato->get_source()<<", ";
+		cout<< *cabeza->dato->get_dest()<<", ";
+		cout<< *cabeza->dato->get_weight()<<", ";
+		cout<< cabeza->dato->get_numero()<<" )";
 		
 		cabeza=cabeza->next;
 	//	contador1++;
