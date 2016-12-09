@@ -220,7 +220,7 @@ Semaforo arcos[numnodos];
 	
 /* Aca pruebo eliminar y me elimina de la ciudad */
 
-	/*getchar();
+getchar();
 	hsemaforo.print();
 	cout<<endl<<endl;
 	hsemaforo.eliminar(0);
@@ -231,7 +231,7 @@ Semaforo arcos[numnodos];
 	for(int i=0; i< numlistas ;i++){
 		l[i].mostrar();
 		cout<<endl;
-	}*/
+	}
 
 
 	

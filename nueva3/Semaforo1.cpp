@@ -31,6 +31,7 @@ private:
 	heapVehiculos h;
 	int* cantvehiculos;
 	Vehiculos* vectorautos[cant];
+	
 
 public: 
 	Semaforo(int* source , int* dest , int* weight, int numero){
@@ -68,6 +69,7 @@ public:
  	void heapSort(Vehiculos* arr[], int n);
  	void print();
  	Vehiculos* mover();
+ 
 	
 		int* get_dest();
 		int* get_source();

@@ -2,27 +2,27 @@
 //#include "Semaforo.cpp"
 //#include "Semaforo.cpp"
 //#incude "Edge.cpp"
-#include "nodo1.cpp"
-
+//#include "nodo1.cpp"
+#include "prueba3.cpp"
 using namespace std;
 
-const int cantt=140;
+//const int cantt=140;
 
  
-class heapSemaforos  {
+class heapdjk  {
 public:
-    heapSemaforos();
-    void insert(Semaforo* );
+    heapdjk();
+    void insert(Semaforo );
 	  void print();
    int lugaresDisponibles();
     int size();
     void eliminar(int);
     int esvaciodesde();
-  int* eliminarFondo();
- void heapify(Semaforo* arr[], int n, int i);
- void heapSort(Semaforo* arr[], int n);
- Semaforo* eliminarfdjk();
- Semaforo *eliminaradjk();
+  int eliminarFondo();
+ void heapify(Semaforo arr[], int n, int i);
+ void heapSort(Semaforo arr[], int n);
+ Semaforo eliminarfdjk();
+ Semaforo eliminaradjk();
  int tamano();
 
 
@@ -30,7 +30,7 @@ private:
    
     int semaforosadentro;
 	//int numero;
-    Semaforo *vect[cantt];
+    Semaforo vect[cantt];
     int *ptr[cant];
  	int parasacar[cant];
     int total;
@@ -44,13 +44,13 @@ private:
 //	int k;
 };
 
-heapSemaforos::heapSemaforos(){
+heapdjk::heapdjk(){
 //	Semaforo vector[cantt];
 //	Semaforo s;
 	semaforosadentro=0;
 	total=0;
 	for(int i=0;i<cantt;i++){
-		vect[i]=0;
+		vect[i].set_numero(0);//=0;
 	}
 //	numero=0;
 } /*
@@ -60,21 +60,21 @@ heapSemaforos::heapSemaforos(){
 		   }
 	}
 */
-int heapSemaforos::lugaresDisponibles(){
+int heapdjk::lugaresDisponibles(){
 	int contador=cantt;
 	for(int i=0; i<cantt;i++){
 		
-			if(vect[i]>=0){
+			if(semaforosadentro>=0){
 			
 		contador--;
 		}
 	}
 	return contador;
 }
-int heapSemaforos::tamano(){
+int heapdjk::tamano(){
 	return semaforosadentro;
 }
-int heapSemaforos::size(){
+int heapdjk::size(){
 	int contador=0;
 	for(int i=0; i<cantt;i++){
 		contador++;
@@ -82,9 +82,9 @@ int heapSemaforos::size(){
 	return contador;
 }
 
-int heapSemaforos::esvaciodesde(){
+int heapdjk::esvaciodesde(){
 	for(int i=0 ; i<cantt; i++){
-		if(vect[i]== 0){
+		if(semaforosadentro== 0){
 	
 			return i;
 		}
@@ -92,12 +92,12 @@ int heapSemaforos::esvaciodesde(){
 	}
 
 }
-void heapSemaforos::insert(Semaforo* da) {
+void heapdjk::insert(Semaforo da) {
 //	numero=numero1;
 	if(semaforosadentro<140){
 
 	vect[semaforosadentro]= da;
-	pesos[semaforosadentro]=vect[semaforosadentro]->get_weight();
+//	pesos[semaforosadentro]=vect[semaforosadentro]->get_weight();
 	semaforosadentro++;
 
 
@@ -133,7 +133,7 @@ void heapSemaforos::insert(Semaforo* da) {
 //}
 }
 
-void heapSemaforos::heapSort(Semaforo* arr[], int n)
+void heapdjk::heapSort(Semaforo arr[], int n)
 {
     // Build heap (rearrange array)
     for (int i = n / 2 - 1; i >= 0; i--)
@@ -143,31 +143,31 @@ void heapSemaforos::heapSort(Semaforo* arr[], int n)
     for (int i=n-1; i>=0; i--)
     {
         // Move current root to end
-        swap(*arr[0]->get_weight(), *arr[i]->get_weight());
+        swap(arr[0], arr[i]);
  
         // call max heapify on the reduced heap
         heapify(arr, i, 0);
     }
 }
 
-void heapSemaforos::heapify(Semaforo* arr[], int n, int i)
+void heapdjk::heapify(Semaforo arr[], int n, int i)
 {
     int largest = i;  // Initialize largest as root
     int l = 2*i + 1;  // left = 2*i + 1
     int r = 2*i + 2;  // right = 2*i + 2
  
     // If left child is larger than root
-    if (l < n && *arr[l]->get_weight() < *arr[largest]->get_weight())
+    if (l < n && *arr[l].get_weight() < *arr[largest].get_weight())
         largest = l;
  
     // If right child is larger than largest so far
-    if (r < n && *arr[r]->get_weight() < *arr[largest]->get_weight())
+    if (r < n && *arr[r].get_weight() < *arr[largest].get_weight())
         largest = r;
  
     // If largest is not root
     if (largest != i)
     {
-        swap(*arr[i]->get_weight(), *arr[largest]->get_weight());
+        swap(arr[i], arr[largest]);
  
         // Recursively heapify the affected sub-tree
         heapify(arr, n, largest);
@@ -175,10 +175,10 @@ void heapSemaforos::heapify(Semaforo* arr[], int n, int i)
 }
  
 
-void heapSemaforos::print(){
+void heapdjk::print(){
 	for(int i=0;i<semaforosadentro;i++)	{
 	//	cout<< "iteracion "<<i<<endl;
-	cout<<*vect[i]->get_source()<<" "<<*vect[i]->get_dest()<<" "<< *vect[i]->get_weight()<<" "<<vect[i]->get_numero()<<endl;
+	cout<<*vect[i].get_source()<<" "<<*vect[i].get_dest()<<" "<< *vect[i].get_weight()<<" "<<vect[i].get_numero()<<endl;
 	//cout<<vector[i].get_origen()<<endl;
 //	cout<<vect[i]->get_numero()<< endl;
 //	cout<<vector[i].get_prioridad()<<endl;
@@ -188,11 +188,11 @@ void heapSemaforos::print(){
 }
 
 
-void heapSemaforos::eliminar(int a)
+void heapdjk::eliminar(int a)
 {
 	/*Este eliminar creo lo voy a tener que ir haciendo por cada semaforo*/
 	
-	*vect[a]->get_weight()=*vect[a]->get_weight()-1;
+	*vect[a].get_weight()=*vect[a].get_weight()-1;
 /*	int pesonuevo=0;
 	pesonuevo=*vect[a]->get_weight();
 	cout<<pesonuevo<<endl;	
@@ -200,11 +200,11 @@ void heapSemaforos::eliminar(int a)
 	
 }
 
-Semaforo* heapSemaforos::eliminarfdjk(){
+Semaforo heapdjk::eliminarfdjk(){
 
-	Semaforo *ve;
+	Semaforo ve;
 	ve=vect[semaforosadentro-1];
-	free(vect[semaforosadentro-1]);
+//	free(vect[semaforosadentro-1]);
 	semaforosadentro=semaforosadentro-1;
 
 	return ve;
@@ -213,18 +213,18 @@ Semaforo* heapSemaforos::eliminarfdjk(){
 	
 }
 
-Semaforo* heapSemaforos::eliminaradjk(){
-	Semaforo *ve;
+Semaforo heapdjk::eliminaradjk(){
+	Semaforo ve;
 	ve=vect[0];
 	
 for(int i=0;i<semaforosadentro; i++){
-	int *a;
+	int a;
 
 	vect[i]=vect[i+1];
-	if(vect[i+1]==0){
+	if(vect[i+1].get_numero()==0){
 	
-		vect[i+1]=0;
-		free(vect[i+1]);
+		vect[i+1].set_numero(0);//=0;
+	//	free(vect[i+1].get_numero());
 			
 	}
 	
@@ -290,8 +290,8 @@ Semaforo arcos[numnodos];
 
 
 	/*Me carga la ciudad */
-/*
-	int cont=0;
+
+/*	int cont=0;
 	for(int j=0;j<g;j++) {
 	
 	arcos[cont].set_source(&arreglo[j]);
@@ -382,7 +382,7 @@ Semaforo arcos[numnodos];
 
 	
 	/*Me agrega los autos en el semaforo */
-/*/
+/*
 	for(int i=0;i<totalveh;i++){
 		for(int j=0; j< numnodos; j++){ 
 		int *a,*b,*c,*d;

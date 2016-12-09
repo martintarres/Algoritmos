@@ -7,9 +7,9 @@ using namespace std;
 class di{
 	public:
 		di();
-		void dijkstra(Lista l[], int*, int*);
+		int* dijkstra(Lista l[], Semaforo*, int*, Vehiculos*);
 		void relajacion(int* , int*, int, Semaforo*);
-		void print(int destino);
+		int* print(int destino, Vehiculos*, int sourceactual);
 		
 		
 	private:
@@ -20,8 +20,8 @@ class di{
 		int* adyacente;
 		bool visitado[30];
 		int previos[30];
-	
-		heapSemaforos hsemaforo;
+		bool imprimir;
+		heapdjk hsemaforo;
 		int peso;
 		
 };
@@ -36,40 +36,43 @@ di::di(){
     //	c.delante = NULL;
     //	c.atras   = NULL;
 	}
+	imprimir=false;
 }
 
-void di::dijkstra(Lista l[],int* k, int* y){
+int* di::dijkstra(Lista l[],Semaforo* sourceactual, int* destactual, Vehiculos* v){
 //	int actual;
+//	cout<< sourceactual->get_numero();
+
 int asd=0;
-	Semaforo* s;
-	s=l[0].recorrerNodo();
-	cout<<"soy numero de s: "<<s->get_numero()<<endl;
+
+//	s=l[sourceactual].recorrerNodo();
+//	cout<<"soy numero de s: "<<s->get_numero()<<endl;
 	
 //	encolar (c,s);
-	hsemaforo.insert(s);
+	hsemaforo.insert(*sourceactual);
 	
-     cout<<"voy a mostrar cola"<<endl;
+   //  cout<<"voy a mostrar cola"<<endl;
     hsemaforo.print();
-    cout<<endl;
+   // cout<<endl;
      int a=0;
-    distancia[*s->get_source()]= 0;
+    distancia[*sourceactual->get_source()]= 0;
     //cout<<a<<endl;
-    cout<<endl<<"Soy distancia de " <<*s->get_source() << " y soy " << distancia[*s->get_source()]<<endl;
+   // cout<<endl<<"Soy distancia de " <<*s->get_source() << " y soy " << distancia[*s->get_source()]<<endl;
   
    while(hsemaforo.tamano()!=0){
-   	Semaforo *aux;
+   	Semaforo aux;
    	aux=hsemaforo.eliminaradjk();
    	
    	if(asd==0){
-   		actual=aux->get_source();
+   		actual=aux.get_source();
    		asd++;
 	   }else {
-	   	actual=aux->get_dest();
+	   	actual=aux.get_dest();
 	   }
    		
    // 	actual=desencolar(c);
-    		cout<<"Desencole " << *actual<<endl;
-    	cout<<"Soy actual "<<*actual<<endl;
+    	//	cout<<"Desencole " << *actual<<endl;
+    	//cout<<"Soy actual "<<*actual<<endl;
     	if(visitado[*actual]) continue;
     	visitado[*actual]=true;
     	for(int i=0;i<l[*actual-1].getContador();i++){
@@ -77,15 +80,15 @@ int asd=0;
 		Semaforo *aux2;
 		Semaforo *aux3;
 		aux2=l[*actual-1].Sdestinos(i);
-		cout<<"Soy Semaforo actual: "<<aux2->get_numero()<<endl;
+	//	cout<<"Soy Semaforo actual: "<<aux2->get_numero()<<endl;
     		adyacente=l[*actual-1].destinos(i);
     	//	adyacente=aux2->get_dest();
     	aux3=l[*adyacente-1].Sdestinos(i);
-    	cout<<"Soy semaforo adyacente :" << aux3->get_numero()<<endl;
-    		cout<<"Soy adyacente " << *adyacente<<endl;
+    //	cout<<"Soy semaforo adyacente :" << aux3->get_numero()<<endl;
+    //		cout<<"Soy adyacente " << *adyacente<<endl;
     		peso=l[*actual-1].pesos(i);
     	//	peso=aux2->get_weight();
-    		cout<<"Soy peso "<< peso<<endl;
+    //		cout<<"Soy peso "<< peso<<endl;
     		if(!visitado[*adyacente]){
     			relajacion(actual, adyacente, peso, aux2);
 			}
@@ -93,121 +96,50 @@ int asd=0;
 	}
 	}
 	
-	print(4);
+	
+	
+	print(*destactual, v, *sourceactual->get_source());
 }
 	
 void di::relajacion(int* actual, int* adyacente, int peso, Semaforo*  aux2){
 	if(distancia[*actual]+ peso < distancia[*adyacente]){
-		cout<<"Soy distancia antes de " << *adyacente << " y soy " << distancia[*adyacente]<<endl;
+	//	cout<<"Soy distancia antes de " << *adyacente << " y soy " << distancia[*adyacente]<<endl;
 		distancia[*adyacente] = distancia[*actual] + peso;
-		cout<<"Soy distancia de " << *adyacente << " y soy " <<distancia[*adyacente]<<endl;
+	//	cout<<"Soy distancia de " << *adyacente << " y soy " <<distancia[*adyacente]<<endl;
 		previo[*adyacente] = *actual;
-		cout<<"Soy previo "<< previo[*adyacente]<<endl;
-		cout<<"Voy a encolar "<< *adyacente<<endl;
-		hsemaforo.insert(aux2);
-		
-	//	encolar(c, adyacente);
-		//	cout << "\n\n MOSTRANDO COLA\n\n";
-          //       if(c.delante!=NULL) muestraCola( c );
-         //        else   cout<<"\n\n\tCola vacia...!"<<endl;
-         cout<<"voy a mostrar cola"<<endl;
-    hsemaforo.print();
-    cout<<endl;
+	//	cout<<"Soy previo "<< previo[*adyacente]<<endl;
+	//	cout<<"Voy a encolar "<< *adyacente<<endl;
+		hsemaforo.insert(*aux2);
+
+      //   cout<<"voy a mostrar cola"<<endl;
+   // hsemaforo.print();
+   // cout<<endl;
 	}
 }
 
-void di::print(int destino){
-	if(previo[destino] != -1)
-		print(previo[destino]);
-	cout<<destino<< " ";	
+int* di::print(int destino,Vehiculos* v, int source){
 	
-}
-//	actual=
-//	for
-	
-/*	int adyacente;
-	int peso;
-	
-	int* a;
-	int* b;
-	int c;
-	int d;
-	a=l[0].getSource();
-	cout<<*a<<endl;
-	b=l[0].getDest();
-	cout<<*b<<endl;
-	c=l[0].pesos(0);
-	cout<<c<<endl;
-	d=l[0].numeros(0);
-	cout<<d<<endl;
-	getchar();
-	Semaforo s[20];  
-	int sema;
-	sema=tamCola(c);
-	cout<<"soy numero semaforo "<<sema<<endl;
-	s[sema].set_source(a);
-	s[sema].set_dest(l[0].getDest());
-	s[sema].set_weight(&b);
-	s[sema].set_source(0);
-	
-	cout<<s[sema].get_source()<<endl;
-	cout<<*s[sema].get_dest()<<endl;
-	cout<<*s[sema].get_weight()<<endl;
-//	cout<<*s[sema].get_weight()<<endl;
-	
-	encolar(c,s[0]);
-
-	cout << "\n\n MOSTRANDO COLA\n\n";
-                 if(c.delante!=NULL) muestraCola( c );
-                 else   cout<<"\n\n\tCola vacia...!"<<endl;
-  //      int a;        
- //   a=tamCola(c);
-//	cout<<a;*/
-
-
-
-/*	distancia[0]=0;
-	distancia[*k]=0;
-	
-	while (tamCola(c)!=0){
-		Semaforo aux;
-		aux=desencolar(c);
-	//	a--;
-	//	aux.get_dest();
-		actual=aux.get_source();
-		cout<<"Soy actual "<<aux.get_numero()<<endl;
-		
-		if(visitado[*actual]) continue;
-			visitado[*actual]= true;
-			
-		for(int i=0;i<l[*actual-1].getContador(); i++ ){
-			adyacente= l[*actual-1].destinos(i);
-			cout<<"Soy adyacente " << adyacente<<endl;
-			peso=l[*actual-1].pesos(i);
-			cout<<"Soy peso "<< peso<<endl;
-			if(!visitado[adyacente]){
-				relajacion(actual, adyacente, peso);
-			//cout<<"entre a relajacion"<<endl;
-			}
+/*	for(int i=0;i<10;i++){
+		if(previo[i]== source){
+			imprimir=true;
 		}
-	}
-*/
-
-/*
-void di::relajacion(int* actual, int adyacente, int peso){
-	int a=1;
-	if(distancia[*actual]+peso < distancia[adyacente]){
-		distancia[adyacente]=distancia[*actual] + peso;
-		previo[adyacente]= *actual;
-		cout<<"Soy previo "<<previo[adyacente];
-		Semaforo s(actual, &adyacente, &distancia[adyacente], a);
-		encolar(c, s);
-			cout << "\n\n MOSTRANDO COLA\n\n";
-                 if(c.delante!=NULL) muestraCola( c );
-                 else   cout<<"\n\n\tCola vacia...!"<<endl;
-	}
+	}*/
+	
+	/*	while(previo[source]==source ){
+			imprimir=true;
+	}*/
+	if(previo[destino] != -1)// && imprimir==true)
+		print(previo[destino],v, source);
+		v->set_camino(destino);//=destino;
+//	cout<<destino<< " ";
+	
+/*	for(int i=0; i<1;i++){
+		cout<<v.get_camino(i)<<endl;
+	}*/
+//	for(int i=0; i<destino; i)	
+//	return previo;
 }
-*/
+
 int main(){
 
 
@@ -349,18 +281,19 @@ Semaforo arcos[numnodos];
 	}
 
 	/*Muestra vehiculos cargados*/
-/*	
+	/*
 	for(int i=0;i<totalveh;i++){
 		cout<<v[i].get_patente();
 		cout<<" ";
-		cout<<v[i].get_origen();
+		cout<<*v[i].get_origen();
 		cout<<" ";
-		cout<<v[i].get_final();
+		cout<<*v[i].get_final();
 		cout<<" ";
 		cout<<v[i].get_prioridad();
 		cout<<endl;
-	}
-*/
+	}*/
+
+getchar();
 	/*Creo los semaforos */
 /*	
 	Semaforo s[total];
@@ -398,54 +331,108 @@ Semaforo arcos[numnodos];
 	}
 	
 	getchar ();
-	
+	/*	
+	heapdjk hsemaforo;
 
- 
+	
+	for(int i=0; i<numnodos;i++){
+
+		hsemaforo.insert((arcos[i]));
+	}
+	
+	getchar();
+	hsemaforo.print();
+	cout<<endl<<endl;
+
+	for(int i=0; i< numlistas ;i++){
+		l[i].mostrar();
+		cout<<endl;
+	}
+	*/
 /*--------------------------------------------------------*/
 
 di djk;
-	for (int i=0; i<1;i++){
+
+	for (int i=0; i<totalveh;i++){
 		
 		int num_aleat =0;
-		num_aleat = 2+rand()%(65-2);
+		num_aleat = 2+rand()%(9-2);
 		int a,b;
 		//a=1;
-	//	b=3;
+	//	b=3;veh
 		//v[i].set_origen(&a);
 		v[i].set_final(&num_aleat);
 		
-		cout<<*v[i].get_origen()<<endl;
+	/*	cout<<*v[i].get_origen()<<endl;
 		cout<<*v[i].get_final()<<endl;
 		cout<<endl<<endl;
+	*/		
+		int sourceactual=0;	
+		for(int j=0;j<numnodos;j++){
 			
-		djk.dijkstra(l, v[i].get_origen(),v[i].get_final());
+			if(*v[i].get_origen() == *arcos[j].get_source()){
+				cout<<"Vehiculo "<<v[i].get_patente()<<" mi origen es el semaforo numero "<<arcos[j].get_numero()<<endl;
+				sourceactual=arcos[j].get_numero();
+			}
+		}	
+			
+		int destactual=0;	
+		for(int j=0;j<numnodos;j++){
+			
+			if(*v[i].get_final() == *arcos[j].get_source()){
+				cout<<"Vehiculo "<<v[i].get_patente()<<" mi destino es el semaforo numero "<<arcos[j].get_numero()<<endl;
+				destactual=arcos[j].get_numero();
+			}
+		}
+		
+		
+		djk.dijkstra(l, &arcos[sourceactual], arcos[destactual].get_source() ,&v[i]);
+		
+		cout<<"Soy camino desde main para auto "<<v[i].get_patente()<<endl;;
+		for(int j=0; j< v[i].tamcamino();j++){
+			cout<<v[i].get_camino(j)<<" ";
+		//	cout<<endl;
+		}
+		cout<<endl;
+	//	cout<<endl<<endl;
+	//	getchar();
+	}
+
+		cout<<" aca cada auto ya tiene djk hecho"<<endl;
+/*--------------------------------------------------------*/
+	heapdjk hsemaforo;
+
+	
+	for(int i=0; i<numnodos;i++){
+
+		hsemaforo.insert((arcos[i]));
 	}
 	
-/*	struct cola c;
-   
-    c.delante = NULL;
-    c.atras   = NULL;
-   
-   
-    int dato;  // numero a encolar
-    int op;    // opcion del menu
-    int x ;    // numero que devuelve la funcon pop
-   
-	//cola c;
-	encolar(c,arcos[0]);
-	encolar (c,arcos[1]);
-	
-	
-	 cout << "\n\n MOSTRANDO COLA\n\n";
-                 if(c.delante!=NULL) muestraCola( c );
-                 else   cout<<"\n\n\tCola vacia...!"<<endl;
-	
-	desencolar( c );
- cout << "\n\n MOSTRANDO COLA\n\n";
-                 if(c.delante!=NULL) muestraCola( c );
-                 else   cout<<"\n\n\tCola vacia...!"<<endl;
-*/
+	getchar();
+	hsemaforo.print();
+	cout<<endl<<endl;
 
+	for(int i=0; i< numlistas ;i++){
+		l[i].mostrar();
+		cout<<endl;
+	}
+	
+	heapSemaforos hsemaforo1;
+	
+	for(int i=0; i<numnodos;i++){
+
+		hsemaforo1.insert((arcos[i].get_weight()));
+	}
+	getchar();
+	hsemaforo1.print();
+	cout<<endl<<endl;
+/*--------------------------------------------------------*/
+int n =3;
+
+	for(int i=0; i<3;i++){
+		
+		
+	}
 	
 }
 
