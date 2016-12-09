@@ -5,7 +5,7 @@ using namespace std;
 
 struct nodo
 {
-    Semaforo nro;
+    int* nro;
     struct nodo *sgte;
 };
  
@@ -22,7 +22,7 @@ struct cola
  
 /*                        Encolar elemento      
 ------------------------------------------------------------------------*/
-void encolar( struct cola &q, Semaforo valor )
+void encolar( struct cola &q, int* valor )
 {
      struct nodo *aux = new(struct nodo);
      
@@ -40,9 +40,9 @@ void encolar( struct cola &q, Semaforo valor )
  
 /*                        Desencolar elemento      
 ------------------------------------------------------------------------*/
-Semaforo desencolar( struct cola &q )
+int* desencolar( struct cola &q )
 {
-     Semaforo num ;
+     int* num ;
      struct nodo *aux ;
      
      aux = q.delante;      // aux apunta al inicio de la cola
@@ -63,8 +63,8 @@ void muestraCola( struct cola q )
          
      while( aux != NULL )
      {
-            cout<<"("<< *aux->nro.get_source()<<"," ;
-            cout<<*aux->nro.get_dest()<<")"<<endl;
+            cout<<"("<< *aux->nro<<") ";
+          //  cout<<*aux->nro->get_dest()<<")"<<endl;
             aux = aux->sgte;
      }    
 }
@@ -98,7 +98,8 @@ class di{
 	public:
 		di();
 		void dijkstra(Lista l[], int*, int*);
-		void relajacion(int* , int, int);
+		void relajacion(int* , int*, int);
+		void print(int destino);
 		
 		
 	private:
@@ -106,14 +107,16 @@ class di{
 		int previo[50];
 	//	heapSemaforos qas;
 		int* actual;
+		int* adyacente;
 		bool visitado[50];
 		int previos[30];
 		struct cola c;
+		int peso;
 		
 };
 
 di::di(){
-	for(int i=0; i<50;i++){
+	for(int i=0; i<9;i++){
 		visitado[i]=false;
 		distancia[i]=999;
 		previo[i]=-1;
@@ -125,23 +128,100 @@ di::di(){
 }
 
 void di::dijkstra(Lista l[],int* k, int* y){
-	int adyacente;
+//	int actual;
+	int* s;
+	s=l[0].getSource();
+	cout<<*s<<endl;
+	
+	encolar (c,s);
+	
+		cout << "\n\n MOSTRANDO COLA\n\n";
+                 if(c.delante!=NULL) muestraCola( c );
+                 else   cout<<"\n\n\tCola vacia...!"<<endl;
+     
+     int a=0;
+    distancia[*s]= 0;
+    //cout<<a<<endl;
+    	cout<<endl<<"Soy distancia de " << *s << " y soy " << distancia[*s]<<endl;
+   while(tamCola(c)!=0){
+   	
+    	actual=desencolar(c);
+    		cout<<"Desencole " << *actual<<endl;
+    	cout<<"Soy actual "<<*actual<<endl;
+    	if(visitado[*actual]) continue;
+    	visitado[*actual]=true;
+    	for(int i=0;i<l[*actual-1].getContador();i++){
+    //		if( !visitado[actual->get_numero()] ){
+		
+    		adyacente=l[*actual-1].destinos(i);
+    		cout<<"Soy adyacente " << *adyacente<<endl;
+    		peso=l[*actual-1].pesos(i);
+    		cout<<"Soy peso "<< peso<<endl;
+    		if(!visitado[*adyacente]){
+    			relajacion(actual, adyacente, peso);
+			}
+	//	}*/
+	}
+	}
+	
+	print(3);
+}
+	
+void di::relajacion(int* actual, int* adyacente, int peso){
+	if(distancia[*actual]+ peso < distancia[*adyacente]){
+		cout<<"Soy distancia antes de " << *adyacente << " y soy " << distancia[*adyacente]<<endl;
+		distancia[*adyacente] = distancia[*actual] + peso;
+		cout<<"Soy distancia de " << *adyacente << " y soy " <<distancia[*adyacente]<<endl;
+		previo[*adyacente] = *actual;
+		cout<<"Soy previo "<< previo[*adyacente]<<endl;
+		cout<<"Voy a encolar "<< *adyacente<<endl;
+		encolar(c, adyacente);
+			cout << "\n\n MOSTRANDO COLA\n\n";
+                 if(c.delante!=NULL) muestraCola( c );
+                 else   cout<<"\n\n\tCola vacia...!"<<endl;
+	}
+}
+
+void di::print(int destino){
+	if(previo[destino] != -1)
+		print(previo[destino]);
+	cout<<destino<< " ";	
+	
+}
+//	actual=
+//	for
+	
+/*	int adyacente;
 	int peso;
 	
 	int* a;
+	int* b;
+	int c;
+	int d;
 	a=l[0].getSource();
 	cout<<*a<<endl;
-	cout<<*l[0].getDest()<<endl;
-	int b;
-	b=l[0].pesos(0);
-	cout<<b<<endl;
+	b=l[0].getDest();
+	cout<<*b<<endl;
+	c=l[0].pesos(0);
+	cout<<c<<endl;
+	d=l[0].numeros(0);
+	cout<<d<<endl;
 	getchar();
-	Semaforo s;  //(k,k,0,0);
+	Semaforo s[20];  
 	int sema;
 	sema=tamCola(c);
-	s[sema].get_source(k);
+	cout<<"soy numero semaforo "<<sema<<endl;
+	s[sema].set_source(a);
+	s[sema].set_dest(l[0].getDest());
+	s[sema].set_weight(&b);
+	s[sema].set_source(0);
 	
-	encolar(c,s);
+	cout<<s[sema].get_source()<<endl;
+	cout<<*s[sema].get_dest()<<endl;
+	cout<<*s[sema].get_weight()<<endl;
+//	cout<<*s[sema].get_weight()<<endl;
+	
+	encolar(c,s[0]);
 
 	cout << "\n\n MOSTRANDO COLA\n\n";
                  if(c.delante!=NULL) muestraCola( c );
@@ -149,7 +229,10 @@ void di::dijkstra(Lista l[],int* k, int* y){
   //      int a;        
  //   a=tamCola(c);
 //	cout<<a;*/
-	distancia[0]=0;
+
+
+
+/*	distancia[0]=0;
 	distancia[*k]=0;
 	
 	while (tamCola(c)!=0){
@@ -174,9 +257,9 @@ void di::dijkstra(Lista l[],int* k, int* y){
 			}
 		}
 	}
+*/
 
-}
-
+/*
 void di::relajacion(int* actual, int adyacente, int peso){
 	int a=1;
 	if(distancia[*actual]+peso < distancia[adyacente]){
@@ -190,7 +273,7 @@ void di::relajacion(int* actual, int adyacente, int peso){
                  else   cout<<"\n\n\tCola vacia...!"<<endl;
 	}
 }
-
+*/
 int main(){
 
 

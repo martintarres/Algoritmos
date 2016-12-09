@@ -32,6 +32,7 @@ class Lista{
 		Nodo *cabeza;
 	//	Nodo *cabeza1;
 		int contador;
+		Nodo *sgte;
 	
 		
 		
@@ -48,10 +49,36 @@ class Lista{
 		int tamList();
 		int recorrerDest();
 		int pesos(int);
-		int destinos(int);
+		int* destinos(int);
 		int getContador();
+		Semaforo* recorrerNodo();
+		Semaforo* Sdestinos(int);
+		int* Ddestinos();
 };
 
+Semaforo* Lista::recorrerNodo(){
+	
+		Nodo *aux;
+		aux=cabeza;
+	//	cabeza=cabeza->next;
+		if (cabeza!=NULL){
+		
+	/*	cout<<"("<< *cabeza->dato->get_source()<<", ";
+		cout<< *cabeza->dato->get_dest()<<", ";
+		cout<< *cabeza->dato->get_weight()<<", ";
+		cout<< cabeza->dato->get_numero()<<" )";
+		*/
+		cabeza=cabeza->next;
+	//	contador1++;
+	//	cout<< contador1<<endl;;
+	//	recorrerNodo();
+	
+
+	}
+	cabeza=aux;
+	return cabeza->dato;
+	//	cabeza=cabeza1;
+}
 int Lista::pesos(int i){
 	Nodo *aux;
 	aux= cabeza;
@@ -66,18 +93,32 @@ int Lista::pesos(int i){
 	return pesos [i];
 }
 
-int Lista::destinos(int i){
+int* Lista::destinos(int i){
 	Nodo *aux;
 	aux= cabeza;
-	int dest[5];
+	int* dest[5];
 	for(int j=0 ; j<5 ; j++){
 		if(cabeza != NULL){
-			dest [j] = *cabeza->dato->get_dest();
+			dest [j] = cabeza->dato->get_dest();
 			cabeza=cabeza->next;
 		}
 	}
 	cabeza=aux;
 	return dest [i];	
+}
+
+int* Lista::Ddestinos(){
+	Nodo *aux;
+	aux= cabeza;
+	int* dest[5];
+	for(int j=0 ; j<5 ; j++){
+		if(cabeza != NULL){
+			dest [j] = cabeza->dato->get_dest();
+			cabeza=cabeza->next;
+		}
+	}
+	cabeza=aux;
+	return dest [0];
 }
 
 int* Lista::getDest(){
@@ -93,6 +134,21 @@ int* Lista::getDest(){
 	}
 	
 
+}
+
+Semaforo* Lista::Sdestinos(int i){
+	
+	Nodo *aux;
+	aux= cabeza;
+	Semaforo* dest[5];
+	for(int j=0 ; j<5 ; j++){
+		if(cabeza != NULL){
+			dest [j] = cabeza->dato;
+			cabeza=cabeza->next;
+		}
+	}
+	cabeza=aux;
+	return dest [i];	
 }
 
 int* Lista::getSource(){

@@ -9,76 +9,28 @@ using namespace std;
 
 void insertar ();
 int main(){
-	
-int numeroo, arregloo[100], qq;
+int numeroo, arregloo[150], gg;
 int h=0;
 int k = 0;
-int q=0,arreglo[500],numero; 
+int g=0,arreglo[150],numero; 
 int numnodos=0;
 
-ifstream archivo("ficheroTexto1.txt"); 
+ifstream archivo("ficheroTexto2.txt"); 
 if(archivo.good()){ 
 while(archivo>>numero) 
 
-arreglo[q++]=numero;	
+arreglo[g++]=numero;	
 
 }
 
-ifstream archivoo("ficheroAutos1.txt"); 
+ifstream archivoo("ficheroAutos3.txt"); 
 if(archivoo.good()){ 
 while(archivoo>>numeroo) 
 
-arregloo[qq++]=numeroo;
+arregloo[gg++]=numeroo;
 }
 
-
-	/*Averiguo numero de autos */
-
-	int totalveh=0;
-	for(int i=0;i<qq;i++){
-	totalveh++;
-	
-	}
-	totalveh=totalveh/4;
-	cout<<"son "<<totalveh<< " Vehiculos "<<endl;
-	
-	/*Me carga los vehiculos*/
-
-	Vehiculos v[totalveh];
-
-	int contt=0;
-	
-	for(int j=0;j<qq;j++) {
-	v[contt].set_patente(arregloo[j]);
-	v[contt].set_origen(&arregloo[j+1]);
-	v[contt].set_final(&arregloo[j+2]);
-	v[contt].set_prioridad(arregloo[j+3]);
-	contt++;
-		j=j+3;
-	
-	
-	
-	
-	}
-
-
-	/*Muestra vehiculos cargados*/
-	
-	/*for(int i=0;i<totalveh;i++){
-		cout<<v[i].get_patente();
-		cout<<" ";
-		cout<<*v[i].get_origen();
-		cout<<" ";
-		cout<<*v[i].get_final();
-		cout<<" ";
-		cout<<v[i].get_prioridad();
-		cout<<endl;
-	}*/
-
-
-	/*AVERIGUO EL NUMERO DE NODOS QUE VOY A TENER*/
-
-for(int i=0;i<q;i++){
+for(int i=0;i<g;i++){
 	numnodos++;
 	
 }
@@ -93,11 +45,12 @@ Semaforo arcos[numnodos];
 	/*Me carga la ciudad */
 	
 	int cont=0;
-	for(int j=0;j<q;j++) {
+	for(int j=0;j<g;j++) {
 	
-	arcos[cont].set_source(arreglo[j]);
-	arcos[cont].set_dest(arreglo[j+1]);
-	arcos[cont].set_weight(arreglo[j+2]);
+	arcos[cont].set_source(&arreglo[j]);
+	arcos[cont].set_dest(&arreglo[j+1]);
+	arcos[cont].set_weight(&arreglo[j+2]);
+	arcos[cont].set_numero(cont);
 	cont++;
 	j=j+2;
 	
@@ -124,9 +77,9 @@ Semaforo arcos[numnodos];
 	for(int i=0;i<numnodos;i++){
 		int compara=0;
 		
-		compara= arcos[i].get_source();
+		compara= *arcos[i].get_source();
 	
-			if(compara!= arcos[i+1].get_source()){
+			if(compara!= *arcos[i+1].get_source()){
 				numlistas++;
 			
 			}	
@@ -139,17 +92,17 @@ Semaforo arcos[numnodos];
 
 	/* Me arma la lista enlazada */ 
 	
-	int compara=arcos[0].get_source();
+	int compara=*arcos[0].get_source();
 	int numlista=0;
 	l[numlista].agregar(&arcos[0]);
 	for(int i=1; i<numnodos;i++){
-		int compara2= arcos[i].get_source();
+		int compara2= *arcos[i].get_source();
 		if(compara == compara2){
 			l[numlista].agregar(&arcos[i]);
 		}else {
 			numlista++;
 			l[numlista].agregar(&arcos[i]);
-			compara=arcos[i].get_source();
+			compara=*arcos[i].get_source();
 		}
 	}
 	
@@ -160,7 +113,48 @@ Semaforo arcos[numnodos];
 		cout<<endl;
 	}
 	
+	/*Averiguo numero de autos */
 
+	int totalveh=0;
+	for(int i=0;i<gg;i++){
+	totalveh++;
+	
+	}
+	totalveh=totalveh/4;
+	cout<<"son "<<totalveh<< " Vehiculos "<<endl;
+	
+	/*Me carga los vehiculos*/
+
+	Vehiculos v[totalveh];
+
+	int contt=0;
+	
+	for(int j=0;j<gg;j++) {
+	v[contt].set_patente(arregloo[j]);
+	v[contt].set_origen(&arregloo[j+1]);
+	v[contt].set_final(&arregloo[j+2]);
+	v[contt].set_prioridad(arregloo[j+3]);
+	contt++;
+		j=j+3;
+	
+	
+	
+	
+	}
+
+	/*Muestra vehiculos cargados*/
+/*	
+	for(int i=0;i<totalveh;i++){
+		cout<<v[i].get_patente();
+		cout<<" ";
+		cout<<v[i].get_origen();
+		cout<<" ";
+		cout<<v[i].get_final();
+		cout<<" ";
+		cout<<v[i].get_prioridad();
+		cout<<endl;
+	}
+*/
 	/*Creo los semaforos */
 /*	
 	Semaforo s[total];
@@ -174,8 +168,17 @@ Semaforo arcos[numnodos];
 
 	for(int i=0;i<totalveh;i++){
 		for(int j=0; j< numnodos; j++){ 
-			
-			if(*v[i].get_origen() == arcos[j].get_source() && *v[i].get_final() == arcos[j].get_dest()  ){
+		int *a,*b,*c,*d;
+			a=v[i].get_origen();
+			b=arcos[j].get_source();
+			c=v[i].get_final();
+			d=arcos[j].get_dest();
+		/*	
+			cout<<*a<<" Soy a"<<endl;
+			cout<<*b<<" Soy b"<<endl;
+			cout<<*c<<" Soy c"<<endl;
+			cout<<*d<<" Soy d"<<endl;*/
+			if((*a == *b) && (*c == *d )){
 				arcos[j].insertar(&v[i]);
 	
 			//	arcos[j].set_weight(s[j].getCantDeVehiculos());
@@ -194,6 +197,8 @@ Semaforo arcos[numnodos];
 	
 	getchar ();
 	
+
+	
 	/* Aca pruebo de aumentar un semaforo y se cambia todo */	
 /*	arcos[2].insertar(&v[1]);
 	
@@ -210,7 +215,7 @@ Semaforo arcos[numnodos];
 	
 	for(int i=0; i<numnodos;i++){
 
-		hsemaforo.insert(&(arcos[i].get_weight()));
+		hsemaforo.insert((arcos[i].get_weight()));
 	}
 	
 /* Aca pruebo eliminar y me elimina de la ciudad */

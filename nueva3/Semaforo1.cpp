@@ -305,13 +305,5 @@ void Semaforo::setYaPase(){
 		return numero;
 	}
 
-/*	
-int main(){
-		Semaforo s= Semaforo (5,10,2, 0);
-		Semaforo s1= Semaforo  (99,98,97,1);
-		Semaforo s2= Semaforo (1024,988,95547,2);
-		
-}
 
-*/
 

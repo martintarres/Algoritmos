@@ -21,6 +21,9 @@ public:
   int* eliminarFondo();
  void heapify(int* arr[], int n, int i);
  void heapSort(int* arr[], int n);
+ int* eliminarfdjk();
+ int *eliminaradjk();
+ int tamano();
 
 
 private:
@@ -67,7 +70,9 @@ int heapSemaforos::lugaresDisponibles(){
 	}
 	return contador;
 }
-
+int heapSemaforos::tamano(){
+	return semaforosadentro;
+}
 int heapSemaforos::size(){
 	int contador=0;
 	for(int i=0; i<cantt;i++){
@@ -162,55 +167,7 @@ void heapSemaforos::print(){
 	
 }
 }
-/*
-Semaforo& heapSemaforos::recorre(int x){
-//	punt[x]=&vector[x];
-	return *vector[x];
-}*/
 
-/*
-void heapSemaforos::Max_Heapify(int heapArray[], int i, int heap_size) {
-    // int n = size;
-    int largest = 0;
-    int l = getLeft(i);
-    int r = getRight(i);
-
-    if ((l < heap_size) && (heapArray[l] < heapArray[i])) {
-        largest = l;
-    } else {
-        largest = i;
-    }
-
-    if ((r < heap_size) && (heapArray[r]) < heapArray[largest]) {
-        largest = r;
-    }
-
-    if (largest != i) {
-        swap(heapArray[i], heapArray[largest]);
-        Max_Heapify(heapArray, largest, heap_size);
-    }
-    return;
-}
-void heapSemaforos::heapSort() {
-    //size = heap_size;
-    int n = size ();
-    Build_Max_Heap(vector, size());
-
-    for (int i = n - 1; i >= 1; i--) {
-        swap(vector[0], vector[i]);
-        n = n - 1;
-        Max_Heapify(vector, 0,n);
-    }
-}
-
-void heapSemaforos::Build_Max_Heap(int heapArray[], int heap_size) {
-    int n = size();
-    for (int i = floor((n - 1) / 2); i >= 0; i--) {
-        Max_Heapify(heapArray, i, heap_size);
-    }
-    return;
-}
-*/
 
 void heapSemaforos::eliminar(int a)
 {
@@ -222,11 +179,56 @@ void heapSemaforos::eliminar(int a)
 	
 }
 
- //heapSort( *vector);
-//	return aux;
-//aux1=aux;
-//return aux;
+int* heapSemaforos::eliminarfdjk(){
+	
+	int *ve;
+	ve=vector[semaforosadentro-1];
+	free(vector[semaforosadentro-1]);
+	semaforosadentro=semaforosadentro-1;
+	/*
+		
+for(int i=0;i<semaforosadentro; i++){
+	int *a;
 
+	vector[i]=vector[i+1];
+	if(vector[i+1]==0){
+	
+		vector[i+1]=0;
+		free(vector[i+1]);
+			
+	}
+	
+}
+semaforosadentro=semaforosadentro-1;
+//set_weight(&cantVehiculos);
+*/
+	return ve;
+
+
+	
+}
+
+int* heapSemaforos::eliminaradjk(){
+	int *ve;
+	ve=vector[0];
+	
+for(int i=0;i<semaforosadentro; i++){
+	int *a;
+
+	vector[i]=vector[i+1];
+	if(vector[i+1]==0){
+	
+		vector[i+1]=0;
+		free(vector[i+1]);
+			
+	}
+	
+}
+semaforosadentro=semaforosadentro-1;
+//set_weight(&cantVehiculos);
+
+	return ve;
+}
 
 int* heapSemaforos::eliminarFondo(){
 	
