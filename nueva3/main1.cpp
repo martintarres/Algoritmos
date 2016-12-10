@@ -133,7 +133,7 @@ Semaforo arcos[numnodos];
 	v[contt].set_patente(arregloo[j]);
 	v[contt].set_origen(&arregloo[j+1]);
 	v[contt].set_final(&arregloo[j+2]);
-	v[contt].set_prioridad(arregloo[j+3]);
+	v[contt].set_prioridad(&arregloo[j+3]);
 	contt++;
 		j=j+3;
 	

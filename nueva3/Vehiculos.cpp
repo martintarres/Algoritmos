@@ -19,18 +19,16 @@ class Vehiculos{
 		int origen1;
 		int final1;
 		int contadorcamino;
+		bool pase;
 		
 	public:
 		Vehiculos(){
-			/*this->patente=patente;
-			this->final=final;
-			this->prioridad=prioridad;   //Sacamos la prioridad del constructor. A lo sumo agregarla de nuevo.
-			this->origen=origen;*/
 			contadorcamino=0;
 			origen=0;
 			final=0;
 			prioridad=0;
 			patente=0;
+			pase =false;
 			
 			estoyAdentro=false;
 			//porAcaVoy =0;
@@ -55,8 +53,31 @@ class Vehiculos{
 		int avanzar();
 		void set_camino(int);
 		int tamcamino();
+		void avanzarcamino();
+		void activarPase();
+		void desactivarPase();
+		bool getPase();
 };
 
+bool Vehiculos::getPase(){
+	return pase;
+}
+void Vehiculos::activarPase(){
+	pase=true;
+}
+
+void Vehiculos::desactivarPase(){
+	pase=false;
+}
+void Vehiculos::avanzarcamino(){
+	for(int i=0;i<contadorcamino;i++){
+		camino[i]=camino[i+1];
+		if(i==contadorcamino-1){
+			camino[i]=0;
+		}
+	}
+	
+}
 int Vehiculos::tamcamino(){
 	return contadorcamino;
 }
@@ -107,11 +128,7 @@ bool Vehiculos::estado(){
 int Vehiculos::getPorAcaVoy(){
 	return 1;
 }
-/*
-void Vehiculos::ingresarCamino(int x, int y){				//Posicion x del arreglo, numero y;
-	camino [x] = y;
-	//contador ++;
-}*/
+
 
 int Vehiculos::get_camino(int x){
 	return camino[x];

@@ -24,6 +24,8 @@ public:
  Semaforo eliminarfdjk();
  Semaforo eliminaradjk();
  int tamano();
+ int getArco(int);
+ void actualizar();
 
 
 private:
@@ -60,6 +62,10 @@ heapdjk::heapdjk(){
 		   }
 	}
 */
+
+int heapdjk::getArco(int a){
+	return vect[a].get_numero();
+}
 int heapdjk::lugaresDisponibles(){
 	int contador=cantt;
 	for(int i=0; i<cantt;i++){
@@ -133,6 +139,9 @@ void heapdjk::insert(Semaforo da) {
 //}
 }
 
+void heapdjk::actualizar(){
+	heapSort( vect, semaforosadentro);
+}
 void heapdjk::heapSort(Semaforo arr[], int n)
 {
     // Build heap (rearrange array)

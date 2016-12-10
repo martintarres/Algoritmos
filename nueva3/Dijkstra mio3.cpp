@@ -45,19 +45,15 @@ int* di::dijkstra(Lista l[],Semaforo* sourceactual, int* destactual, Vehiculos* 
 
 int asd=0;
 
-//	s=l[sourceactual].recorrerNodo();
-//	cout<<"soy numero de s: "<<s->get_numero()<<endl;
-	
-//	encolar (c,s);
 	hsemaforo.insert(*sourceactual);
 	
    //  cout<<"voy a mostrar cola"<<endl;
-    hsemaforo.print();
+   // hsemaforo.print();
    // cout<<endl;
      int a=0;
     distancia[*sourceactual->get_source()]= 0;
     //cout<<a<<endl;
-   // cout<<endl<<"Soy distancia de " <<*s->get_source() << " y soy " << distancia[*s->get_source()]<<endl;
+   // cout<<endl<<"Soy distancia de " <<*sourceactual->get_source() << " y soy " << distancia[*sourceactual->get_source()]<<endl;
   
    while(hsemaforo.tamano()!=0){
    	Semaforo aux;
@@ -82,13 +78,13 @@ int asd=0;
 		aux2=l[*actual-1].Sdestinos(i);
 	//	cout<<"Soy Semaforo actual: "<<aux2->get_numero()<<endl;
     		adyacente=l[*actual-1].destinos(i);
-    	//	adyacente=aux2->get_dest();
+    
     	aux3=l[*adyacente-1].Sdestinos(i);
     //	cout<<"Soy semaforo adyacente :" << aux3->get_numero()<<endl;
-    //		cout<<"Soy adyacente " << *adyacente<<endl;
+    	//	cout<<"Soy adyacente " << *adyacente<<endl;
     		peso=l[*actual-1].pesos(i);
     	//	peso=aux2->get_weight();
-    //		cout<<"Soy peso "<< peso<<endl;
+    	//	cout<<"Soy peso "<< peso<<endl;
     		if(!visitado[*adyacente]){
     			relajacion(actual, adyacente, peso, aux2);
 			}
@@ -99,6 +95,12 @@ int asd=0;
 	
 	
 	print(*destactual, v, *sourceactual->get_source());
+	imprimir=false;
+	for(int i=0; i<9;i++){
+		visitado[i]=false;
+		distancia[i]=999;
+		previo[i]=-1;
+	}
 }
 	
 void di::relajacion(int* actual, int* adyacente, int peso, Semaforo*  aux2){
@@ -112,32 +114,23 @@ void di::relajacion(int* actual, int* adyacente, int peso, Semaforo*  aux2){
 		hsemaforo.insert(*aux2);
 
       //   cout<<"voy a mostrar cola"<<endl;
-   // hsemaforo.print();
-   // cout<<endl;
+  //  hsemaforo.print();
+  //  cout<<endl;
 	}
 }
 
 int* di::print(int destino,Vehiculos* v, int source){
-	
-/*	for(int i=0;i<10;i++){
-		if(previo[i]== source){
-			imprimir=true;
-		}
-	}*/
-	
-	/*	while(previo[source]==source ){
-			imprimir=true;
-	}*/
-	if(previo[destino] != -1)// && imprimir==true)
+
+	if(previo[destino] != -1){// && imprimir==true)
+		
 		print(previo[destino],v, source);
-		v->set_camino(destino);//=destino;
-//	cout<<destino<< " ";
+		
+
 	
-/*	for(int i=0; i<1;i++){
-		cout<<v.get_camino(i)<<endl;
-	}*/
-//	for(int i=0; i<destino; i)	
-//	return previo;
+
+	}
+	v->set_camino(destino);
+
 }
 
 int main(){
@@ -371,7 +364,7 @@ di djk;
 		for(int j=0;j<numnodos;j++){
 			
 			if(*v[i].get_origen() == *arcos[j].get_source()){
-				cout<<"Vehiculo "<<v[i].get_patente()<<" mi origen es el semaforo numero "<<arcos[j].get_numero()<<endl;
+			//	cout<<"Vehiculo "<<v[i].get_patente()<<" mi origen es el semaforo numero "<<arcos[j].get_numero()<<endl;
 				sourceactual=arcos[j].get_numero();
 			}
 		}	
@@ -380,7 +373,7 @@ di djk;
 		for(int j=0;j<numnodos;j++){
 			
 			if(*v[i].get_final() == *arcos[j].get_source()){
-				cout<<"Vehiculo "<<v[i].get_patente()<<" mi destino es el semaforo numero "<<arcos[j].get_numero()<<endl;
+			//	cout<<"Vehiculo "<<v[i].get_patente()<<" mi destino es el semaforo numero "<<arcos[j].get_numero()<<endl;
 				destactual=arcos[j].get_numero();
 			}
 		}
@@ -388,7 +381,7 @@ di djk;
 		
 		djk.dijkstra(l, &arcos[sourceactual], arcos[destactual].get_source() ,&v[i]);
 		
-		cout<<"Soy camino desde main para auto "<<v[i].get_patente()<<endl;;
+		cout<<"Soy camino desde main para auto "<<v[i].get_patente()<<endl;
 		for(int j=0; j< v[i].tamcamino();j++){
 			cout<<v[i].get_camino(j)<<" ";
 		//	cout<<endl;
@@ -428,13 +421,103 @@ di djk;
 	cout<<endl<<endl;
 /*--------------------------------------------------------*/
 int n =3;
+	int prin=0;
+	int tamano=0;
+	tamano=hsemaforo.tamano();
+	
+	while(prin != tamano){
+	
+	//for(int j=0;j<1;j++){
+		
+	
 
-	for(int i=0; i<3;i++){
+//	for(int i=0; i<3;i++){
 		
-		
+		int a;
+		a=hsemaforo.getArco(prin);
+		cout<<"Soy semaforo a sacar "<< a<<endl;
+		if(*arcos[a].get_weight() > 0){
+			
+			
+		Vehiculos* aux;
+		aux=arcos[a].mover();
+		if(aux->getPase()==false){
+			
+				for(int i=0;i<totalveh;i++){
+					if(v[i].get_prioridad()== 2){
+						v[i].set_prioridad(-2);
+					}
+				if(v[i].get_prioridad()== 0){
+					v[i].set_prioridad(-1);
+			}
+			}
+		aux->activarPase();
+
+	//cout<<"Soy vehiculo "<<aux->get_patente()<<" y mi prioridad despues es "<< aux->get_prioridad()<<endl;
+	//cout<< "Soy vechiulo sacado de semaforo "<< a <<" y soy "<< aux->get_patente()<<endl; 
+	//cout<<"Soy vehiculo "<<aux->get_patente()<<" y me voy a "<<v[aux->get_patente()].get_camino(0)<<endl;
+	
+	arcos[v[aux->get_patente()].get_camino(0)].insertar(aux);
+	cout<<"soy semaforo "<<v[aux->get_patente()].get_camino(0)<< " y me acaban de insertar el vehiculo " << aux->get_patente()<< " y quede "<<endl;
+	aux->avanzarcamino();
+	//	for (int i=0; i<totalveh;i++){
+	cout<<"Soy camino desde main para auto "<<aux->get_patente()<<endl;
+		for(int j=0; j< aux->tamcamino();j++){
+			cout<<aux->get_camino(j)<<" ";
+		//	cout<<endl;
+		}
+		cout<<endl;
+//	hsemaforo.print();
+	
+	if(aux->get_camino(0)==0){
+		cout<<aux->get_patente()<< " llegue a mi destino"<<endl;
+		arcos[a].eliminarVehiculos();
+	}
+	}else {
+		cout<<aux->get_patente()<<" ya paso"<<endl;
+		arcos[a].insertar(aux);
+	}
+}
+	prin++;
+	getchar();
+	//}
+}
+	
+	for(int i=0;i<totalveh;i++){
+					if(v[i].get_prioridad()== -2){
+						v[i].set_prioridad(2);
+					}
+				if(v[i].get_prioridad()== -1){
+					v[i].set_prioridad(0);
+			}
+			}
+
+
+	cout<<"Ya termine, ahora voy a actualizar: "<<endl;
+	hsemaforo.actualizar();
+	hsemaforo.print();
+	
+	getchar ();
+	for(int i=0; i< numlistas ;i++){
+		l[i].mostrar();
+		cout<<endl;
+	}
+}
+	
+	/*ACA DEVUELVO LAS PRIORIDADES ORIGINALES */
+/*	
+	for(int i=0;i<totalveh;i++){
+		if(v[i].get_prioridad()== -2){
+		v[i].set_prioridad(2);
+	}
+	if(v[i].get_prioridad()== -1){
+		v[i].set_prioridad(0);
+	}
 	}
 	
-}
+	
+	}*/
+
 
 	
 
