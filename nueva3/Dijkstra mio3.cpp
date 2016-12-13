@@ -427,7 +427,7 @@ int n =3;
 	
 	while(prin != tamano){
 	
-	//for(int j=0;j<1;j++){
+//	for(int j=0;j<1;j++){
 		
 	
 
@@ -440,7 +440,12 @@ int n =3;
 			
 			
 		Vehiculos* aux;
+		Semaforo*  auxsem;
+		cout<<"Antes de mover el vehiculo"<<endl;
+		hsemaforo.print();
 		aux=arcos[a].mover();
+		auxsem=&arcos[v[aux->get_patente()].get_camino(0)];
+		cout<<"Soy a donde voy a insertar "<<auxsem->get_numero()<<endl;
 		if(aux->getPase()==false){
 			
 				for(int i=0;i<totalveh;i++){
@@ -456,8 +461,16 @@ int n =3;
 	//cout<<"Soy vehiculo "<<aux->get_patente()<<" y mi prioridad despues es "<< aux->get_prioridad()<<endl;
 	//cout<< "Soy vechiulo sacado de semaforo "<< a <<" y soy "<< aux->get_patente()<<endl; 
 	//cout<<"Soy vehiculo "<<aux->get_patente()<<" y me voy a "<<v[aux->get_patente()].get_camino(0)<<endl;
+	//cout<<"Soy auxsem"<< auxsem.get_numero()<<endl;
+//	cout<<"Voy a mostrar semaforo antes"<<endl;
+//	arcos[v[aux->get_patente()].get_camino(0)].print();
 	
 	arcos[v[aux->get_patente()].get_camino(0)].insertar(aux);
+	aux->set_origen(auxsem->get_source());
+	cout<<"Despues de mover el vehiculo"<<endl;
+	hsemaforo.print();
+//	cout<<"y despues "<<endl;
+//	arcos[v[aux->get_patente()].get_camino(0)].print();
 	cout<<"soy semaforo "<<v[aux->get_patente()].get_camino(0)<< " y me acaban de insertar el vehiculo " << aux->get_patente()<< " y quede "<<endl;
 	aux->avanzarcamino();
 	//	for (int i=0; i<totalveh;i++){
@@ -470,8 +483,14 @@ int n =3;
 //	hsemaforo.print();
 	
 	if(aux->get_camino(0)==0){
+		getchar();
 		cout<<aux->get_patente()<< " llegue a mi destino"<<endl;
-		arcos[a].eliminarVehiculos();
+		cout<<"Voy a mostrar antes de eliminar que llegue a mi destino"<<endl;
+		hsemaforo.print();
+		
+		auxsem->elminarVehiculos(aux);
+		cout<<"Voy a mostrar despues de eliminar que llegue a mi destino"<<endl;
+		hsemaforo.print();
 	}
 	}else {
 		cout<<aux->get_patente()<<" ya paso"<<endl;
@@ -502,23 +521,13 @@ int n =3;
 		l[i].mostrar();
 		cout<<endl;
 	}
+	
+	
+
+	
 }
 	
-	/*ACA DEVUELVO LAS PRIORIDADES ORIGINALES */
-/*	
-	for(int i=0;i<totalveh;i++){
-		if(v[i].get_prioridad()== -2){
-		v[i].set_prioridad(2);
-	}
-	if(v[i].get_prioridad()== -1){
-		v[i].set_prioridad(0);
-	}
-	}
 	
-	
-	}*/
-
-
 	
 
 	

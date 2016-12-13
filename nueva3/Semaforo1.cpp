@@ -69,6 +69,7 @@ public:
  	void heapSort(Vehiculos* arr[], int n);
  	void print();
  	Vehiculos* mover();
+ 	void elminarVehiculos(Vehiculos*);
  
 	
 		int* get_dest();
@@ -168,6 +169,52 @@ set_weight(&cantVehiculos);
 
 }
 
+void Semaforo::elminarVehiculos(Vehiculos *aux){
+
+	for(int i=0;i<cantVehiculos;i++){
+		if(aux->get_patente()==vectorautos[i]->get_patente()){
+			cout<<"Soy igual y soy "<< i<<endl;
+				Vehiculos *ve;
+	ve=vectorautos[0];
+	
+	for(int i=0;i<cantVehiculos; i++){
+	Vehiculos *a;
+
+	vectorautos[i]=vectorautos[i+1];
+	if(vectorautos[i+1]==0){
+	
+		vectorautos[i+1]=0;
+		free(vectorautos[i+1]);
+			
+	}
+	
+	}
+	cantVehiculos=cantVehiculos-1;
+	set_weight(&cantVehiculos);
+		}
+	}
+
+/*
+	
+for(int i=0;i<cantVehiculos; i++){
+	Vehiculos *a;
+
+	vectorautos[i]=vectorautos[i+1];
+	if(vectorautos[i+1]==0){
+	
+		vectorautos[i+1]=0;
+		free(vectorautos[i+1]);
+			
+	}
+	
+}
+cantVehiculos=cantVehiculos-1;
+set_weight(&cantVehiculos);
+
+*/
+
+}
+
 int Semaforo::getCantDeVehiculos()
 {
 	return cantVehiculos;
@@ -211,8 +258,8 @@ void Semaforo::insertar(Vehiculos* v){
 	if(cantVehiculos<cant){
 		
 	vectorautos[cantVehiculos]=v;
-	cantVehiculos++;
-	set_weight(&cantVehiculos);
+	cantVehiculos=cantVehiculos+1;
+set_weight(&cantVehiculos);
 	}else {
 		cout<<"Semaforo lleno"<<endl;
 	}
