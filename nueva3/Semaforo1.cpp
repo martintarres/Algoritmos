@@ -53,7 +53,7 @@ public:
 		cantVehiculos=0;
 		
 	}
-	int getCantDeVehiculos();
+	int& getCantDeVehiculos();
 	void setCantDeVehiculos(int);
 	bool esMano();
 	bool ponerVerde(); //pone en verde. A su vez da un booleano que ayuda a saber su estado;
@@ -69,7 +69,7 @@ public:
  	void heapSort(Vehiculos* arr[], int n);
  	void print();
  	Vehiculos* mover();
- 	void elminarVehiculos(Vehiculos*);
+ 	Vehiculos* elminarVehiculos(Vehiculos*);
  
 	
 		int* get_dest();
@@ -169,13 +169,14 @@ set_weight(&cantVehiculos);
 
 }
 
-void Semaforo::elminarVehiculos(Vehiculos *aux){
+Vehiculos* Semaforo::elminarVehiculos(Vehiculos *aux){
 
+	Vehiculos *ve;
 	for(int i=0;i<cantVehiculos;i++){
 		if(aux->get_patente()==vectorautos[i]->get_patente()){
 			cout<<"Soy igual y soy "<< i<<endl;
-				Vehiculos *ve;
-	ve=vectorautos[0];
+				
+	ve=vectorautos[i];
 	
 	for(int i=0;i<cantVehiculos; i++){
 	Vehiculos *a;
@@ -192,6 +193,8 @@ void Semaforo::elminarVehiculos(Vehiculos *aux){
 	cantVehiculos=cantVehiculos-1;
 	set_weight(&cantVehiculos);
 		}
+		
+		
 	}
 
 /*
@@ -212,10 +215,10 @@ cantVehiculos=cantVehiculos-1;
 set_weight(&cantVehiculos);
 
 */
-
+return ve;
 }
 
-int Semaforo::getCantDeVehiculos()
+int& Semaforo::getCantDeVehiculos()
 {
 	return cantVehiculos;
 }
@@ -258,8 +261,10 @@ void Semaforo::insertar(Vehiculos* v){
 	if(cantVehiculos<cant){
 		
 	vectorautos[cantVehiculos]=v;
+
 	cantVehiculos=cantVehiculos+1;
-set_weight(&cantVehiculos);
+	
+set_weight(&getCantDeVehiculos());
 	}else {
 		cout<<"Semaforo lleno"<<endl;
 	}

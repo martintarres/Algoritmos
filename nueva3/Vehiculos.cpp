@@ -20,6 +20,7 @@ class Vehiculos{
 		int final1;
 		int contadorcamino;
 		bool pase;
+		bool ter;
 		
 	public:
 		Vehiculos(){
@@ -29,7 +30,7 @@ class Vehiculos{
 			prioridad=0;
 			patente=0;
 			pase =false;
-			
+			ter=false;
 			estoyAdentro=false;
 			//porAcaVoy =0;
 			contador = 0;
@@ -57,6 +58,7 @@ class Vehiculos{
 		void activarPase();
 		void desactivarPase();
 		bool getPase();
+		bool getTermine();
 };
 
 bool Vehiculos::getPase(){
@@ -69,11 +71,20 @@ void Vehiculos::activarPase(){
 void Vehiculos::desactivarPase(){
 	pase=false;
 }
+
+bool Vehiculos::getTermine(){
+
+	return ter;
+}
 void Vehiculos::avanzarcamino(){
 	for(int i=0;i<contadorcamino;i++){
 		camino[i]=camino[i+1];
 		if(i==contadorcamino-1){
 			camino[i]=0;
+		}
+		
+		if(camino[0]==0){
+			ter=true;
 		}
 	}
 	

@@ -424,6 +424,25 @@ int n =3;
 	int prin=0;
 	int tamano=0;
 	tamano=hsemaforo.tamano();
+	Vehiculos mio;
+	bool terminadomio=false;
+	int soy=0;
+	for(int i=0;i<totalveh;i++){
+		if(v[i].get_patente()==999){
+			mio=v[i];
+		}
+	}
+	
+	cout<<"Soy vehiculo mio"<<endl;
+	cout<<*mio.get_origen()<<endl;
+	cout<<*mio.get_final()<<endl;
+	cout<<mio.get_patente()<<endl;
+	cout<<mio.get_prioridad();
+	
+	while(terminadomio!=true){
+		
+		
+	
 	
 	while(prin != tamano){
 	
@@ -482,15 +501,36 @@ int n =3;
 		cout<<endl;
 //	hsemaforo.print();
 	
-	if(aux->get_camino(0)==0){
+	if(aux->getTermine()!= false){
 		getchar();
 		cout<<aux->get_patente()<< " llegue a mi destino"<<endl;
-		cout<<"Voy a mostrar antes de eliminar que llegue a mi destino"<<endl;
+		Vehiculos* aux1;
+			cout<<"Voy a mostrar antes de eliminar que llegue a mi destino"<<endl;
+		hsemaforo.print();
+		aux1=auxsem->elminarVehiculos(aux);
+		//cout<<"Soy patente devuelta "<<aux1->get_patente()<<endl;
+	
+	
+	
+	/*EN ESTA PARTE ES LO QUE TE DIGO */ 
+	
+	
+	
+		arcos[numnodos-1].insertar(aux1);
+		aux1->set_origen(arcos[numnodos-1].get_source());
+		cout<<"Voy a mostrar despues de eliminar que llegue a mi destino"<<endl;
 		hsemaforo.print();
 		
+		/*cout<<"Voy a mostrar antes de eliminar que llegue a mi destino"<<endl;
+		hsemaforo.print();
+		
+
 		auxsem->elminarVehiculos(aux);
 		cout<<"Voy a mostrar despues de eliminar que llegue a mi destino"<<endl;
 		hsemaforo.print();
+		
+		*/
+
 	}
 	}else {
 		cout<<aux->get_patente()<<" ya paso"<<endl;
@@ -500,9 +540,13 @@ int n =3;
 	prin++;
 	getchar();
 	//}
+
 }
-	
+prin=0;
+
+
 	for(int i=0;i<totalveh;i++){
+			v[i].desactivarPase();
 					if(v[i].get_prioridad()== -2){
 						v[i].set_prioridad(2);
 					}
@@ -522,8 +566,29 @@ int n =3;
 		cout<<endl;
 	}
 	
+	cout<<"voy a mostrar los vehiculos antes"<<endl;
+		for(int i=0;i<totalveh;i++){
+			cout<<v[i].get_patente()<<endl;
+		}
+		
+	for(int i=0;i<totalveh;i++){
+		if(v[i].getTermine()!=false){
+			cout<<"Entre en "<<v[i].get_patente()<<endl;
+			for(int j=i;j<totalveh;j++){
+				v[j]=v[j+1];
+			}
+			totalveh--;
+		}
+	}
+	cout<<"voy a mostrar los vehiculos despues"<<endl;
+		for(int i=0;i<totalveh;i++){
+			cout<<v[i].get_patente()<<endl;
+		}
 	
-
+	
+}
+	
+	
 	
 }
 	
