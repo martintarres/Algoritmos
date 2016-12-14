@@ -428,18 +428,18 @@ int n =3;
 	bool terminadomio=false;
 	int soy=0;
 	for(int i=0;i<totalveh;i++){
-		if(v[i].get_patente()==999){
+		if(v[i].get_patente()==0){
 			mio=v[i];
 		}
 	}
 	
-/*	cout<<"Soy vehiculo mio"<<endl;
+	cout<<"Soy vehiculo mio"<<endl;
 	cout<<*mio.get_origen()<<endl;
 	cout<<*mio.get_final()<<endl;
 	cout<<mio.get_patente()<<endl;
 	cout<<mio.get_prioridad();
-	*/
-//	while(terminadomio!=true){
+	
+	while(terminadomio!=true){
 		
 		
 	
@@ -466,8 +466,10 @@ int n =3;
 		Semaforo*  auxsem;
 		cout<<"Antes de mover el vehiculo"<<endl;
 		hsemaforo1.print();
+		
 		aux=arcos[a].mover();
-		auxsem=&arcos[v[aux->get_patente()].get_camino(0)];
+		cout<<"Soy vehiculo " <<aux->get_patente()<<endl;
+		auxsem=&arcos[aux->get_camino(0)];
 		cout<<"Soy a donde voy a insertar "<<auxsem->get_numero()<<endl;
 		if(aux->getPase()==false){
 			
@@ -488,14 +490,23 @@ int n =3;
 //	cout<<"Voy a mostrar semaforo antes"<<endl;
 //	arcos[v[aux->get_patente()].get_camino(0)].print();
 	
-	arcos[v[aux->get_patente()].get_camino(0)].insertar(aux);
+	auxsem->insertar(aux);
 	aux->set_origen(auxsem->get_source());
 	cout<<"Despues de mover el vehiculo"<<endl;
 	hsemaforo1.print();
 //	cout<<"y despues "<<endl;
 //	arcos[v[aux->get_patente()].get_camino(0)].print();
-	cout<<"soy semaforo "<<v[aux->get_patente()].get_camino(0)<< " y me acaban de insertar el vehiculo " << aux->get_patente()<< " y quede "<<endl;
+	cout<<"soy semaforo "<<auxsem->get_numero()<< " y me acaban de insertar el vehiculo " << aux->get_patente()<< " y quede "<<endl;
 	aux->avanzarcamino();
+	
+	if(aux->get_patente()==0 && aux->get_camino(0)==0){
+		terminadomio=true;
+		cout<<"terminadomio es true"<<endl;
+		getchar();
+	}
+
+	
+	
 	//	for (int i=0; i<totalveh;i++){
 	cout<<"Soy camino desde main para auto "<<aux->get_patente()<<endl;
 		for(int j=0; j< aux->tamcamino();j++){
@@ -518,13 +529,14 @@ int n =3;
 	
 	/*EN ESTA PARTE ES LO QUE TE DIGO */ 
 	
+		
 	
-	
-		arcos[numnodos-1].insertar(aux1);
+		arcos[numnodos-1].insertarlistos(aux1);
 		aux1->set_origen(arcos[numnodos-1].get_source());
 		cout<<"Voy a mostrar despues de eliminar que llegue a mi destino"<<endl;
 		hsemaforo1.print();
 		
+	
 
 	}
 	}else {
@@ -552,6 +564,7 @@ int n =3;
 			}
 			}
 
+	
 
 	cout<<"Ya termine, ahora voy a actualizar: "<<endl;
 	hsemaforo.borrar();
@@ -574,6 +587,8 @@ int n =3;
 		cout<<endl;
 	}
 	
+	
+	
 /*	cout<<"voy a mostrar los vehiculos antes"<<endl;
 		for(int i=0;i<totalveh;i++){
 			cout<<v[i].get_patente()<<endl;
@@ -594,7 +609,7 @@ int n =3;
 		}
 	*/
 	
-//es del while de terminado				}
+			}
 	
 
 	

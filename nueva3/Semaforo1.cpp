@@ -13,7 +13,7 @@
 //#include <stdlib.h> 
 //#include <fstream> 
 #define maximo 20
-
+#define maximo1 1000
 using namespace std;
 
 //const int cant=20;
@@ -58,6 +58,7 @@ public:
 	bool esMano();
 	bool ponerVerde(); //pone en verde. A su vez da un booleano que ayuda a saber su estado;
 	void insertar(Vehiculos* v );
+	void insertarlistos(Vehiculos* v );
 	Vehiculos eliminaVehiculos();
 	heapVehiculos getHeap();
 	void setFuiVisitado();
@@ -279,7 +280,22 @@ setCantDeVehiculos(cantVehiculos);
 //	print();
 }
 
+void Semaforo::insertarlistos(Vehiculos* v){
+		if(cantVehiculos<maximo1){
+		
+	vectorautos[cantVehiculos]=v;
 
+	cantVehiculos=cantVehiculos+1;
+setCantDeVehiculos(cantVehiculos);
+//set_weight(&getCantDeVehiculos());
+
+	}else {
+		cout<<"Semaforo lleno"<<endl;
+	}
+	
+	heapSort( vectorautos, cantVehiculos);
+	
+}
 
 int Semaforo::eliminaVehiculos1(){
 
