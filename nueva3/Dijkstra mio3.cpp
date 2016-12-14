@@ -176,7 +176,7 @@ Semaforo arcos[numnodos];
 	
 	arcos[cont].set_source(&arreglo[j]);
 	arcos[cont].set_dest(&arreglo[j+1]);
-	arcos[cont].set_weight(&arreglo[j+2]);
+	arcos[cont].set_weight(arreglo[j+2]);
 	arcos[cont].set_numero(cont);
 	cont++;
 	j=j+2;
@@ -414,7 +414,7 @@ di djk;
 	
 	for(int i=0; i<numnodos;i++){
 
-		hsemaforo1.insert((arcos[i].get_weight()));
+		hsemaforo1.insert((&arcos[i].get_weight()));
 	}
 	getchar();
 	hsemaforo1.print();
@@ -433,18 +433,19 @@ int n =3;
 		}
 	}
 	
-	cout<<"Soy vehiculo mio"<<endl;
+/*	cout<<"Soy vehiculo mio"<<endl;
 	cout<<*mio.get_origen()<<endl;
 	cout<<*mio.get_final()<<endl;
 	cout<<mio.get_patente()<<endl;
 	cout<<mio.get_prioridad();
-	
-	while(terminadomio!=true){
+	*/
+//	while(terminadomio!=true){
 		
 		
 	
 	
 	while(prin != tamano){
+	
 	
 //	for(int j=0;j<1;j++){
 		
@@ -454,14 +455,17 @@ int n =3;
 		
 		int a;
 		a=hsemaforo.getArco(prin);
+		
+		if(*arcos[a].get_source()!= 999){
+		
 		cout<<"Soy semaforo a sacar "<< a<<endl;
-		if(*arcos[a].get_weight() > 0){
+		if(arcos[a].get_weight() > 0){
 			
 			
 		Vehiculos* aux;
 		Semaforo*  auxsem;
 		cout<<"Antes de mover el vehiculo"<<endl;
-		hsemaforo.print();
+		hsemaforo1.print();
 		aux=arcos[a].mover();
 		auxsem=&arcos[v[aux->get_patente()].get_camino(0)];
 		cout<<"Soy a donde voy a insertar "<<auxsem->get_numero()<<endl;
@@ -487,7 +491,7 @@ int n =3;
 	arcos[v[aux->get_patente()].get_camino(0)].insertar(aux);
 	aux->set_origen(auxsem->get_source());
 	cout<<"Despues de mover el vehiculo"<<endl;
-	hsemaforo.print();
+	hsemaforo1.print();
 //	cout<<"y despues "<<endl;
 //	arcos[v[aux->get_patente()].get_camino(0)].print();
 	cout<<"soy semaforo "<<v[aux->get_patente()].get_camino(0)<< " y me acaban de insertar el vehiculo " << aux->get_patente()<< " y quede "<<endl;
@@ -506,7 +510,7 @@ int n =3;
 		cout<<aux->get_patente()<< " llegue a mi destino"<<endl;
 		Vehiculos* aux1;
 			cout<<"Voy a mostrar antes de eliminar que llegue a mi destino"<<endl;
-		hsemaforo.print();
+		hsemaforo1.print();
 		aux1=auxsem->elminarVehiculos(aux);
 		//cout<<"Soy patente devuelta "<<aux1->get_patente()<<endl;
 	
@@ -519,30 +523,23 @@ int n =3;
 		arcos[numnodos-1].insertar(aux1);
 		aux1->set_origen(arcos[numnodos-1].get_source());
 		cout<<"Voy a mostrar despues de eliminar que llegue a mi destino"<<endl;
-		hsemaforo.print();
+		hsemaforo1.print();
 		
-		/*cout<<"Voy a mostrar antes de eliminar que llegue a mi destino"<<endl;
-		hsemaforo.print();
-		
-
-		auxsem->elminarVehiculos(aux);
-		cout<<"Voy a mostrar despues de eliminar que llegue a mi destino"<<endl;
-		hsemaforo.print();
-		
-		*/
 
 	}
 	}else {
 		cout<<aux->get_patente()<<" ya paso"<<endl;
 		arcos[a].insertar(aux);
+			}
+		}
 	}
-}
 	prin++;
 	getchar();
 	//}
 
-}
-prin=0;
+	}
+
+	prin=0;
 
 
 	for(int i=0;i<totalveh;i++){
@@ -557,8 +554,19 @@ prin=0;
 
 
 	cout<<"Ya termine, ahora voy a actualizar: "<<endl;
-	hsemaforo.actualizar();
+	hsemaforo.borrar();
+	for(int i=0; i<numnodos;i++){
+
+		hsemaforo.insert((arcos[i]));
+	}
 	hsemaforo.print();
+	
+	
+	for(int i=0; i< numlistas ;i++){
+		l[i].mostrar();
+		cout<<endl;
+	}
+	
 	
 	getchar ();
 	for(int i=0; i< numlistas ;i++){
@@ -566,7 +574,7 @@ prin=0;
 		cout<<endl;
 	}
 	
-	cout<<"voy a mostrar los vehiculos antes"<<endl;
+/*	cout<<"voy a mostrar los vehiculos antes"<<endl;
 		for(int i=0;i<totalveh;i++){
 			cout<<v[i].get_patente()<<endl;
 		}
@@ -584,15 +592,10 @@ prin=0;
 		for(int i=0;i<totalveh;i++){
 			cout<<v[i].get_patente()<<endl;
 		}
+	*/
 	
-	
-}
-	
-	
-	
-}
-	
-	
+//es del while de terminado				}
 	
 
 	
+}

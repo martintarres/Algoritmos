@@ -12,7 +12,7 @@
 //#include <string.h> 
 //#include <stdlib.h> 
 //#include <fstream> 
-
+#define maximo 20
 
 using namespace std;
 
@@ -22,7 +22,7 @@ private:
 	int cantVehiculos;
 	int* dest;
 	int* source;
-	int* weight;
+	int weight;
 	int numero;
 	bool verde;
 	bool mano;  // si se puede avanzar en esa direccion, es mano = true;
@@ -34,7 +34,7 @@ private:
 	
 
 public: 
-	Semaforo(int* source , int* dest , int* weight, int numero){
+	Semaforo(int* source , int* dest , int weight, int numero){
 		cantVehiculos=1;
 	//	 h;
 		fueVisitado=false;
@@ -74,13 +74,13 @@ public:
 	
 		int* get_dest();
 		int* get_source();
-		int* get_weight();
+		int& get_weight();
 		void get_print();
 		int get_numero();
 	
 		void set_dest(int*);
 		void set_source(int*);
-		void set_weight(int*);
+		void set_weight(int);
 		void set_numero(int);
 //	void yoMismo() { return this }
 	
@@ -163,7 +163,7 @@ for(int i=0;i<cantVehiculos; i++){
 	
 }
 cantVehiculos=cantVehiculos-1;
-set_weight(&cantVehiculos);
+set_weight(cantVehiculos);
 
 	return ve;
 
@@ -191,7 +191,7 @@ Vehiculos* Semaforo::elminarVehiculos(Vehiculos *aux){
 	
 	}
 	cantVehiculos=cantVehiculos-1;
-	set_weight(&cantVehiculos);
+	set_weight(cantVehiculos);
 		}
 		
 		
@@ -253,18 +253,21 @@ bool Semaforo::esMano()
 
 void Semaforo::setCantDeVehiculos(int cant){
 	cantVehiculos=cant;
+	set_weight(cantVehiculos);
 	
 }
-//cantVehiculos= 0;
+
+
 void Semaforo::insertar(Vehiculos* v){
 
-	if(cantVehiculos<cant){
+	if(cantVehiculos<maximo){
 		
 	vectorautos[cantVehiculos]=v;
 
 	cantVehiculos=cantVehiculos+1;
-	
-set_weight(&getCantDeVehiculos());
+setCantDeVehiculos(cantVehiculos);
+//set_weight(&getCantDeVehiculos());
+
 	}else {
 		cout<<"Semaforo lleno"<<endl;
 	}
@@ -272,17 +275,11 @@ set_weight(&getCantDeVehiculos());
 	heapSort( vectorautos, cantVehiculos);
 		
 	
-//	h.insert(v);
+	//cout<<"Desde la propia case "<<endl;
+//	print();
 }
 
-Vehiculos Semaforo::eliminaVehiculos(){
-/*	Vehiculos dev;
-	dev=h.eliminar();
-	cantVehiculos--;
-	set_weight(cantVehiculos);
-	return dev;*/
-	
-}
+
 
 int Semaforo::eliminaVehiculos1(){
 
@@ -331,7 +328,7 @@ void Semaforo::setYaPase(){
 		source=a;
 	}
 	
-	void Semaforo::set_weight(int* a){
+	void Semaforo::set_weight(int a){
 		weight=a;
 	}
 	
@@ -346,7 +343,7 @@ void Semaforo::setYaPase(){
 		return source;
 	}
 	
-	int* Semaforo::get_weight(){
+	int& Semaforo::get_weight(){
 		return weight;
 	
 	}

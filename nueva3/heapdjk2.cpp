@@ -12,7 +12,7 @@ using namespace std;
 class heapdjk  {
 public:
     heapdjk();
-    void insert(Semaforo );
+    void insert(Semaforo);
 	  void print();
    int lugaresDisponibles();
     int size();
@@ -26,7 +26,7 @@ public:
  int tamano();
  int getArco(int);
  void actualizar();
-
+void borrar();
 
 private:
    
@@ -66,6 +66,7 @@ heapdjk::heapdjk(){
 int heapdjk::getArco(int a){
 	return vect[a].get_numero();
 }
+
 int heapdjk::lugaresDisponibles(){
 	int contador=cantt;
 	for(int i=0; i<cantt;i++){
@@ -129,18 +130,20 @@ void heapdjk::insert(Semaforo da) {
 //	cout<<*vect[semaforosadentro-1]->get_weight()<<endl;
 	heapSort( vect, semaforosadentro);
 
-/*	if(semaforosadentro==9){
-		for(int i=0;i<semaforosadentro;i++){
-			cout<<*pesos[i]<<endl;
-		}
-	}
 
-*/
-//}
 }
 
 void heapdjk::actualizar(){
+	
 	heapSort( vect, semaforosadentro);
+}
+
+void heapdjk::borrar(){
+	for(int i=0;i<size();i++){
+		vect[i]=vect[i+1];
+		semaforosadentro--;
+	}
+	semaforosadentro=0;
 }
 void heapdjk::heapSort(Semaforo arr[], int n)
 {
@@ -166,11 +169,11 @@ void heapdjk::heapify(Semaforo arr[], int n, int i)
     int r = 2*i + 2;  // right = 2*i + 2
  
     // If left child is larger than root
-    if (l < n && *arr[l].get_weight() < *arr[largest].get_weight())
+    if (l < n && arr[l].get_weight() < arr[largest].get_weight())
         largest = l;
  
     // If right child is larger than largest so far
-    if (r < n && *arr[r].get_weight() < *arr[largest].get_weight())
+    if (r < n && arr[r].get_weight() < arr[largest].get_weight())
         largest = r;
  
     // If largest is not root
@@ -187,7 +190,7 @@ void heapdjk::heapify(Semaforo arr[], int n, int i)
 void heapdjk::print(){
 	for(int i=0;i<semaforosadentro;i++)	{
 	//	cout<< "iteracion "<<i<<endl;
-	cout<<*vect[i].get_source()<<" "<<*vect[i].get_dest()<<" "<< *vect[i].get_weight()<<" "<<vect[i].get_numero()<<endl;
+	cout<<*vect[i].get_source()<<" "<<*vect[i].get_dest()<<" "<< vect[i].get_weight()<<" "<<vect[i].get_numero()<<endl;
 	//cout<<vector[i].get_origen()<<endl;
 //	cout<<vect[i]->get_numero()<< endl;
 //	cout<<vector[i].get_prioridad()<<endl;
@@ -201,7 +204,7 @@ void heapdjk::eliminar(int a)
 {
 	/*Este eliminar creo lo voy a tener que ir haciendo por cada semaforo*/
 	
-	*vect[a].get_weight()=*vect[a].get_weight()-1;
+//	&vect[a].get_weight()=vect[a].get_weight()-1;
 /*	int pesonuevo=0;
 	pesonuevo=*vect[a]->get_weight();
 	cout<<pesonuevo<<endl;	

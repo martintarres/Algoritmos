@@ -98,7 +98,7 @@ void heapSemaforos::insert(int* da) {
 	vector[semaforosadentro]= da;
 
 	semaforosadentro++;
-
+	//peso=&semaforosadentro;
 
 	}	else {
 	cout<<"Cola llena"<< endl;
