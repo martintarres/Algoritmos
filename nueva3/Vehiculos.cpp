@@ -53,12 +53,14 @@ class Vehiculos{
 		int get_camino(int);
 		int avanzar();
 		void set_camino(int);
+		void set_camino1(int, int);
 		int tamcamino();
 		void avanzarcamino();
 		void activarPase();
 		void desactivarPase();
 		bool getPase();
 		bool getTermine();
+		void borrarcamino();
 };
 
 bool Vehiculos::getPase(){
@@ -97,6 +99,20 @@ void Vehiculos::set_camino(int a){
 	contadorcamino++;
 }
 
+void Vehiculos::set_camino1(int a, int b){
+	contadorcamino=b;
+	camino[contadorcamino]=a;
+	contadorcamino++;
+}
+
+void Vehiculos::borrarcamino(){
+	
+	for(int i=0;i<contadorcamino;i++){
+		camino[i]=camino[i+1];
+		contadorcamino--;
+	}
+	contadorcamino=0;
+}
 void Vehiculos::set_origen(int* orig){
 	origen=orig;
 //this->origen=origen;
