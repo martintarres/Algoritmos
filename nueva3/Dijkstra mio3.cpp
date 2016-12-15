@@ -135,14 +135,14 @@ int* di::print(int destino,Vehiculos* v, int source){
 
 int main(){
 
-
+const int N = 3;
 int numeroo, arregloo[130], gg;
 int h=0;
 int k = 0;
 int g=0,arreglo[150],numero; 
 int numnodos=0;
 
-ifstream archivo("ficheroTexto3.txt"); 
+ifstream archivo("ficheroTexto.txt"); 
 if(archivo.good()){ 
 while(archivo>>numero) 
 
@@ -349,7 +349,7 @@ di djk;
 	for (int i=0; i<totalveh;i++){
 		
 		int num_aleat =0;
-		num_aleat = 2+rand()%(9-2);
+		num_aleat = 2+rand()%(10-2);
 		int a,b;
 		//a=1;
 	//	b=3;veh
@@ -382,6 +382,8 @@ di djk;
 		djk.dijkstra(l, &arcos[sourceactual], arcos[destactual].get_source() ,&v[i]);
 		
 		cout<<"Soy camino desde main para auto "<<v[i].get_patente()<<endl;
+		cout << "mi origen y destino actual son: " << *v[i].get_origen() << " " << *v[i].get_final();
+		cout << "camino: " << endl;
 		for(int j=0; j< v[i].tamcamino();j++){
 			cout<<v[i].get_camino(j)<<" ";
 		//	cout<<endl;
@@ -421,6 +423,7 @@ di djk;
 	cout<<endl<<endl;
 /*--------------------------------------------------------*/
 int n =3;
+int m =0; //m es reemplazo de N cuando N es mayor que la cantidad de autos a sacar;
 	int prin=0;
 	int tamano=0;
 	tamano=hsemaforo.tamano();
@@ -460,8 +463,12 @@ int n =3;
 		
 		cout<<"Soy semaforo a sacar "<< a<<endl;
 		if(arcos[a].get_weight() > 0){
-			
-			
+			//////////////////////
+			if (arcos[a].get_weight() < N){
+				m = arcos[a].get_weight();
+			}else m =N;
+				for (int k=0; k<m; k++){ 		//comienza sacado.
+		cout << "nueva eliminación ///////////////////////////////////////////" << endl;
 		Vehiculos* aux;
 		Semaforo*  auxsem;
 		cout<<"Antes de mover el vehiculo"<<endl;
@@ -517,7 +524,7 @@ int n =3;
 //	hsemaforo.print();
 	
 	if(aux->getTermine()!= false){
-		getchar();
+	//	getchar();
 		cout<<aux->get_patente()<< " llegue a mi destino"<<endl;
 		Vehiculos* aux1;
 			cout<<"Voy a mostrar antes de eliminar que llegue a mi destino"<<endl;
@@ -543,7 +550,10 @@ int n =3;
 		cout<<aux->get_patente()<<" ya paso"<<endl;
 		arcos[a].insertar(aux);
 			}
+	
 		}
+	
+	}
 	}
 	prin++;
 	getchar();
