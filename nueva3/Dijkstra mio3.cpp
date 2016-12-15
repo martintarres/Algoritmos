@@ -1,5 +1,8 @@
 #include <iostream>
 #include <fstream>
+#include<stdlib.h>
+#include<time.h>
+
 //#include "prueba3.cpp"
 #include "heapdjk2.cpp"
 using namespace std;
@@ -124,14 +127,14 @@ int* di::print(int destino,Vehiculos* v, int source){
 
 int main(){
 
-
+const int N = 3; // constante que determina cuántos autos se van a sacar.
 int numeroo, arregloo[130], gg;
 int h=0;
 int k = 0;
 int g=0,arreglo[150],numero; 
 int numnodos=0;
 
-ifstream archivo("ficheroTexto3.txt"); 
+ifstream archivo("ficheroTexto.txt"); 
 if(archivo.good()){ 
 while(archivo>>numero) 
 
@@ -204,11 +207,11 @@ Semaforo arcos[numnodos];
 			}	
 		}
 	
-	numlistas=64;
+	numlistas=140;
 	getchar();
 	cout<<"Tengo "<< numlistas<< " listas" << endl;
 	
-	numlistas=10;
+	numlistas=64;
 	Lista l[numlistas];
 
 	/* Me arma la lista enlazada */ 
@@ -315,13 +318,13 @@ getchar();
 /*--------------------------------------------------------*/
 
 di djk;
-
+srand(time(NULL));
 	/*ACA LE DOY A CADA VEHICULO UN NUEVO DESTINO PARA ALEATORIO*/
 
 	for (int i=0; i<totalveh;i++){
-		
+	
 		int num_aleat =0;
-		num_aleat = 2+rand()%(9-2);
+		num_aleat = 2+rand()%(65-2);
 		int a,b;
 	
 		v[i].set_final(&num_aleat);
@@ -345,7 +348,7 @@ di djk;
 			}
 		}
 		
-		cout<<"Vehiculo "<<i<< " origen "<< arcos[sourceactual].get_numero() << " y destino "<< arcos[destactual].get_numero() <<endl;
+		cout<<"Vehiculo "<<i<< " origen "<< *v[i].get_origen() << " y destino "<< *v[i].get_final() <<endl;
 		
 		/*LLAMO A DIJKSTRA */
 		
@@ -353,11 +356,12 @@ di djk;
 	
 		/* MUESTRO EL CAMINO DE CADA VEHICULO */
 		
-		cout<<"Soy camino desde main para auto "<<v[i].get_patente()<<endl;
+		cout<<"Camino para auto "<<v[i].get_patente()<<endl;
 		for(int j=0; j< v[i].tamcamino();j++){
 			cout<<v[i].get_camino(j)<<" ";
 	
 		}
+		cout<<endl;
 		cout<<endl;
 
 	}
@@ -376,6 +380,7 @@ di djk;
 	}
 	
 	getchar();
+	cout << "muestro hsemaforo: " << endl;
 	hsemaforo.print();
 	cout<<endl<<endl;
 
@@ -397,7 +402,7 @@ di djk;
 
 	/*ESTA VENDRIA A SER LA PARTE DE LA SIMULACION QUE CORRE POR SI SOLA */
 
-
+	int m =0; //m es reemplazo de N cuando N es mayor que la cantidad de autos a sacar;
 	int n =3;
 	int prin=0;
 	int tamano=0;
@@ -426,6 +431,11 @@ di djk;
 		
 		cout<<"Soy semaforo a sacar "<< a<<endl;
 		if(arcos[a].get_weight() > 0){
+			if (arcos[a].get_weight() < N){
+				m = arcos[a].get_weight();
+			}else m =N;
+				for (int k=0; k<m; k++){ 		//comienza sacado.
+		cout << "nueva eliminación ///////////////////////////////////////////" << endl;
 			
 		
 		aux=arcos[a].mover();
@@ -505,7 +515,7 @@ di djk;
 			}
 		
 		}
-		
+	}
 		
 	}
 	prin++;
