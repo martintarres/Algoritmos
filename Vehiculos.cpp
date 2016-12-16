@@ -1,4 +1,5 @@
-
+#include <iostream>
+using namespace std;
 
 class Vehiculos{
 	private:
@@ -7,7 +8,7 @@ class Vehiculos{
 		int prioridad;
 		int patente;
 		int contador;
-		int camino[30];
+		int camino[100];
 		int contadorcamino;
 		bool pase;
 		bool ter;
@@ -22,7 +23,7 @@ class Vehiculos{
 		pase =false;
 		ter=false;
 		contador = 0;
-			for (int i = 0; i<30; i++){
+			for (int i = 0; i<100; i++){
 				camino[i] = 0;
 			}
 		}
@@ -64,6 +65,7 @@ bool Vehiculos::getTermine(){
 	return ter;
 }
 void Vehiculos::avanzarcamino(){
+	
 	for(int i=0;i<contadorcamino;i++){
 		camino[i]=camino[i+1];
 		if(i==contadorcamino-1){
@@ -74,7 +76,7 @@ void Vehiculos::avanzarcamino(){
 			ter=true;
 		}
 	}
-	
+	contadorcamino--;
 }
 int Vehiculos::tamcamino(){
 	return contadorcamino;

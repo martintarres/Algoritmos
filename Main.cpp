@@ -456,8 +456,17 @@ int y=0;
 		cout << "---------------------nueva eliminacion------------------------" << endl;
 			
 		
-		aux=arcos[a].mover();     ///////////////////////////////////////////////////////////////////////////////////////////////ver/////
-		auxsem=&arcos[aux->get_camino(0)];  //elijo el semaforo donde voy a insertar
+		aux=arcos[a].mover();     
+	
+	/*ESTO LO HAGO PARA CONTROLAR EL CAMINO DE MI AUTO */
+	
+		if(aux->get_patente()==0){
+			cout<<endl;
+		}
+		
+	////////////////////////////////	
+		
+		auxsem=&arcos[aux->get_camino(1)];  //elijo el semaforo donde voy a insertar
 		cout<<"Semaforo destino del vehiculo actual "<<auxsem->get_numero()<<endl;
 		if (auxsem->get_weight()<maxautos){
 			
@@ -480,6 +489,7 @@ int y=0;
 	aux->set_origen(auxsem->get_source());
 
 
+
 	cout<<"Semaforo "<<auxsem->get_numero()<< " al que se le acaba insertar el vehiculo " << aux->get_patente()<<endl;
 	cout<<endl;
 	aux->avanzarcamino();
@@ -490,7 +500,7 @@ int y=0;
 	if(aux->get_patente()==0 && aux->get_camino(0)==0){
 		terminadomio=true;
 
-		getchar();
+	//	getchar();
 	}
 
 	cout<<endl;
@@ -511,7 +521,7 @@ int y=0;
 	
 	
 	if(aux->getTermine()!= false){
-		getchar();
+	//	getchar();
 	
 		Vehiculos* aux1;
 
@@ -543,7 +553,7 @@ int y=0;
 		cout<<endl;
 	}
 	cout << endl;
-	getchar();
+//	getchar();
 	
 	}
 	
@@ -557,11 +567,17 @@ int y=0;
 				if(v[i].get_patente()==0){
 				
 				/*AVERIGUO EL NUEVO ORIGEN DE MI VEHICULO, SE SUPONE QUE EL DESTINO DEBERIA SER EL MISMO */
-					sourceactual=v[i].get_camino(0);
-					destactual=*v[i].get_final();
+					sourceactual=*v[i].get_origen();
+					destactual=v[i].get_camino(v[i].tamcamino()-1);
 				
 					iteracion=-1;
 					getchar();
+					
+					if(sourceactual==destactual){
+						cout<<"Termine la simulacion"<<endl;
+						getchar();
+						break;
+					}
 				}
 				
 			}
@@ -630,7 +646,7 @@ int y=0;
 	/* ACA LO MUESTRO */
 	
 	
-	getchar ();
+//	getchar ();
 	cout << "--------------Actualizado-------------" <<endl;
 	cout << "Semaforos:" << endl;
 	cout << "(Origen, Destino, Peso, Numero)" << endl;
@@ -646,11 +662,14 @@ int y=0;
 	iteracion++;
 	cout << endl;
 	cout << endl;
+	
+	/*PARA VER EL ESTADO DE MI AUTO */
+	
 	cout<<"---Camino para auto propio... "<<v[0].get_patente()<<endl;
 		for(int j=0; j< v[0].tamcamino();j++){
 			cout<<v[0].get_camino(j)<<" ";
 		}
-			
+	/////////////////////////////////////////		
 		 	
 		 
 			y++;
