@@ -128,10 +128,10 @@ int* di::print(int destino,Vehiculos* v, int source){
 int main(){
 
 const int N = 3; // constante que determina cuántos autos se van a sacar.
-int numeroo, arregloo[130], gg;
+int numeroo, arregloo[500], gg;
 int h=0;
 int k = 0;
-int g=0,arreglo[150],numero; 
+int g=0,arreglo[500],numero; 
 int numnodos=0;
 
 ifstream archivo("ficheroTexto.txt"); 
@@ -207,7 +207,7 @@ Semaforo arcos[numnodos];
 			}	
 		}
 	
-	numlistas=140;
+	numlistas=64;
 	getchar();
 	cout<<"Tengo "<< numlistas<< " listas" << endl;
 	
@@ -385,7 +385,7 @@ srand(time(NULL));
 	cout<<endl<<endl;
 
 	for(int i=0; i< numlistas ;i++){
-		l[i].mostrar();
+		l[i].mostrar();							//mostrador de listas.
 		cout<<endl;
 	}
 	
@@ -404,6 +404,7 @@ srand(time(NULL));
 
 	int m =0; //m es reemplazo de N cuando N es mayor que la cantidad de autos a sacar;
 	int n =3;
+	int maxautos=20; //Valor maximo de autos por semáforo.
 	int prin=0;
 	int tamano=0;
 	tamano=hsemaforo.tamano();
@@ -425,7 +426,7 @@ srand(time(NULL));
 	
 		
 		int a;
-		a=hsemaforo.getArco(prin);
+		a=hsemaforo.getArco(prin);  //numero de semaforo;
 		
 		if(*arcos[a].get_source()!= 999){
 		
@@ -438,10 +439,11 @@ srand(time(NULL));
 		cout << "nueva eliminación ///////////////////////////////////////////" << endl;
 			
 		
-		aux=arcos[a].mover();
-		auxsem=&arcos[aux->get_camino(0)];
-		cout<<"Soy a donde voy a insertar "<<auxsem->get_numero()<<endl;
-		
+		aux=arcos[a].mover();     ///////////////////////////////////////////////////////////////////////////////////////////////ver/////
+		auxsem=&arcos[aux->get_camino(0)];  //elijo el semaforo donde voy a insertar
+		cout<<"Soy semaforo a donde voy a insertar "<<auxsem->get_numero()<<endl;
+		if (auxsem->get_weight()<maxautos){
+			
 		/*ESTO LO HAGO PARA QUE CADA AUTO PASE UNA SOLA VEZ POR CADA ITERACION */
 		
 		
@@ -457,7 +459,7 @@ srand(time(NULL));
 			}
 		aux->activarPase();
 	
-	auxsem->insertar(aux);
+	auxsem->insertar(aux); //
 	aux->set_origen(auxsem->get_source());
 
 
@@ -473,7 +475,7 @@ srand(time(NULL));
 
 		getchar();
 	}
-
+	cout << "muestro lista actualmente: " <<endl;
 	for(int i=0; i< numlistas ;i++){
 		l[i].mostrar();
 		cout<<endl;
@@ -489,7 +491,6 @@ srand(time(NULL));
 	cout<<"Soy camino desde main para auto "<<aux->get_patente()<<endl;
 		for(int j=0; j< aux->tamcamino();j++){
 			cout<<aux->get_camino(j)<<" ";
-
 		}
 		cout<<endl;
 
@@ -514,7 +515,10 @@ srand(time(NULL));
 		arcos[a].insertar(aux);
 			}
 		
-		}
+		} else{ k =m;// 
+		cout << "EL SEMAFORO ESTABA LLENO... CAMBIO" << endl;
+	}
+	}
 	}
 		
 	}
