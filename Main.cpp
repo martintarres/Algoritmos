@@ -126,10 +126,10 @@ int* di::print(int destino,Vehiculos* v, int source){
 int main(){
 
 const int N = 12; // constante que determina cuántos autos se van a sacar.
-int numeroo, arregloo[500], gg;
+int numeroo, arregloo[1000], gg;
 int h=0;
 int k = 0;
-int g=0,arreglo[500],numero; 
+int g=0,arreglo[1000],numero; 
 int numnodos=0;
 int semaforoActual[50];
 int z =0;
@@ -500,7 +500,7 @@ int y=0;
 	if(aux->get_patente()==0 && aux->get_camino(0)==0){
 		terminadomio=true;
 
-	//	getchar();
+		getchar();
 	}
 
 	cout<<endl;
@@ -521,7 +521,7 @@ int y=0;
 	
 	
 	if(aux->getTermine()!= false){
-	//	getchar();
+	getchar();
 	
 		Vehiculos* aux1;
 
@@ -553,7 +553,7 @@ int y=0;
 		cout<<endl;
 	}
 	cout << endl;
-//	getchar();
+	getchar();
 	
 	}
 	
@@ -646,7 +646,7 @@ int y=0;
 	/* ACA LO MUESTRO */
 	
 	
-//	getchar ();
+	getchar ();
 	cout << "--------------Actualizado-------------" <<endl;
 	cout << "Semaforos:" << endl;
 	cout << "(Origen, Destino, Peso, Numero)" << endl;

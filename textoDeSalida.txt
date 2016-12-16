@@ -1,541 +1,1035 @@
 -------------------------------------------------
 Vehiculo 0 origen 1 y destino 16
 Se guardó en semaforo 0
-1 2 10 18 26 27 28 36 44 45 46 47 48 40 32 24 16 
+1 2 10 18 17 25 33 41 42 43 35 27 28 29 30 31 32 24 16 
 
 -------------------------------------------------
-Vehiculo 1 origen 2 y destino 21
+Vehiculo 1 origen 2 y destino 3
 Se guardó en semaforo 3
-2 10 18 26 27 28 36 44 45 46 47 48 40 32 24 23 22 21 
+2 3 
 
 -------------------------------------------------
-Vehiculo 2 origen 5 y destino 20
+Vehiculo 2 origen 5 y destino 11
 Se guardó en semaforo 11
-5 6 7 8 16 24 23 22 21 20 
+5 6 7 8 16 24 23 22 21 20 19 11 
 
 -------------------------------------------------
-Vehiculo 3 origen 5 y destino 5
+Vehiculo 3 origen 5 y destino 24
 Se guardó en semaforo 11
-5 
+5 6 7 8 16 24 
 
 -------------------------------------------------
-Vehiculo 4 origen 1 y destino 16
+Vehiculo 4 origen 1 y destino 39
 Se guardó en semaforo 0
-1 2 10 18 26 27 28 36 44 45 46 47 48 40 32 24 16 
+1 2 10 18 17 25 33 41 42 43 35 27 28 29 30 31 32 40 39 
 
 -------------------------------------------------
-Vehiculo 5 origen 1 y destino 28
+Vehiculo 5 origen 1 y destino 4
 Se guardó en semaforo 1
-1 2 10 18 26 27 28 
+1 2 3 4 
 
 -------------------------------------------------
-Vehiculo 6 origen 1 y destino 34
-Se guardó en semaforo 1
-1 2 10 18 26 34 
-
--------------------------------------------------
-Vehiculo 7 origen 1 y destino 19
-Se guardó en semaforo 1
-1 2 10 18 26 27 19 
-
--------------------------------------------------
-Vehiculo 8 origen 1 y destino 33
-Se guardó en semaforo 1
-1 2 10 18 26 34 33 
-
--------------------------------------------------
-Vehiculo 9 origen 1 y destino 45
-Se guardó en semaforo 0
-1 2 10 18 26 27 28 36 44 45 
-
--------------------------------------------------
-Vehiculo 10 origen 1 y destino 19
-Se guardó en semaforo 1
-1 2 10 18 26 27 19 
-
--------------------------------------------------
-Vehiculo 11 origen 1 y destino 49
-Se guardó en semaforo 1
-1 2 10 18 26 34 33 41 49 
-
--------------------------------------------------
-Vehiculo 12 origen 1 y destino 10
-Se guardó en semaforo 1
-1 2 10 
-
--------------------------------------------------
-Vehiculo 13 origen 1 y destino 57
-Se guardó en semaforo 0
-1 2 10 18 26 34 33 41 49 57 
-
--------------------------------------------------
-Vehiculo 14 origen 1 y destino 46
-Se guardó en semaforo 0
-1 2 10 18 26 27 28 36 44 45 46 
-
--------------------------------------------------
-Vehiculo 15 origen 1 y destino 26
-Se guardó en semaforo 0
-1 2 10 18 26 
-
--------------------------------------------------
-Vehiculo 16 origen 1 y destino 30
-Se guardó en semaforo 1
-1 2 10 18 26 27 28 29 30 
-
--------------------------------------------------
-Vehiculo 17 origen 29 y destino 25
-Se guardó en semaforo 63
-29 30 38 37 36 35 34 33 25 
-
--------------------------------------------------
-Vehiculo 18 origen 63 y destino 35
-Se guardó en semaforo 135
-63 55 47 39 38 37 36 35 
-
--------------------------------------------------
-Vehiculo 19 origen 1 y destino 17
-Se guardó en semaforo 0
-1 2 10 18 17 
-
--------------------------------------------------
-Vehiculo 20 origen 5 y destino 23
-Se guardó en semaforo 0
-5 6 7 8 16 24 23 
-
--------------------------------------------------
-Vehiculo 21 origen 6 y destino 53
-Se guardó en semaforo 13
-6 7 8 16 24 32 40 39 38 46 54 53 
-
--------------------------------------------------
-Vehiculo 22 origen 6 y destino 45
-Se guardó en semaforo 13
-6 7 8 16 24 32 40 39 38 37 36 44 45 
-
--------------------------------------------------
-Vehiculo 23 origen 6 y destino 39
-Se guardó en semaforo 13
-6 7 8 16 24 32 40 39 
-
--------------------------------------------------
-Vehiculo 24 origen 10 y destino 41
-Se guardó en semaforo 22
-10 18 26 34 33 41 
-
--------------------------------------------------
-Vehiculo 25 origen 10 y destino 55
-Se guardó en semaforo 22
-10 18 26 27 28 29 30 38 46 54 62 63 55 
-
--------------------------------------------------
-Vehiculo 26 origen 10 y destino 4
-Se guardó en semaforo 22
-10 18 26 27 19 11 3 4 
-
--------------------------------------------------
-Vehiculo 27 origen 18 y destino 16
-Se guardó en semaforo 0
-18 26 27 28 29 30 31 23 15 16 
-
--------------------------------------------------
-Vehiculo 28 origen 18 y destino 14
-Se guardó en semaforo 0
-18 26 27 28 29 30 31 23 22 21 13 14 
-
--------------------------------------------------
-Vehiculo 29 origen 22 y destino 25
-Se guardó en semaforo 46
-22 21 20 19 18 17 25 
-
--------------------------------------------------
-Vehiculo 30 origen 22 y destino 2
-Se guardó en semaforo 46
-22 21 20 19 11 3 2 
-
--------------------------------------------------
-Vehiculo 31 origen 22 y destino 13
-Se guardó en semaforo 46
-22 21 13 
-
--------------------------------------------------
-Vehiculo 32 origen 22 y destino 39
-Se guardó en semaforo 46
-22 21 20 19 18 26 27 28 29 30 31 32 40 39 
-
--------------------------------------------------
-Vehiculo 33 origen 22 y destino 6
-Se guardó en semaforo 46
-22 21 13 5 6 
-
--------------------------------------------------
-Vehiculo 34 origen 22 y destino 20
-Se guardó en semaforo 46
-22 21 20 
-
--------------------------------------------------
-Vehiculo 35 origen 20 y destino 6
-Se guardó en semaforo 42
-20 19 18 17 25 33 41 42 43 44 45 37 29 30 31 23 15 7 6 
-
--------------------------------------------------
-Vehiculo 36 origen 20 y destino 64
-Se guardó en semaforo 42
-20 19 18 17 25 33 41 42 43 44 45 46 47 48 56 64 
-
--------------------------------------------------
-Vehiculo 37 origen 20 y destino 15
-Se guardó en semaforo 42
-20 19 18 17 25 33 41 42 43 44 45 37 29 30 31 23 15 
-
--------------------------------------------------
-Vehiculo 38 origen 20 y destino 38
-Se guardó en semaforo 42
-20 19 18 17 25 33 41 42 43 44 45 37 29 30 38 
-
--------------------------------------------------
-Vehiculo 39 origen 20 y destino 17
-Se guardó en semaforo 42
-20 19 18 17 
-
--------------------------------------------------
-Vehiculo 40 origen 1 y destino 30
-Se guardó en semaforo 0
-1 2 10 18 26 27 28 29 30 
-
--------------------------------------------------
-Vehiculo 41 origen 2 y destino 52
-Se guardó en semaforo 3
-2 10 18 26 27 28 36 44 52 
-
--------------------------------------------------
-Vehiculo 42 origen 5 y destino 64
-Se guardó en semaforo 11
-5 6 7 8 16 24 32 40 48 56 64 
-
--------------------------------------------------
-Vehiculo 43 origen 5 y destino 46
-Se guardó en semaforo 11
-5 6 7 8 16 24 32 40 39 38 46 
-
--------------------------------------------------
-Vehiculo 44 origen 1 y destino 22
-Se guardó en semaforo 0
-1 2 10 18 26 27 28 36 44 45 46 47 48 40 32 24 23 22 
-
--------------------------------------------------
-Vehiculo 45 origen 1 y destino 37
-Se guardó en semaforo 1
-1 2 10 18 26 27 28 36 44 45 37 
-
--------------------------------------------------
-Vehiculo 46 origen 1 y destino 25
+Vehiculo 6 origen 1 y destino 25
 Se guardó en semaforo 1
 1 2 10 18 17 25 
 
 -------------------------------------------------
-Vehiculo 47 origen 1 y destino 40
+Vehiculo 7 origen 1 y destino 48
 Se guardó en semaforo 1
-1 2 10 18 26 27 28 36 44 45 46 47 48 40 
+1 2 10 18 17 25 33 41 42 43 35 27 28 29 30 31 32 40 48 
 
 -------------------------------------------------
-Vehiculo 48 origen 1 y destino 57
+Vehiculo 8 origen 1 y destino 60
 Se guardó en semaforo 1
-1 2 10 18 26 34 33 41 49 57 
+1 2 10 18 17 25 33 41 42 50 58 59 60 
 
 -------------------------------------------------
-Vehiculo 49 origen 1 y destino 36
+Vehiculo 9 origen 1 y destino 56
 Se guardó en semaforo 0
-1 2 10 18 26 27 28 36 
+1 2 10 18 17 25 33 41 42 43 35 27 28 29 30 31 32 40 48 56 
 
 -------------------------------------------------
-Vehiculo 50 origen 1 y destino 34
+Vehiculo 10 origen 1 y destino 25
 Se guardó en semaforo 1
-1 2 10 18 26 34 
+1 2 10 18 17 25 
 
 -------------------------------------------------
-Vehiculo 51 origen 1 y destino 52
+Vehiculo 11 origen 1 y destino 24
 Se guardó en semaforo 1
-1 2 10 18 26 27 28 36 44 52 
+1 2 10 18 17 25 33 41 42 43 35 27 28 29 30 31 32 24 
 
 -------------------------------------------------
-Vehiculo 52 origen 1 y destino 10
+Vehiculo 12 origen 1 y destino 18
 Se guardó en semaforo 1
-1 2 10 
+1 2 10 18 
 
 -------------------------------------------------
-Vehiculo 53 origen 1 y destino 4
+Vehiculo 13 origen 1 y destino 58
 Se guardó en semaforo 0
-1 2 3 4 
+1 2 10 18 17 25 33 41 42 50 58 
 
 -------------------------------------------------
-Vehiculo 54 origen 1 y destino 8
+Vehiculo 14 origen 1 y destino 31
 Se guardó en semaforo 0
-1 2 10 18 26 27 28 36 44 45 46 47 48 40 32 24 16 8 
+1 2 10 18 17 25 33 41 42 43 35 27 28 29 30 31 
 
 -------------------------------------------------
-Vehiculo 55 origen 1 y destino 9
+Vehiculo 15 origen 1 y destino 15
+Se guardó en semaforo 0
+1 2 10 18 17 25 33 41 42 43 35 27 28 29 30 31 23 15 
+
+-------------------------------------------------
+Vehiculo 16 origen 1 y destino 56
+Se guardó en semaforo 1
+1 2 10 18 17 25 33 41 42 43 35 27 28 29 30 31 32 40 48 56 
+
+-------------------------------------------------
+Vehiculo 17 origen 29 y destino 34
+Se guardó en semaforo 63
+29 30 38 37 36 35 34 
+
+-------------------------------------------------
+Vehiculo 18 origen 63 y destino 61
+Se guardó en semaforo 135
+63 62 61 
+
+-------------------------------------------------
+Vehiculo 19 origen 1 y destino 49
+Se guardó en semaforo 0
+1 2 10 18 17 25 33 41 49 
+
+-------------------------------------------------
+Vehiculo 20 origen 5 y destino 15
+Se guardó en semaforo 0
+5 6 7 8 16 24 23 15 
+
+-------------------------------------------------
+Vehiculo 21 origen 6 y destino 11
+Se guardó en semaforo 13
+6 7 8 16 24 23 22 21 20 19 11 
+
+-------------------------------------------------
+Vehiculo 22 origen 6 y destino 30
+Se guardó en semaforo 13
+6 7 8 16 24 32 40 39 38 37 29 30 
+
+-------------------------------------------------
+Vehiculo 23 origen 6 y destino 17
+Se guardó en semaforo 13
+6 7 8 16 24 32 40 39 38 46 54 53 52 51 43 35 34 33 25 17 
+
+-------------------------------------------------
+Vehiculo 24 origen 10 y destino 19
+Se guardó en semaforo 22
+10 18 17 25 33 41 42 43 35 27 19 
+
+-------------------------------------------------
+Vehiculo 25 origen 10 y destino 49
+Se guardó en semaforo 22
+10 18 17 25 33 41 49 
+
+-------------------------------------------------
+Vehiculo 26 origen 10 y destino 64
+Se guardó en semaforo 22
+10 18 17 25 33 41 42 43 35 27 28 29 30 31 32 40 48 56 64 
+
+-------------------------------------------------
+Vehiculo 27 origen 18 y destino 46
+Se guardó en semaforo 0
+18 17 25 33 41 42 43 44 45 46 
+
+-------------------------------------------------
+Vehiculo 28 origen 18 y destino 55
+Se guardó en semaforo 0
+18 17 25 33 41 42 43 44 45 46 54 62 63 55 
+
+-------------------------------------------------
+Vehiculo 29 origen 22 y destino 45
+Se guardó en semaforo 46
+22 21 13 5 6 7 8 16 24 32 40 39 38 46 54 53 45 
+
+-------------------------------------------------
+Vehiculo 30 origen 22 y destino 19
+Se guardó en semaforo 46
+22 21 20 19 
+
+-------------------------------------------------
+Vehiculo 31 origen 22 y destino 21
+Se guardó en semaforo 46
+22 21 
+
+-------------------------------------------------
+Vehiculo 32 origen 22 y destino 34
+Se guardó en semaforo 46
+22 21 13 5 6 7 8 16 24 32 40 39 38 46 54 53 52 51 43 35 34 
+
+-------------------------------------------------
+Vehiculo 33 origen 22 y destino 39
+Se guardó en semaforo 46
+22 21 13 5 6 7 8 16 24 32 40 39 
+
+-------------------------------------------------
+Vehiculo 34 origen 22 y destino 10
+Se guardó en semaforo 46
+22 21 13 5 6 7 8 16 24 32 40 39 38 46 54 53 52 51 43 35 34 33 25 17 9 10 
+
+-------------------------------------------------
+Vehiculo 35 origen 20 y destino 57
+Se guardó en semaforo 42
+20 19 11 12 13 5 6 7 8 16 24 32 40 39 38 46 54 53 52 51 43 35 34 33 41 49 57 
+
+-------------------------------------------------
+Vehiculo 36 origen 20 y destino 39
+Se guardó en semaforo 42
+20 19 11 12 13 5 6 7 8 16 24 32 40 39 
+
+-------------------------------------------------
+Vehiculo 37 origen 20 y destino 48
+Se guardó en semaforo 42
+20 19 11 12 13 5 6 7 8 16 24 32 40 48 
+
+-------------------------------------------------
+Vehiculo 38 origen 20 y destino 38
+Se guardó en semaforo 42
+20 19 11 12 13 5 6 7 8 16 24 32 40 39 38 
+
+-------------------------------------------------
+Vehiculo 39 origen 20 y destino 25
+Se guardó en semaforo 42
+20 19 11 12 13 5 6 7 8 16 24 32 40 39 38 46 54 53 52 51 43 35 34 33 25 
+
+-------------------------------------------------
+Vehiculo 40 origen 1 y destino 60
+Se guardó en semaforo 0
+1 2 10 18 17 25 33 41 42 50 58 59 60 
+
+-------------------------------------------------
+Vehiculo 41 origen 2 y destino 2
+Se guardó en semaforo 3
+2 
+
+-------------------------------------------------
+Vehiculo 42 origen 5 y destino 41
+Se guardó en semaforo 11
+5 6 7 8 16 24 32 40 39 38 46 54 53 52 51 43 35 34 33 41 
+
+-------------------------------------------------
+Vehiculo 43 origen 5 y destino 13
+Se guardó en semaforo 11
+5 6 7 8 16 24 23 22 21 13 
+
+-------------------------------------------------
+Vehiculo 44 origen 1 y destino 9
 Se guardó en semaforo 0
 1 9 
 
 -------------------------------------------------
-Vehiculo 56 origen 1 y destino 47
+Vehiculo 45 origen 1 y destino 62
 Se guardó en semaforo 1
-1 2 10 18 26 27 28 36 44 45 46 47 
+1 2 10 18 17 25 33 41 42 43 44 45 46 54 62 
 
 -------------------------------------------------
-Vehiculo 57 origen 29 y destino 31
+Vehiculo 46 origen 1 y destino 55
+Se guardó en semaforo 1
+1 2 10 18 17 25 33 41 42 43 44 45 46 54 62 63 55 
+
+-------------------------------------------------
+Vehiculo 47 origen 1 y destino 8
+Se guardó en semaforo 1
+1 2 10 18 17 25 33 41 42 43 35 27 28 29 30 31 32 24 16 8 
+
+-------------------------------------------------
+Vehiculo 48 origen 1 y destino 35
+Se guardó en semaforo 1
+1 2 10 18 17 25 33 41 42 43 35 
+
+-------------------------------------------------
+Vehiculo 49 origen 1 y destino 42
+Se guardó en semaforo 0
+1 2 10 18 17 25 33 41 42 
+
+-------------------------------------------------
+Vehiculo 50 origen 1 y destino 54
+Se guardó en semaforo 1
+1 2 10 18 17 25 33 41 42 43 44 45 46 54 
+
+-------------------------------------------------
+Vehiculo 51 origen 1 y destino 24
+Se guardó en semaforo 1
+1 2 10 18 17 25 33 41 42 43 35 27 28 29 30 31 32 24 
+
+-------------------------------------------------
+Vehiculo 52 origen 1 y destino 47
+Se guardó en semaforo 1
+1 2 10 18 17 25 33 41 42 43 44 45 46 54 62 63 55 47 
+
+-------------------------------------------------
+Vehiculo 53 origen 1 y destino 40
+Se guardó en semaforo 0
+1 2 10 18 17 25 33 41 42 43 35 27 28 29 30 31 32 40 
+
+-------------------------------------------------
+Vehiculo 54 origen 1 y destino 46
+Se guardó en semaforo 0
+1 2 10 18 17 25 33 41 42 43 44 45 46 
+
+-------------------------------------------------
+Vehiculo 55 origen 1 y destino 55
+Se guardó en semaforo 0
+1 2 10 18 17 25 33 41 42 43 44 45 46 54 62 63 55 
+
+-------------------------------------------------
+Vehiculo 56 origen 1 y destino 11
+Se guardó en semaforo 1
+1 2 10 11 
+
+-------------------------------------------------
+Vehiculo 57 origen 29 y destino 44
 Se guardó en semaforo 63
-29 30 31 
+29 30 38 37 36 44 
 
 -------------------------------------------------
-Vehiculo 58 origen 63 y destino 38
+Vehiculo 58 origen 63 y destino 56
 Se guardó en semaforo 135
-63 55 47 39 38 
+63 55 47 48 56 
 
 -------------------------------------------------
-Vehiculo 59 origen 1 y destino 60
+Vehiculo 59 origen 1 y destino 38
 Se guardó en semaforo 0
-1 2 10 18 26 27 28 36 44 52 60 
+1 2 10 18 17 25 33 41 42 43 35 27 28 29 30 38 
 
 -------------------------------------------------
-Vehiculo 60 origen 5 y destino 31
+Vehiculo 60 origen 5 y destino 45
 Se guardó en semaforo 0
-5 6 7 8 16 24 32 40 39 31 
+5 6 7 8 16 24 32 40 39 38 46 54 53 45 
 
 -------------------------------------------------
-Vehiculo 61 origen 6 y destino 8
+Vehiculo 61 origen 6 y destino 56
 Se guardó en semaforo 13
-6 7 8 
+6 7 8 16 24 32 40 48 56 
 
 -------------------------------------------------
-Vehiculo 62 origen 6 y destino 8
+Vehiculo 62 origen 6 y destino 13
 Se guardó en semaforo 13
-6 7 8 
+6 7 8 16 24 23 22 21 13 
 
 -------------------------------------------------
-Vehiculo 63 origen 6 y destino 28
+Vehiculo 63 origen 6 y destino 40
 Se guardó en semaforo 13
-6 7 8 16 24 32 40 39 38 37 36 44 52 60 59 58 57 49 41 33 25 26 27 28 
+6 7 8 16 24 32 40 
 
 -------------------------------------------------
-Vehiculo 64 origen 10 y destino 22
+Vehiculo 64 origen 10 y destino 44
 Se guardó en semaforo 22
-10 18 26 27 28 29 30 31 23 22 
+10 18 17 25 33 41 42 43 44 
 
 -------------------------------------------------
-Vehiculo 65 origen 10 y destino 59
+Vehiculo 65 origen 10 y destino 11
 Se guardó en semaforo 22
-10 18 26 34 42 50 58 59 
+10 11 
 
 -------------------------------------------------
-Vehiculo 66 origen 10 y destino 25
+Vehiculo 66 origen 10 y destino 13
 Se guardó en semaforo 22
-10 18 17 25 
+10 18 17 25 33 41 42 43 35 27 28 29 30 31 23 22 21 13 
 
 -------------------------------------------------
-Vehiculo 67 origen 18 y destino 11
+Vehiculo 67 origen 18 y destino 36
 Se guardó en semaforo 0
-18 26 27 19 11 
+18 17 25 33 41 42 43 35 27 28 36 
 
 -------------------------------------------------
-Vehiculo 68 origen 18 y destino 48
+Vehiculo 68 origen 18 y destino 21
 Se guardó en semaforo 0
-18 26 27 28 29 30 31 32 40 48 
+18 17 25 33 41 42 43 35 27 28 29 30 31 23 22 21 
 
 -------------------------------------------------
-Vehiculo 69 origen 22 y destino 27
+Vehiculo 69 origen 22 y destino 39
 Se guardó en semaforo 46
-22 21 20 19 18 26 27 
+22 21 13 5 6 7 8 16 24 32 40 39 
 
 -------------------------------------------------
-Vehiculo 70 origen 22 y destino 3
+Vehiculo 70 origen 22 y destino 41
 Se guardó en semaforo 46
-22 21 20 19 11 3 
+22 21 13 5 6 7 8 16 24 32 40 39 38 46 54 53 52 51 43 35 34 33 41 
 
 -------------------------------------------------
-Vehiculo 71 origen 22 y destino 3
+Vehiculo 71 origen 22 y destino 35
 Se guardó en semaforo 46
-22 21 20 19 11 3 
+22 21 13 5 6 7 8 16 24 32 40 39 38 46 54 53 52 51 43 35 
 
 -------------------------------------------------
-Vehiculo 72 origen 22 y destino 15
+Vehiculo 72 origen 22 y destino 10
 Se guardó en semaforo 46
-22 21 13 14 15 
+22 21 13 5 6 7 8 16 24 32 40 39 38 46 54 53 52 51 43 35 34 33 25 17 9 10 
 
 -------------------------------------------------
-Vehiculo 73 origen 22 y destino 18
+Vehiculo 73 origen 22 y destino 42
 Se guardó en semaforo 46
-22 21 20 19 18 
+22 21 13 5 6 7 8 16 24 32 40 39 38 46 54 53 52 51 43 35 34 42 
 
 -------------------------------------------------
-Vehiculo 74 origen 22 y destino 14
+Vehiculo 74 origen 22 y destino 59
 Se guardó en semaforo 46
-22 21 13 14 
+22 21 13 5 6 7 8 16 24 32 40 39 38 46 54 53 52 51 50 58 59 
 
 -------------------------------------------------
-Vehiculo 75 origen 20 y destino 39
+Vehiculo 75 origen 20 y destino 20
 Se guardó en semaforo 42
-20 19 18 17 25 33 41 42 43 44 45 46 47 39 
+20 
 
 -------------------------------------------------
-Vehiculo 76 origen 20 y destino 17
+Vehiculo 76 origen 20 y destino 43
 Se guardó en semaforo 42
-20 19 18 17 
+20 19 11 12 13 5 6 7 8 16 24 32 40 39 38 46 54 53 52 51 43 
 
 -------------------------------------------------
-Vehiculo 77 origen 20 y destino 40
+Vehiculo 77 origen 20 y destino 8
 Se guardó en semaforo 42
-20 19 18 17 25 33 41 42 43 44 45 46 47 48 40 
+20 19 11 12 13 5 6 7 8 
 
 -------------------------------------------------
-Vehiculo 78 origen 20 y destino 10
+Vehiculo 78 origen 20 y destino 6
 Se guardó en semaforo 42
-20 19 18 17 9 10 
+20 19 11 12 13 5 6 
 
 -------------------------------------------------
-Vehiculo 79 origen 20 y destino 46
+Vehiculo 79 origen 20 y destino 12
 Se guardó en semaforo 42
-20 19 18 17 25 33 41 42 43 44 45 46 
+20 19 11 12 
 
 -------------------------------------------------
-Vehiculo 80 origen 63 y destino 63
+Vehiculo 80 origen 63 y destino 48
 Se guardó en semaforo 135
-63 
+63 55 47 48 
 
 -------------------------------------------------
-Vehiculo 81 origen 63 y destino 6
+Vehiculo 81 origen 63 y destino 11
 Se guardó en semaforo 135
-63 55 47 39 31 23 15 7 6 
+63 62 61 53 45 37 29 30 31 23 22 21 20 19 11 
 
 -------------------------------------------------
-Vehiculo 82 origen 63 y destino 13
+Vehiculo 82 origen 63 y destino 49
 Se guardó en semaforo 135
-63 55 47 39 31 23 22 21 13 
+63 62 61 53 52 51 43 35 34 33 41 49 
 
 -------------------------------------------------
-Vehiculo 83 origen 63 y destino 24
+Vehiculo 83 origen 63 y destino 9
 Se guardó en semaforo 135
-63 55 47 39 31 32 24 
+63 62 61 53 52 51 43 35 34 33 25 17 9 
 
 -------------------------------------------------
-Vehiculo 84 origen 63 y destino 17
+Vehiculo 84 origen 63 y destino 21
 Se guardó en semaforo 135
-63 55 47 39 31 23 22 21 20 19 18 17 
+63 62 61 53 45 37 29 30 31 23 22 21 
 
 -------------------------------------------------
-Vehiculo 85 origen 63 y destino 24
+Vehiculo 85 origen 63 y destino 42
 Se guardó en semaforo 135
-63 55 47 39 31 32 24 
+63 62 61 53 52 51 43 35 34 42 
 
 -------------------------------------------------
-Vehiculo 86 origen 22 y destino 13
+Vehiculo 86 origen 22 y destino 56
 Se guardó en semaforo 46
-22 21 13 
+22 21 13 5 6 7 8 16 24 32 40 48 56 
 
 -------------------------------------------------
-Vehiculo 87 origen 22 y destino 43
+Vehiculo 87 origen 22 y destino 52
 Se guardó en semaforo 46
-22 21 20 19 18 26 34 42 43 
+22 21 13 5 6 7 8 16 24 32 40 39 38 46 54 53 52 
 
 -------------------------------------------------
-Vehiculo 88 origen 22 y destino 23
+Vehiculo 88 origen 22 y destino 8
 Se guardó en semaforo 46
-22 21 20 19 18 26 27 28 29 30 31 23 
+22 21 13 5 6 7 8 
 
 -------------------------------------------------
-Vehiculo 89 origen 22 y destino 4
+Vehiculo 89 origen 22 y destino 47
 Se guardó en semaforo 46
-22 21 20 19 11 3 4 
+22 21 13 5 6 7 8 16 24 32 40 39 38 46 54 62 63 55 47 
 
 -------------------------------------------------
-Vehiculo 90 origen 22 y destino 22
-Se guardó en semaforo 46
-22 
-
--------------------------------------------------
-Vehiculo 91 origen 22 y destino 2
+Vehiculo 90 origen 22 y destino 2
 Se guardó en semaforo 46
 22 21 20 19 11 3 2 
 
 -------------------------------------------------
-Vehiculo 92 origen 20 y destino 3
-Se guardó en semaforo 42
-20 19 11 3 
+Vehiculo 91 origen 22 y destino 15
+Se guardó en semaforo 46
+22 21 13 5 6 7 8 16 24 23 15 
 
 -------------------------------------------------
-Vehiculo 93 origen 20 y destino 64
+Vehiculo 92 origen 20 y destino 55
 Se guardó en semaforo 42
-20 19 18 17 25 33 41 42 43 44 45 46 47 48 56 64 
+20 19 11 12 13 5 6 7 8 16 24 32 40 39 38 46 54 62 63 55 
 
 -------------------------------------------------
-Vehiculo 94 origen 20 y destino 28
+Vehiculo 93 origen 20 y destino 5
 Se guardó en semaforo 42
-20 19 18 17 25 33 41 42 43 35 27 28 
+20 19 11 12 13 5 
 
 -------------------------------------------------
-Vehiculo 95 origen 20 y destino 43
+Vehiculo 94 origen 20 y destino 46
 Se guardó en semaforo 42
-20 19 18 17 25 33 41 42 43 
+20 19 11 12 13 5 6 7 8 16 24 32 40 39 38 46 
 
 -------------------------------------------------
-Vehiculo 96 origen 20 y destino 5
+Vehiculo 95 origen 20 y destino 13
 Se guardó en semaforo 42
-20 19 18 17 25 33 41 42 43 44 45 37 29 30 31 23 15 7 6 5 
+20 19 11 12 13 
 
 -------------------------------------------------
-Vehiculo 97 origen 1 y destino 59
+Vehiculo 96 origen 20 y destino 10
+Se guardó en semaforo 42
+20 19 11 3 2 10 
+
+-------------------------------------------------
+Vehiculo 97 origen 1 y destino 55
 Se guardó en semaforo 0
-1 2 10 18 26 27 28 36 44 52 60 59 
+1 2 10 18 17 25 33 41 42 43 44 45 46 54 62 63 55 
 
 -------------------------------------------------
-Vehiculo 98 origen 2 y destino 29
+Vehiculo 98 origen 2 y destino 40
 Se guardó en semaforo 3
-2 10 18 26 27 28 29 
+2 10 18 17 25 33 41 42 43 35 27 28 29 30 31 32 40 
 
 -------------------------------------------------
-Vehiculo 99 origen 5 y destino 20
+Vehiculo 99 origen 5 y destino 21
 Se guardó en semaforo 11
-5 6 7 8 16 24 23 22 21 20 
+5 6 7 8 16 24 23 22 21 
 
 -------------------------------------------------
-Vehiculo 100 origen 5 y destino 28
+Vehiculo 100 origen 5 y destino 13
 Se guardó en semaforo 11
-5 6 7 8 16 24 32 40 39 38 37 36 44 52 60 59 58 57 49 41 33 25 26 27 28 
+5 6 7 8 16 24 23 22 21 13 
 
 -------------------------------------------------
-Vehiculo 101 origen 3 y destino 14
+Vehiculo 101 origen 3 y destino 55
 Se guardó en semaforo 5
-3 2 10 18 26 27 28 36 44 45 46 47 48 40 32 24 23 22 21 13 14 
+3 2 10 18 17 25 33 41 42 43 44 45 46 54 62 63 55 
 
 -------------------------------------------------
-Vehiculo 102 origen 3 y destino 45
+Vehiculo 102 origen 3 y destino 5
 Se guardó en semaforo 5
-3 2 10 18 26 27 28 36 44 45 
+3 2 10 18 17 25 33 41 42 43 35 27 28 29 30 31 23 15 7 6 5 
 
 -------------------------------------------------
-Vehiculo 103 origen 3 y destino 20
+Vehiculo 103 origen 3 y destino 25
 Se guardó en semaforo 5
-3 2 10 18 26 27 28 36 44 45 46 47 48 40 32 24 23 22 21 20 
+3 2 10 18 17 25 
 
 -------------------------------------------------
-Vehiculo 104 origen 3 y destino 21
+Vehiculo 104 origen 3 y destino 46
 Se guardó en semaforo 5
-3 2 10 18 26 27 28 36 44 45 46 47 48 40 32 24 23 22 21 
+3 2 10 18 17 25 33 41 42 43 44 45 46 
 
 -------------------------------------------------
-Vehiculo 105 origen 11 y destino 10
+Vehiculo 105 origen 11 y destino 36
 Se guardó en semaforo 24
-11 3 2 10 
+11 12 13 5 6 7 8 16 24 32 40 39 38 37 36 
 
 -------------------------------------------------
-Vehiculo 106 origen 11 y destino 36
+Vehiculo 106 origen 11 y destino 2
 Se guardó en semaforo 24
-11 12 20 19 18 26 27 28 36 
+11 3 2 
 
 -------------------------------------------------
-Vehiculo 107 origen 11 y destino 59
+Vehiculo 107 origen 11 y destino 47
 Se guardó en semaforo 24
-11 12 20 19 18 26 34 42 50 58 59 
+11 12 13 5 6 7 8 16 24 32 40 39 38 46 54 62 63 55 47 
 
- fin 
+-------------------------------------------------
+Vehiculo 108 origen 12 y destino 2
+Se guardó en semaforo 27
+12 13 5 6 7 8 16 24 32 40 39 38 46 54 53 52 51 43 35 27 19 11 3 2 
+
+-------------------------------------------------
+Vehiculo 109 origen 12 y destino 60
+Se guardó en semaforo 27
+12 13 5 6 7 8 16 24 32 40 39 38 46 54 53 52 51 50 58 59 60 
+
+-------------------------------------------------
+Vehiculo 110 origen 12 y destino 56
+Se guardó en semaforo 27
+12 13 5 6 7 8 16 24 32 40 48 56 
+
+-------------------------------------------------
+Vehiculo 111 origen 12 y destino 44
+Se guardó en semaforo 27
+12 13 5 6 7 8 16 24 32 40 39 38 46 54 53 52 51 43 44 
+
+-------------------------------------------------
+Vehiculo 112 origen 12 y destino 56
+Se guardó en semaforo 26
+12 13 5 6 7 8 16 24 32 40 48 56 
+
+-------------------------------------------------
+Vehiculo 113 origen 12 y destino 19
+Se guardó en semaforo 26
+12 13 5 6 7 8 16 24 32 40 39 38 46 54 53 52 51 43 35 27 19 
+
+-------------------------------------------------
+Vehiculo 114 origen 13 y destino 42
+Se guardó en semaforo 29
+13 5 6 7 8 16 24 32 40 39 38 37 36 35 34 42 
+
+-------------------------------------------------
+Vehiculo 115 origen 13 y destino 56
+Se guardó en semaforo 28
+13 5 6 7 8 16 24 32 40 48 56 
+
+-------------------------------------------------
+Vehiculo 116 origen 13 y destino 49
+Se guardó en semaforo 28
+13 5 6 7 8 16 24 32 40 39 38 37 36 35 34 33 41 49 
+
+-------------------------------------------------
+Vehiculo 117 origen 14 y destino 34
+Se guardó en semaforo 31
+14 22 21 13 5 6 7 8 16 24 32 40 39 38 46 54 53 52 51 43 35 34 
+
+-------------------------------------------------
+Vehiculo 118 origen 14 y destino 47
+Se guardó en semaforo 31
+14 22 21 13 5 6 7 8 16 24 32 40 39 38 46 54 62 63 55 47 
+
+-------------------------------------------------
+Vehiculo 119 origen 14 y destino 49
+Se guardó en semaforo 31
+14 22 21 13 5 6 7 8 16 24 32 40 39 38 46 54 53 52 51 43 35 34 33 41 49 
+
+-------------------------------------------------
+Vehiculo 120 origen 14 y destino 54
+Se guardó en semaforo 30
+14 22 21 13 5 6 7 8 16 24 32 40 39 38 46 54 
+
+-------------------------------------------------
+Vehiculo 121 origen 14 y destino 50
+Se guardó en semaforo 30
+14 22 21 13 5 6 7 8 16 24 32 40 39 38 46 54 53 52 51 50 
+
+-------------------------------------------------
+Vehiculo 122 origen 14 y destino 46
+Se guardó en semaforo 30
+14 22 21 13 5 6 7 8 16 24 32 40 39 38 46 
+
+-------------------------------------------------
+Vehiculo 123 origen 14 y destino 42
+Se guardó en semaforo 30
+14 22 21 13 5 6 7 8 16 24 32 40 39 38 46 54 53 52 51 43 35 34 42 
+
+-------------------------------------------------
+Vehiculo 124 origen 15 y destino 62
+Se guardó en semaforo 33
+15 16 24 32 40 39 38 46 54 62 
+
+-------------------------------------------------
+Vehiculo 125 origen 15 y destino 26
+Se guardó en semaforo 33
+15 16 24 32 40 39 38 46 54 53 52 51 43 35 34 33 25 26 
+
+-------------------------------------------------
+Vehiculo 126 origen 15 y destino 57
+Se guardó en semaforo 32
+15 16 24 32 40 39 38 46 54 53 52 51 50 58 57 
+
+-------------------------------------------------
+Vehiculo 127 origen 16 y destino 23
+Se guardó en semaforo 35
+16 24 23 
+
+-------------------------------------------------
+Vehiculo 128 origen 16 y destino 50
+Se guardó en semaforo 35
+16 24 32 40 39 38 37 36 35 34 42 50 
+
+-------------------------------------------------
+Vehiculo 129 origen 17 y destino 25
+Se guardó en semaforo 36
+17 25 
+
+-------------------------------------------------
+Vehiculo 130 origen 17 y destino 55
+Se guardó en semaforo 36
+17 25 26 34 42 43 44 45 46 54 62 63 55 
+
+-------------------------------------------------
+Vehiculo 131 origen 18 y destino 12
+Se guardó en semaforo 39
+18 17 25 33 41 42 43 35 27 19 11 12 
+
+-------------------------------------------------
+Vehiculo 132 origen 18 y destino 35
+Se guardó en semaforo 39
+18 17 25 33 41 42 43 35 
+
+-------------------------------------------------
+Vehiculo 133 origen 18 y destino 62
+Se guardó en semaforo 38
+18 17 25 33 41 42 43 44 45 46 54 62 
+
+-------------------------------------------------
+Vehiculo 134 origen 18 y destino 4
+Se guardó en semaforo 38
+18 17 25 33 41 42 43 35 27 19 11 3 4 
+
+-------------------------------------------------
+Vehiculo 135 origen 18 y destino 11
+Se guardó en semaforo 38
+18 17 25 33 41 42 43 35 27 19 11 
+
+-------------------------------------------------
+Vehiculo 136 origen 19 y destino 38
+Se guardó en semaforo 41
+19 11 12 13 5 6 7 8 16 24 32 40 39 38 
+
+-------------------------------------------------
+Vehiculo 137 origen 19 y destino 47
+Se guardó en semaforo 41
+19 11 12 13 5 6 7 8 16 24 32 40 39 38 46 54 62 63 55 47 
+
+-------------------------------------------------
+Vehiculo 138 origen 19 y destino 46
+Se guardó en semaforo 41
+19 11 12 13 5 6 7 8 16 24 32 40 39 38 46 
+
+-------------------------------------------------
+Vehiculo 139 origen 19 y destino 44
+Se guardó en semaforo 40
+19 11 12 13 5 6 7 8 16 24 32 40 39 38 46 54 53 52 51 43 44 
+
+-------------------------------------------------
+Vehiculo 140 origen 19 y destino 28
+Se guardó en semaforo 40
+19 11 12 13 5 6 7 8 16 24 32 40 39 38 46 54 53 52 51 43 35 27 28 
+
+-------------------------------------------------
+Vehiculo 141 origen 19 y destino 45
+Se guardó en semaforo 40
+19 11 12 13 5 6 7 8 16 24 32 40 39 38 46 54 53 45 
+
+-------------------------------------------------
+Vehiculo 142 origen 19 y destino 53
+Se guardó en semaforo 40
+19 11 12 13 5 6 7 8 16 24 32 40 39 38 46 54 53 
+
+-------------------------------------------------
+Vehiculo 143 origen 23 y destino 61
+Se guardó en semaforo 48
+23 15 16 24 32 40 39 38 46 54 62 61 
+
+-------------------------------------------------
+Vehiculo 144 origen 23 y destino 28
+Se guardó en semaforo 48
+23 15 16 24 32 40 39 38 37 36 35 27 28 
+
+-------------------------------------------------
+Vehiculo 145 origen 29 y destino 48
+Se guardó en semaforo 63
+29 30 31 32 40 48 
+
+-------------------------------------------------
+Vehiculo 146 origen 29 y destino 49
+Se guardó en semaforo 63
+29 30 38 37 36 35 34 33 41 49 
+
+-------------------------------------------------
+Vehiculo 147 origen 29 y destino 62
+Se guardó en semaforo 63
+29 30 38 46 54 62 
+
+-------------------------------------------------
+Vehiculo 148 origen 29 y destino 20
+Se guardó en semaforo 63
+29 30 31 23 22 21 20 
+
+-------------------------------------------------
+Vehiculo 149 origen 29 y destino 51
+Se guardó en semaforo 63
+29 30 38 37 36 35 34 42 50 58 59 51 
+
+-------------------------------------------------
+Vehiculo 150 origen 30 y destino 39
+Se guardó en semaforo 65
+30 38 46 54 62 63 55 47 39 
+
+-------------------------------------------------
+Vehiculo 151 origen 30 y destino 3
+Se guardó en semaforo 64
+30 38 37 36 35 27 19 11 3 
+
+-------------------------------------------------
+Vehiculo 152 origen 30 y destino 2
+Se guardó en semaforo 64
+30 38 37 36 35 27 19 11 3 2 
+
+-------------------------------------------------
+Vehiculo 153 origen 33 y destino 59
+Se guardó en semaforo 71
+33 41 42 50 58 59 
+
+-------------------------------------------------
+Vehiculo 154 origen 33 y destino 30
+Se guardó en semaforo 71
+33 41 42 43 35 27 28 29 30 
+
+-------------------------------------------------
+Vehiculo 155 origen 37 y destino 29
+Se guardó en semaforo 78
+37 29 
+
+-------------------------------------------------
+Vehiculo 156 origen 37 y destino 4
+Se guardó en semaforo 78
+37 36 35 27 19 11 3 4 
+
+-------------------------------------------------
+Vehiculo 157 origen 39 y destino 50
+Se guardó en semaforo 83
+39 38 46 54 53 52 51 50 
+
+-------------------------------------------------
+Vehiculo 158 origen 39 y destino 18
+Se guardó en semaforo 82
+39 38 46 54 53 52 51 43 35 34 33 25 17 9 10 18 
+
+-------------------------------------------------
+Vehiculo 159 origen 46 y destino 45
+Se guardó en semaforo 98
+46 54 53 45 
+
+-------------------------------------------------
+Vehiculo 160 origen 46 y destino 49
+Se guardó en semaforo 98
+46 54 53 52 51 43 35 34 33 41 49 
+
+-------------------------------------------------
+Vehiculo 161 origen 40 y destino 17
+Se guardó en semaforo 84
+40 39 38 37 36 35 34 33 25 17 
+
+-------------------------------------------------
+Vehiculo 162 origen 40 y destino 58
+Se guardó en semaforo 84
+40 39 38 37 36 35 34 42 50 58 
+
+-------------------------------------------------
+Vehiculo 163 origen 45 y destino 43
+Se guardó en semaforo 97
+45 46 54 53 52 51 43 
+
+-------------------------------------------------
+Vehiculo 164 origen 45 y destino 18
+Se guardó en semaforo 4765816
+45 46 54 53 52 51 43 35 34 33 25 17 9 10 18 
+
+-------------------------------------------------
+Vehiculo 165 origen 46 y destino 40
+Se guardó en semaforo 0
+46 54 62 63 55 47 48 40 
+
+-------------------------------------------------
+Vehiculo 166 origen 46 y destino 34
+Se guardó en semaforo 4764720
+46 54 53 52 51 43 35 34 
+
+-------------------------------------------------
+Vehiculo 167 origen 50 y destino 51
+Se guardó en semaforo 0
+50 58 59 51 
+
+-------------------------------------------------
+Vehiculo 168 origen 50 y destino 30
+Se guardó en semaforo 4096224
+50 58 59 51 43 35 27 28 29 30 
+
+-------------------------------------------------
+Vehiculo 169 origen 50 y destino 31
+Se guardó en semaforo 0
+50 58 59 51 43 35 27 28 29 30 31 
+
+-------------------------------------------------
+Vehiculo 170 origen 52 y destino 13
+Se guardó en semaforo 4096224
+52 51 43 44 45 46 54 62 63 55 47 48 40 32 24 23 22 21 13 
+
+-------------------------------------------------
+Vehiculo 171 origen 52 y destino 35
+Se guardó en semaforo 0
+52 51 43 35 
+
+-------------------------------------------------
+Vehiculo 172 origen 52 y destino 34
+Se guardó en semaforo 4096224
+52 51 43 35 34 
+
+-------------------------------------------------
+Vehiculo 173 origen 53 y destino 31
+Se guardó en semaforo 0
+53 45 37 29 30 31 
+
+-------------------------------------------------
+Vehiculo 174 origen 53 y destino 15
+Se guardó en semaforo 4096224
+53 45 37 29 30 31 23 15 
+
+-------------------------------------------------
+Vehiculo 175 origen 53 y destino 49
+Se guardó en semaforo 0
+53 52 51 43 35 34 33 41 49 
+
+-------------------------------------------------
+Vehiculo 176 origen 56 y destino 64
+Se guardó en semaforo 4096224
+56 64 
+
+-------------------------------------------------
+Vehiculo 177 origen 56 y destino 23
+Se guardó en semaforo 0
+56 55 47 48 40 32 24 23 
+
+-------------------------------------------------
+Vehiculo 178 origen 56 y destino 39
+Se guardó en semaforo 4096735
+56 55 47 39 
+
+-------------------------------------------------
+Vehiculo 179 origen 56 y destino 64
+Se guardó en semaforo 0
+56 64 
+
+-------------------------------------------------
+Vehiculo 180 origen 56 y destino 17
+Se guardó en semaforo 4720960
+56 55 47 39 38 37 36 35 34 33 25 17 
+
+-------------------------------------------------
+Vehiculo 181 origen 57 y destino 23
+Se guardó en semaforo 0
+57 58 59 51 43 35 27 28 29 30 31 23 
+
+-------------------------------------------------
+Vehiculo 182 origen 57 y destino 52
+Se guardó en semaforo 0
+57 58 59 51 43 44 52 
+
+-------------------------------------------------
+Vehiculo 183 origen 57 y destino 26
+Se guardó en semaforo 0
+57 58 59 51 43 35 34 33 25 26 
+
+-------------------------------------------------
+Vehiculo 184 origen 57 y destino 52
+Se guardó en semaforo -23450768
+57 58 59 51 43 44 52 
+
+-------------------------------------------------
+Vehiculo 185 origen 59 y destino 39
+Se guardó en semaforo 2046
+59 51 43 35 27 28 29 30 31 32 40 39 
+
+-------------------------------------------------
+Vehiculo 186 origen 59 y destino 5
+Se guardó en semaforo 1
+59 51 43 35 27 28 29 30 31 23 15 7 6 5 
+
+-------------------------------------------------
+Vehiculo 187 origen 59 y destino 3
+Se guardó en semaforo 126
+59 51 43 35 27 19 11 3 
+
+-------------------------------------------------
+Vehiculo 188 origen 59 y destino 21
+Se guardó en semaforo 48
+59 51 43 35 27 28 29 30 31 23 22 21 
+
+-------------------------------------------------
+Vehiculo 189 origen 59 y destino 58
+Se guardó en semaforo 0
+59 51 50 58 
+
+-------------------------------------------------
+Vehiculo 190 origen 60 y destino 28
+Se guardó en semaforo 0
+60 59 51 43 35 27 28 
+
+-------------------------------------------------
+Vehiculo 191 origen 60 y destino 5
+Se guardó en semaforo 0
+60 61 53 45 37 29 30 31 23 22 21 13 5 
+
+-------------------------------------------------
+Vehiculo 192 origen 60 y destino 30
+Se guardó en semaforo 4096224
+60 61 53 45 37 29 30 
+
+-------------------------------------------------
+Vehiculo 193 origen 61 y destino 28
+Se guardó en semaforo 0
+61 53 52 51 43 35 27 28 
+
+-------------------------------------------------
+Vehiculo 194 origen 61 y destino 54
+Se guardó en semaforo 512
+61 53 45 46 54 
+
+-------------------------------------------------
+Vehiculo 195 origen 61 y destino 31
+Se guardó en semaforo 0
+61 53 45 46 54 62 63 55 47 39 31 
+
+-------------------------------------------------
+Vehiculo 196 origen 61 y destino 27
+Se guardó en semaforo 65537
+61 53 52 51 43 35 27 
+
+-------------------------------------------------
+Vehiculo 197 origen 61 y destino 55
+Se guardó en semaforo 130
+61 53 45 46 54 62 63 55 
+
+-------------------------------------------------
+Vehiculo 198 origen 61 y destino 39
+Se guardó en semaforo 0
+61 53 45 46 54 62 63 55 47 39 
+
+-------------------------------------------------
+Vehiculo 199 origen 61 y destino 4
+Se guardó en semaforo 0
+61 53 52 51 43 35 27 19 11 3 4 
+
+-------------------------------------------------
+Vehiculo 200 origen 61 y destino 42
+Se guardó en semaforo 0
+61 53 52 51 43 35 34 42 
+
+-------------------------------------------------
+Vehiculo 201 origen 62 y destino 17
+Se guardó en semaforo 0
+62 61 53 52 51 43 35 34 33 25 17 
+
+-------------------------------------------------
+Vehiculo 202 origen 63 y destino 59
+Se guardó en semaforo 0
+63 62 61 53 52 51 50 58 59 
+
+-------------------------------------------------
+Vehiculo 203 origen 63 y destino 10
+Se guardó en semaforo 137
+63 62 61 53 52 51 43 35 34 33 25 17 9 10 
+
+-------------------------------------------------
+Vehiculo 204 origen 63 y destino 12
+Se guardó en semaforo 4724576
+63 62 61 53 45 37 29 30 31 23 22 21 20 19 11 12 
+
+-------------------------------------------------
+Vehiculo 205 origen 63 y destino 62
+Se guardó en semaforo 0
+63 62 
+
+-------------------------------------------------
+Vehiculo 206 origen 64 y destino 21
+Se guardó en semaforo 0
+64 56 55 47 48 40 32 24 23 22 21 
+
