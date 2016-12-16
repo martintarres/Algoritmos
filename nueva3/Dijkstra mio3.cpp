@@ -127,12 +127,16 @@ int* di::print(int destino,Vehiculos* v, int source){
 
 int main(){
 
-const int N = 3; // constante que determina cuántos autos se van a sacar.
+const int N = 12; // constante que determina cuántos autos se van a sacar.
 int numeroo, arregloo[500], gg;
 int h=0;
 int k = 0;
 int g=0,arreglo[500],numero; 
 int numnodos=0;
+int semaforoActual[50];
+int z =0;
+
+
 
 ifstream archivo("ficheroTexto.txt"); 
 if(archivo.good()){ 
@@ -142,7 +146,7 @@ arreglo[g++]=numero;
 
 }
 
-ifstream archivoo("ficheroAutos5.txt"); 
+ifstream archivoo("ficheroAutos.txt"); 
 if(archivoo.good()){ 
 while(archivoo>>numeroo) 
 
@@ -210,7 +214,9 @@ Semaforo arcos[numnodos];
 	numlistas=64;
 	getchar();
 	cout<<"Tengo "<< numlistas<< " listas" << endl;
-	
+	cout << "Semaforos:" << endl;
+	cout << "(Origen, Destino, Peso, Numero)" << endl;
+	cout << endl;
 	numlistas=64;
 	Lista l[numlistas];
 
@@ -286,7 +292,7 @@ getchar();
 
 	
 	/*Me agrega los autos en el semaforo */
-
+	
 	for(int i=0;i<totalveh;i++){
 		for(int j=0; j< numnodos; j++){ 
 		int *a,*b,*c,*d;
@@ -297,7 +303,7 @@ getchar();
 	
 			if((*a == *b) && (*c == *d )){
 				arcos[j].insertar(&v[i]);
-	
+				semaforoActual[i] = arcos[j].get_numero();  //guardo dónde se ubico el priimer auto, luego el segundo y así...
 			
 	
 			}
@@ -306,7 +312,9 @@ getchar();
 	getchar();
 	
 	/* Me muestra la lista armada con la cantidad de autos */
-
+	cout << "Semaforos:" << endl;
+	cout << "(Origen, Destino, Peso, Numero)" << endl;
+	cout << endl;
 	for(int i=0; i< numlistas ;i++){
 		l[i].mostrar();
 		cout<<endl;
@@ -319,6 +327,9 @@ getchar();
 
 di djk;
 srand(time(NULL));
+ofstream ficheroSalida;
+ficheroSalida.open ("textoDeSalida.txt");
+int y=0;
 	/*ACA LE DOY A CADA VEHICULO UN NUEVO DESTINO PARA ALEATORIO*/
 
 	for (int i=0; i<totalveh;i++){
@@ -355,12 +366,18 @@ srand(time(NULL));
 		djk.dijkstra(l, &arcos[sourceactual], arcos[destactual].get_source() ,&v[i]);
 	
 		/* MUESTRO EL CAMINO DE CADA VEHICULO */
-		
+		ficheroSalida << "-------------------------------------------------" << endl;
+		ficheroSalida <<"Vehiculo "<<i<< " origen "<< *v[i].get_origen() << " y destino "<< *v[i].get_final() <<endl;
+		ficheroSalida <<"Se guardó en semaforo " << semaforoActual[i]<< endl;
 		cout<<"Camino para auto "<<v[i].get_patente()<<endl;
 		for(int j=0; j< v[i].tamcamino();j++){
 			cout<<v[i].get_camino(j)<<" ";
-	
+			ficheroSalida <<v[i].get_camino(j)<<" ";
+			
+		
 		}
+		ficheroSalida << endl;
+		ficheroSalida << endl;
 		cout<<endl;
 		cout<<endl;
 
@@ -383,7 +400,9 @@ srand(time(NULL));
 	cout << "muestro hsemaforo: " << endl;
 	hsemaforo.print();
 	cout<<endl<<endl;
-
+	cout << "Semaforos:" << endl;
+	cout << "(Origen, Destino, Peso, Numero)" << endl;
+	cout << endl;
 	for(int i=0; i< numlistas ;i++){
 		l[i].mostrar();							//mostrador de listas.
 		cout<<endl;
@@ -429,19 +448,19 @@ srand(time(NULL));
 		a=hsemaforo.getArco(prin);  //numero de semaforo;
 		
 		if(*arcos[a].get_source()!= 999){
-		
-		cout<<"Soy semaforo a sacar "<< a<<endl;
+		cout << "--------------------------------------------------------------" << endl;
+		cout<<"Semaforo en verde: "<< a<<endl;
 		if(arcos[a].get_weight() > 0){
 			if (arcos[a].get_weight() < N){
 				m = arcos[a].get_weight();
 			}else m =N;
 				for (int k=0; k<m; k++){ 		//comienza sacado.
-		cout << "nueva eliminación ///////////////////////////////////////////" << endl;
+		cout << "---------------------nueva eliminacion------------------------" << endl;
 			
 		
 		aux=arcos[a].mover();     ///////////////////////////////////////////////////////////////////////////////////////////////ver/////
 		auxsem=&arcos[aux->get_camino(0)];  //elijo el semaforo donde voy a insertar
-		cout<<"Soy semaforo a donde voy a insertar "<<auxsem->get_numero()<<endl;
+		cout<<"Semaforo destino del vehiculo actual "<<auxsem->get_numero()<<endl;
 		if (auxsem->get_weight()<maxautos){
 			
 		/*ESTO LO HAGO PARA QUE CADA AUTO PASE UNA SOLA VEZ POR CADA ITERACION */
@@ -457,14 +476,14 @@ srand(time(NULL));
 					v[i].set_prioridad(-1);
 			}
 			}
-		aux->activarPase();
+	//	aux->activarPase();
 	
 	auxsem->insertar(aux); //
 	aux->set_origen(auxsem->get_source());
 
 
-	cout<<"soy semaforo "<<auxsem->get_numero()<< " y me acaban de insertar el vehiculo " << aux->get_patente()<< " y quede "<<endl;
-	cout<<endl<<endl;
+	cout<<"Semaforo "<<auxsem->get_numero()<< " al que se le acaba insertar el vehiculo " << aux->get_patente()<<endl;
+	cout<<endl;
 	aux->avanzarcamino();
 	
 	/* ACA ES DONDE SE HABILITA EL BOOLEANO QUE ME DICE QUE MI VEHICULO YA TERMINO */
@@ -475,20 +494,15 @@ srand(time(NULL));
 
 		getchar();
 	}
-	cout << "muestro lista actualmente: " <<endl;
-	for(int i=0; i< numlistas ;i++){
-		l[i].mostrar();
-		cout<<endl;
-	}
-	
-	cout<<endl<<endl; 
+
+	cout<<endl;
 	
 
 
 	/*ACA MUESTRO EL SEMAFORO QUE YA RECORRIO, Y LOS QUE LES QUEDAN PENDIENTES */
 	
 	
-	cout<<"Soy camino desde main para auto "<<aux->get_patente()<<endl;
+	cout<<"Camino restante para vehiculo: "<<aux->get_patente()<<endl;
 		for(int j=0; j< aux->tamcamino();j++){
 			cout<<aux->get_camino(j)<<" ";
 		}
@@ -517,14 +531,24 @@ srand(time(NULL));
 		
 		} else{ k =m;// 
 		cout << "EL SEMAFORO ESTABA LLENO... CAMBIO" << endl;
+			
 	}
 	}
 	}
 		
-	}
+	
 	prin++;
+	
+		cout << "Lista actualmente: " <<endl;
+	for(int i=0; i< numlistas ;i++){
+		l[i].mostrar();
+		cout<<endl;
+	}
+	cout << endl;
 	getchar();
-
+	
+	}
+	
 
 		/*EN ESTA PARTE SE HACE LA CONSIGNA QUE PIDE QUE CADA DOS ITERACIONES MI VEHICULO ENCUENTRE UN NUEVO CAMINO */
 		
@@ -609,6 +633,10 @@ srand(time(NULL));
 	
 	
 	getchar ();
+	cout << "--------------Actualizado-------------" <<endl;
+	cout << "Semaforos:" << endl;
+	cout << "(Origen, Destino, Peso, Numero)" << endl;
+	cout << endl;
 	for(int i=0; i< numlistas ;i++){
 		l[i].mostrar();
 		cout<<endl;
@@ -618,7 +646,20 @@ srand(time(NULL));
 	
 	
 	iteracion++;
-	
-	
+	cout << endl;
+	cout << endl;
+	cout<<"---Camino para auto propio... "<<v[0].get_patente()<<endl;
+		for(int j=0; j< v[0].tamcamino();j++){
+			cout<<v[0].get_camino(j)<<" ";
+		}
+			
+		 	
+		 
+			y++;
+			if (y=2){
+				ficheroSalida << " fin ";
+			ficheroSalida.close();
+			
+			}
 		}
 	}
