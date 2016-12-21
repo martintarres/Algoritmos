@@ -109,7 +109,7 @@ void di::relajacion(int* actual, int* adyacente, int peso, Semaforo*  aux2){
 	}
 }
 
-int* di::print(int destino,Vehiculos* v, int source){
+int* di::print(int destino, Vehiculos* v, int source){
 
 	if(previo[destino] != -1){
 		
@@ -332,13 +332,22 @@ int y=0;
 
 	for (int i=0; i<totalveh;i++){
 	
+		if(v[i].get_patente()==0){
+			cout<<"Elija el destino de su auto"<<endl;
+			int x;
+			cin>>x;
+			v[i].set_final(&x);
+		}else{
+		
+	
+	
 		int num_aleat =0;
 		num_aleat = 2+rand()%(65-2);
 		int a,b;
 	
 		v[i].set_final(&num_aleat);
 		
-
+}
 		int sourceactual=0;	
 		for(int j=0;j<numnodos;j++){
 			
@@ -356,7 +365,7 @@ int y=0;
 				destactual=arcos[j].get_numero();
 			}
 		}
-		
+	
 		cout<<"Vehiculo "<<i<< " origen "<< *v[i].get_origen() << " y destino "<< *v[i].get_final() <<endl;
 		
 		/*LLAMO A DIJKSTRA */
@@ -430,7 +439,8 @@ int y=0;
 	int iteracion=0;
 	int ii=0;
 	Vehiculos* aux;
-		Semaforo*  auxsem;
+	Semaforo*  auxsem;
+	int numiteraciones=0;
 	
 	/*ESTE WHILE ES PARA QUE TERMINE DE CORRER EL PROGRAMA LUEGO DE QUE MI VEHICULO LLEGO A SU DESTINO */
 	
@@ -448,6 +458,7 @@ int y=0;
 		if(*arcos[a].get_source()!= 999){
 		cout << "--------------------------------------------------------------" << endl;
 		cout<<"Semaforo en verde: "<< a<<endl;
+		cout<<"Numero iteraciones " << numiteraciones<<endl;
 		if(arcos[a].get_weight() > 0){
 			if (arcos[a].get_weight() < N){
 				m = arcos[a].get_weight();
@@ -521,7 +532,7 @@ int y=0;
 	
 	
 	if(aux->getTermine()!= false){
-	getchar();
+		getchar();
 	
 		Vehiculos* aux1;
 
@@ -573,11 +584,11 @@ int y=0;
 					iteracion=-1;
 					getchar();
 					
-					if(sourceactual==destactual){
+				/*	if(sourceactual==destactual){
 						cout<<"Termine la simulacion"<<endl;
 						getchar();
 						break;
-					}
+					}*/
 				}
 				
 			}
@@ -678,5 +689,7 @@ int y=0;
 			ficheroSalida.close();
 			
 			}
+			numiteraciones++;
+			getchar();
 		}
 	}

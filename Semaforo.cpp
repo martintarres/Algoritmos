@@ -213,7 +213,7 @@ setCantDeVehiculos(cantVehiculos);
 		cout<<"Semaforo lleno"<<endl;
 	}
 	
-	heapSort( vectorautos, cantVehiculos);
+
 	
 }
 
